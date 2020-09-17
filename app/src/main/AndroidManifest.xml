@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="app.jugaadfunda">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_lc_icon"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/ic_lc_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name="app.jugaadfunda.learningcompanion.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="app.jugaadfunda.learningcompanion.businessactivity.CanvasTemplateActivity"
+            android:label="Business Canvas Template"
+            android:screenOrientation="landscape" />
+        <activity android:name="app.jugaadfunda.learningcompanion.track.ZoomImageActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="app.jugaadfunda.learningcompanion.track.ScheduleTrackActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="app.jugaadfunda.learningcompanion.quiz.questions.StartQuizActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="app.jugaadfunda.learningcompanion.settings.NotificationSettingsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="app.jugaadfunda.learningcompanion.home.HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="app.jugaadfunda.learningcompanion.addtrack.AddTrackActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="app.jugaadfunda.learningcompanion.login.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="app.jugaadfunda.learningcompanion.quiz.comparequiz.CompareQuizActivity"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

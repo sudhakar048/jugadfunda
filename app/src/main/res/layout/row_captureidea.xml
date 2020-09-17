@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp10"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:id="@+id/et_day"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/day"
+            android:inputType="textCapSentences"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:focusable="false"
+            android:singleLine="false"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="200"
+            app:helperText="Idea Title"
+            android:layout_marginTop="@dimen/dp5"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_title"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/title_of_your_idea_max_200_characters"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="200"
+            android:gravity="left|top"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="500"
+            app:helperText="What it is?"
+            android:layout_marginTop="@dimen/dp5"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_desc"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/what_it_is_max_500_characters"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="500"
+            android:gravity="left|top"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="500"
+            app:helperText="How it is different than what is existing?"
+            android:layout_marginTop="@dimen/dp5">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_unique"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/how_it_is_different_than_what"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="500"
+            android:gravity="left|top"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="500"
+            app:helperText="How it is better than what is existing.?"
+            android:layout_marginTop="@dimen/dp5">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_better"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/how_it_is_better_than_what_is_existing"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="500"
+            android:gravity="left|top"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="500"
+            app:helperText="How future proof it is? If yes, What problem it is."
+            android:layout_marginTop="@dimen/dp5">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_futureproof"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/how_future_proof_"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="500"
+            android:gravity="left|top"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="500"
+            app:helperText="What triggered this idea in your mind?"
+            android:layout_marginTop="@dimen/dp5">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_triggered"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/what_triggered_this_idea"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="500"
+            android:gravity="left|top"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="500"
+            app:helperText="How future proof it is? Are any other ways to improve."
+            android:layout_marginTop="@dimen/dp5">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_otherfutureproof"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/how_future_proof"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="500"
+            android:gravity="left|top"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="500"
+            app:helperText="Is it solving a problem? If yes, what problem it is"
+            android:layout_marginTop="@dimen/dp5">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_problemsolving"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/is_it_solving_a_problem"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="500"
+            android:gravity="left|top"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:textSize="@dimen/sp16"
+            android:text="@string/attach_picture_of_idea"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:textColor="@color/white"
+                android:background="@drawable/sp_button"
+                android:text="@string/add"
+                android:layout_margin="@dimen/dp10"
+                android:layout_width="@dimen/dp60"
+                android:layout_height="@dimen/dp40"
+                android:id="@+id/btn_uploadimage"/>
+
+            <TextView
+                android:text="@string/use_file_below_1mb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp250"
+            android:layout_gravity="center"
+            android:id="@+id/iv_image"
+            android:layout_margin="@dimen/dp10"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/required_fields"
+            android:textSize="@dimen/sp14"
+            android:layout_marginTop="@dimen/dp10"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:background="@drawable/sp_button"
+            android:text="@string/save_changes"
+            android:layout_margin="@dimen/dp20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_savechanges"
+            android:padding="@dimen/dp3"/>
+
+    </LinearLayout>
+</ScrollView>

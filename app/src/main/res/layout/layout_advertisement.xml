@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:visibility="visible"
+    android:layout_gravity="center">
+    <ImageView
+        android:id="@+id/iv_advertisment"
+        android:layout_width="@dimen/dp300"
+        android:layout_height="@dimen/dp300"
+        android:src="@drawable/ic_lc_image"
+        android:foregroundGravity="center"/>
+
+    <ImageView
+        android:id="@+id/iv_zoom_image"
+        android:layout_width="67dp"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp5"
+        android:layout_marginRight="66dp"
+        android:layout_marginBottom="@dimen/dp5"
+        android:src="@drawable/ic_zoomout" />
+</RelativeLayout>

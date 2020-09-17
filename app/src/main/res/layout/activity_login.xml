@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context=".learningcompanion.login.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp20">
+
+
+        <ImageView
+            android:layout_margin="@dimen/dp20"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_lc_image"
+            android:layout_width="@dimen/dp150"
+            android:layout_height="@dimen/dp150" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginBottom="@dimen/dp20"
+            android:text="@string/welcome"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            android:textStyle="bold" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/dp10"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dp10">
+
+                <RadioGroup
+                    android:id="@+id/rg_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/rb_signup"
+                        android:text="@string/create_account_new_to_jugaad_funda"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/rb_login"
+                        android:text="@string/login_already_a_customer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </RadioGroup>
+
+                <FrameLayout
+                    android:id="@+id/login_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </LinearLayout>
+</ScrollView>

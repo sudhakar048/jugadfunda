@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/dp5"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp10">
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question 1"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp16"
+            android:textColor="@color/black" />
+
+
+       
+
+            <TextView
+                android:text="10 A) Option 1"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_option1"/>
+
+            <TextView
+                android:text="20 B) Option 2"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_option2"/>
+
+            <TextView
+                android:text="15 C) Option 3"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_option3"/>
+
+            <TextView
+                android:text="10 D) Option 4"
+                android:layout_marginTop="@dimen/dp5"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_option4"/>
+        <TextView
+            android:text="10 D) Option 4"
+            android:layout_marginTop="@dimen/dp5"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_option5"/>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

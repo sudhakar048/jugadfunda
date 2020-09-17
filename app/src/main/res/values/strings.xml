@@ -1,0 +1,213 @@
+<resources>
+    <string name="app_name">Learning Companion</string>
+    <string name="welcome">Welcome</string>
+    <string name="mobile_number_or_email">Mobile Number or Email</string>
+    <string name="password">Password</string>
+    <string name="show_password">Show Password</string>
+    <string name="continue_">Continue</string>
+    <string name="sign_in">Sign In</string>
+    <string name="new_to_jugad_create_account">New to Jugad? Create Account.</string>
+    <string name="name">Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="email">Email</string>
+    <string name="set_password">Set Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_designation">Enter Designation (Optional)</string>
+    <string name="btn_signup">SignUp</string>
+    <string name="already_user_login">Already User? Login</string>
+    <string name="add_track">Add Track</string>
+    <string name="track_name">Track Name</string>
+    <string name="track_description">Track Description</string>
+    <string name="record">Record</string>
+    <string name="download">Download</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_account_new_to_jugaad_funda"><b>Create Account</b>, New to Jugaad Funda?</string>
+    <string name="login_already_a_customer"><b>Login</b>, Already a customer?</string>
+    <string name="upload">Upload</string>
+    <string name="save_to_disk">Save to Disk</string>
+    <string name="radio">Radio</string>
+    <string name="my_notifications">My Notification</string>
+    <string name="cartoon_corner">Fun Corner</string>
+    <string name="virtual_exb">Virtual Exhibition</string>
+    <string name="quiz">Quiz</string>
+    <string name="business_model">Business Activity</string>
+    <string name="dummy_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
+    <string name="enable_notifications">Enable Notifications</string>
+    <string name="begin_my_startup">Begin My Startup</string>
+    <string name="join_as_mentor">Join as Mentor</string>
+    <string name="join_as_investor">Join as Investor</string>
+    <string name="manage_my_sig">Manage my SIG</string>
+    <string name="institute">Institute</string>
+    <string name="incubation">Incubation</string>
+    <string name="update_my_skill">Update My Skill</string>
+    <string name="upgrade_my_business">Upgrade My Business</string>
+    <string name="uplift_my_town_grom">Uplift My Town/Grom</string>
+    <string name="endustry_enquiry">Industry Inquiry</string>
+    <string name="capture_idea">Capture Idea</string>
+    <string name="start">Start</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="enter_company_name">* Enter Company Name, Only uppercase, lowercase, numbers,-,_,.,\' and Max 500 charatcers are allowed</string>
+    <string name="enter_email_id">* Enter Email ID</string>
+    <string name="enter_aadhaar_no">Enter Aadhaar No</string>
+    <string name="enter_10_keyword">* Enter 10 keyword that best describe your business, Max 500 characters are allowed</string>
+    <string name="enter_brief_description">* Enter Brief Description of nature of business</string>
+    <string name="enter_annual_turnover">Enter Annual Turnover</string>
+    <string name="enter_no_of_employees">* Enter No. of Employees, Only numbers and Max 7 digit are allowed</string>
+    <string name="enter_no_of_departments">* Enter No. of Departments, Only numbers and Max 3 digit are allowed</string>
+    <string name="enter_establishment_year">* Enter Establishment Year</string>
+    <string name="enter_company">*Enter Company Contact No. For ex - XXXXXXXXXX</string>
+    <string name="enter_company_email_id">*Enter Company Email ID</string>
+    <string name="enter_industry_pan_no">Enter Industry Pan No</string>
+    <string name="enter_pincode">* Enter Pincode, Only numbers and Max 6 digit are allowed</string>
+    <string name="enter_city">* Enter City, Max 100 characters are allowed</string>
+    <string name="enter_owner_sarpanch_principal_name">* Enter Owner Name, Only uppercase, lowercase,.,\' and Max 150 charatcers are allowed</string>
+    <string name="enter_company_address">* Enter Company Address, Max 500 characters are allowed</string>
+    <string name="secondry_person_contact_no_if_any">Secondry Person Contact No. (if any) For ex - XXXXXXXXXX</string>
+    <string name="challenges_faced_by_industry">Challenges faced by industry</string>
+    <string name="efficient_infrastructure">Efficient Infrastructure, Only uppercase, lowercase,numbers.,\' and Max 1000 charatcers are allowed</string>
+    <string name="sales_promotion_">Sales/Promotion Branding/Business Development, Only uppercase, lowercase,numbers.,\' and Max 1000 charatcers are allowed</string>
+    <string name="operations_and_compliance_management">Operations and Compliance Management, Only uppercase, lowercase,numbers.,\' and Max 1000 charatcers are allowed</string>
+    <string name="technology_rnd_innovations">Technology/Rnd/Innovations, Only uppercase, lowercase,numbers.,\' and Max 1000 charatcers are allowed</string>
+    <string name="contact_management_and_documentation">Contact Management and Documentation, Only uppercase, lowercase,numbers.,\' and Max 1000 charatcers are allowed</string>
+    <string name="it_web_presence_and_apps">IT (Web Presence and Apps), Only uppercase, lowercase,numbers.,\' and Max 1000 charatcers are allowed</string>
+    <string name="submit">Submit</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="summary_of_meeting">Summary of Meeting</string>
+    <string name="technology_business_interns_details">Technology Business Interns Details</string>
+    <string name="enter_year">* Enter Year</string>
+    <string name="enter_dept_name">* Enter Dept Name, Only uppercase, lowercase, numbers,-,.,_,\' and Max 500 characters are allowed</string>
+    <string name="enter_college_name">* Enter College Name, Only uppercase, lowercase, numbers,-,.,_,\' and Max 500 characters are allowed</string>
+    <string name="enter_name">* Enter Name, Only uppercase, lowercase,-,.,_,\' and Max 150 characters are allowed</string>
+    <string name="enter_location">* Enter Location, Only uppercase, lowercase, numbers,-,.,_,\' and Max 200 characters are allowed</string>
+    <string name="enter_start_time">* Enter Start Time</string>
+    <string name="enter_end_time">* Enter End Time</string>
+    <string name="name_of_attendees">* Name of Attendees, Only uppercase, lowercase, numbers,-,.,_,\' and Max 500 characters are allowed</string>
+    <string name="enter_points_discussed">* Enter Points Discussed, Max 1000 charaters are allowed</string>
+    <string name="enter_date">* Enter Date</string>
+    <string name="enter_title_of_meeting">* Enter Title of Meeting, Only uppercase, lowercase, numbers,-,.,_,\' and Max 200 characters are allowed</string>
+    <string name="final_idea_of_the_week">Final Idea Of The Week</string>
+    <string name="idea_of_the_day">Idea Of The Day</string>
+    <string name="date">Date</string>
+    <string name="day">Day</string>
+    <string name="title_of_your_idea_max_200_characters">* Title of your idea (Max 200 characters)</string>
+    <string name="what_triggered">* What triggered this idea in your mind? (Max 500 characters)</string>
+    <string name="is_it_solving_a_problem">* Is it solving a problem? If yes, what problem it is.</string>
+    <string name="how_future_proof">* How future proof it is? Are any other ways to improve.</string>
+    <string name="how_it_is_better_than">* How it is better than what is existing. (Max 500 characters)</string>
+    <string name="attach_picture_of_idea">Attach picture of idea.</string>
+    <string name="what_triggered_this_idea">* What triggered this idea in your mind? (Max 500 characters)</string>
+    <string name="how_future_proof_">* How future proof it is? If yes, What problem it is.</string>
+    <string name="how_it_is_better_than_what_is_existing">* How it is better than what is existing? (Max 500 characters)</string>
+    <string name="how_it_is_different_than_what">* How it is different than what is existing? (Max 500 characters)</string>
+    <string name="what_it_is_max_500_characters">* What it is? (Max 500 characters)</string>
+    <string name="add">Add</string>
+    <string name="use_file_below_1mb">(use file below 1MB and Only JPG,PNG,JPEG format should be chosen.)</string>
+    <string name="logout">Logout</string>
+    <string name="notification_settings">Notification Settings</string>
+    <string name="businesscanvas">Business Canvas</string>
+    <string name="event_messages">Event/Messages</string>
+    <string name="compare_quiz">Compare Quiz</string>
+    <string name="record_my_audio">Record My Audio</string>
+    <string name="schedule">Schedule</string>
+    <string name="schedule_track">Schedule Track</string>
+    <string name="popup_captureidea_text">Schedule Track</string>
+    <string name="btn_captureideafinal">Schedule Track</string>
+    <string name="btn_savelocally">Schedule Track</string>
+    <string name="required_fields">Note : All the fields with * marks are required</string>
+    <string name="achievements">Ideas Transformed: 45, Institutes Registered: 36, Students Addressed:6542, Mentors Trained:56, Industries Registered:65</string>
+    <string name="password_required">Use atleast one uppercase, one lowercase, one number, one special character and minimum 8 characters</string>
+    <string name="event_howtoapply">How to Apply</string>
+    <string name="event_description">Event Description</string>
+    <string name="quiz_title">Quiz Title</string>
+    <string name="quiz_description">Quiz Description</string>
+    <string name="industry_grampanchayat_industry_interactionguidelines">
+        1. Set an Intention of visit, plan what and how you will be interacting.\n\n
+        2.	Prepare a note on introduce yourself, Practice one day before.\n\n
+        3.	Explore a website of company you will be visiting.\n\n
+        4.	Wear Formal Attire (No need to dress like a model, dress formally, neat, clean and tidy).\n\n
+        5.	Carry all the brochures, handouts, templates in proper file/folder which will help you to be focussed.\n\n
+        6.	Be punctual, reach the location 5 -10 min before meeting.\n\n
+        7.	Confidently introduce yourself and your motive to be there (roles and responsibility as Technology Business Interns).\n\n
+        8.	Explain in brief how you will be managing the portal registration, posting challenges, assessment of work progress on their behalf.\n\n
+        9.	Kindly fill all the information required for registration on www.jugaadfunda.com in the form provided to you.\n\n
+        10.	Ask about the challenges they are facing.\n\n
+        11.	Kindly note the (category wise) challenges in template provided, if anything other than category defined, note it under others.\n\n
+        12.	End up the interaction saying, Thank you and Nice to meet you.\n\n
+        Note: pt.8, 9,10, 11 not applicable for Schools.\n\n
+        For Schools, explain in detail about Aavishkar Lab objective, its benefits to school and students.</string>
+    <string name="keychallengefacedinvarioussector">
+        1.	To maintain good atmosphere, regularities and discipline within the office.\n\n
+        2.	To follow-up the working activities and ensuring work progress as targeted.\n\n
+        3.	Liaison with other related offices for sharing and co-operations.\n\n
+        4.	Informing regularly to higher authorities about work progress.\n\n
+        5.	Evaluating the finished works and making revised planning for next target.\n\n
+        6.	Doing welfare for Clients, own officers and staffs.\n\n
+        7.	Arranging replacement for an absent employee.\n\n
+        8.	Improving the already established business procedures.\n\n
+        9.	Staying up to date with internal operations.
+    </string>
+    <string name="business_technical">
+         1.	Integration Issues.\n\n
+        2.	Backup and Disaster Recovery Challenges.\n\n
+        3.	Root Causes Arent Uncovered or Addressed.\n\n
+        4.  Security Risks, Lack of Strategic IT Planning.\n\n
+        5.  Waiting Until Something Breaks.\n\n
+        6.  Frustrated Users (Employees), using slow, outdated systems.
+    </string>
+    <string name="sales_marketing_revenuegeneration">
+        Understanding of the differences between selling and marketing is necessary for marketing professional to be a successful marketing manager. Selling is an action which converts the product into cash, but marketing is the process of meeting and satisfying the customer needs.\n\n
+        1.	Sales coaching: Don’t try to tell your team what to do.  Instead, focus on helping them   discover how to tackle different challenges and work through their individual problems.\n\n
+        2.	Data-driven approaches and data analysis.\n\n
+        3.	Time management, Maintaining consistency.\n\n
+        4.  Lead Generation, Target Audience, Content Marketing.\n\n
+        5.  Latest Marketing Trend, Increasing ROI.
+    </string>
+    <string name="finance_funding_grants">
+        1.	Lack of funds, Absence of strategic planning.\n\n
+        2.	Poor Governance and Lack of networking.\n\n
+        3.	Lack of Knowledge about grants available, Proposal Writing.\n\n
+        4.  The team can’t easily comply with mandates, grant requirements.\n\n
+        5.  Communication and collaboration challenges: as multiple people involved in management of grants.
+    </string>
+    <string name="innovations_rnd">
+        1.	Lack of human and non-human resources.\n\n
+        2.	Lack of innovative ideas and infrastructure.\n\n
+        Others: Anything other than above stated.
+    </string>
+    <string name="tipsforwriting_minutesofmeeting">
+        1.	Write Meeting Minutes While You Still Remember.\n\n
+        2.	Start with an Action Review.\n\n
+        3.  During the meeting, you will have written down the new actions from this meeting and who will do them. In the minutes, include these actions in the flow of the text.\n\n
+        4.  Record Who Was There, Using a standard template saves you time.\n\n
+        5.  Use your minutes to confirm the decisions that were taken in the meeting.\n\n
+        6.  Ideally, you should send out minutes within the week. Sooner is better.\n\n
+        7.  Yes, you really do need to have minutes for your meetings.
+    </string>
+    <string name="title_channel">What are Channels?</string>
+    <string name="channel">
+        Channel is all about how the customer will come to know about your product or services. Here you need to define marketing strategy you will be using.\n\n
+        For Example:\n\n
+        - Truck with your logo, tagline\n\n
+        - Advertisements on facebook, radio, TV, newspaper, instagram, coupons
+    </string>
+    <string name="title_cost">What are Costs?</string>
+    <string name="cost">At this level it is expected that one must be in position to find approximate realistic cost of their startup. Need to consider following elements while working on cost: Customer Relationship, Channels, Key Activities, Key Resources, Key Partners. Add all the cost and calculate total cost. Need to revise and cut down the cost wherever possible.</string>
+    <string name="title_customerrelation">What is Customer Relationship?</string>
+    <string name="customerrelation">In this you have to get, keep and grow the customers. Acquire customers and use strategies to make them buy your products even more. Strategies you want to follow for customer acquisition and retention.</string>
+    <string name="title_customersegment">What is Customer Segment?</string>
+    <string name="customersegment">Customer segments are the community of customers or businesses that you are aiming to sell your product or services. Customer segment defines the community one who will buy your product/services. A customer segment may be defined through demographics such as age, ethnicity, profession, gender, etc or on their psychographic factors such as spending behaviour, interests, and motivations. List out all your customer segments (refer PERSONA’s).</string>
+    <string name="title_keyactivity">What are Key Activities?</string>
+    <string name="keyactivity">List all the activities to be done to build value for your customer and make the business model work. It helps to deliver value proposition and bring products or services to make you understand out from your competitors or get closer to target client. Key activities can impact value proposition and cost structure.</string>
+    <string name="title_keypartner">What are Key Partners?</string>
+    <string name="keypartner">Key Partners are one who make the business model work. Partnership can benefit in many ways, they can meet higher profits, economics of scale and lower risks, they help to acquire new resources needed to grow business. List all your key partners, also build Value Proposition for them.</string>
+    <string name="title_keyresource">What are Key Resources?</string>
+    <string name="keyresource">Key Resources is the building block describing the most important assets needed to make a business model work. It represents all the assets to help to run business smoothly. Resources can be physical, intellectual, human or financial. Innovative business model also depends on using your resources wisely.</string>
+    <string name="title_revenuemodel">What is Revenue Model?</string>
+    <string name="revenuemodel">Revenue Model is a way a company makes income from each customer segment. Revenue model is the strategy that company uses to generate cost from the customers. Some of the revenue models are: Asset sales, Usage fees, Subscription fees, Renting, Licensing, Advertising.</string>
+    <string name="title_valueproposition">What is Value Proposition?</string>
+    <string name="valueproposition">Value Proposition is single line description  about why customer/ user will buy your product or services. It is what value in terms of product/service you will be giving to customer/user. Every customer/user will have different value proposition, based on need statement derived from PERSONA. Value that may matter to your customer like: cheaper, faster, availability.</string>
+    <string name="todo">TODO</string>
+</resources>

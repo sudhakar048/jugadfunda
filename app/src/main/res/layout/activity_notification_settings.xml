@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".learningcompanion.settings.NotificationSettingsActivity">
+
+    <include layout="@layout/toolbar_app"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="@dimen/dp10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Switch
+                android:text="@string/begin_my_startup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Switch
+                android:textSize="@dimen/sp16"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="@string/join_as_mentor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Switch
+                android:textSize="@dimen/sp16"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="@string/join_as_investor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Switch
+                android:textSize="@dimen/sp16"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="@string/manage_my_sig"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Switch
+                android:textSize="@dimen/sp16"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="@string/institute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Switch
+                android:textSize="@dimen/sp16"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="@string/incubation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Switch
+                android:textSize="@dimen/sp16"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="@string/update_my_skill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Switch
+                android:textSize="@dimen/sp16"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="@string/upgrade_my_business"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Switch
+                android:textSize="@dimen/sp16"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="@string/uplift_my_town_grom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Switch
+                android:textSize="@dimen/sp16"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="FMO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".learningcompanion.inquiryform.IndustryInquiryFragment">
+
+    <FrameLayout
+        android:id="@+id/container_industry"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/recycler_dots" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/recycler_dots"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60">
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            app:tabMode="fixed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+</RelativeLayout>

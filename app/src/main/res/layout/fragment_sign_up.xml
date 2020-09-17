@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".learningcompanion.login.signup.SignUpFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp10">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:id="@+id/et_name"
+            android:layout_marginTop="@dimen/dp20"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/name"
+            android:inputType="textCapSentences"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/ccp"
+                app:ccp_showFlag="false"
+                app:ccp_textSize="@dimen/sp14"
+                android:gravity="center"
+                android:layout_gravity="start"
+                android:background="@drawable/sp_grayborder"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp45" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp45"
+                android:id="@+id/et_contact"
+                android:layout_marginStart="@dimen/dp10"
+                android:background="@drawable/sp_grayborder"
+                android:hint="@string/mobile_number"
+                android:inputType="phone"
+                android:padding="@dimen/dp5"
+                android:textSize="@dimen/sp14" />
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:id="@+id/et_emailid"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:id="@+id/et_designation"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_designation"
+            android:inputType="textCapSentences"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:id="@+id/et_pwd"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/set_password"
+            android:inputType="textPassword"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+
+        <CheckBox
+            android:text="@string/show_password"
+            android:id="@+id/cb_showpwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:id="@+id/et_cpwd"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+
+        <CheckBox
+            android:text="@string/show_password"
+            android:id="@+id/cb_showcpwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/dp5"
+            android:text="@string/password_required"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:text="@string/btn_signup"
+            android:textAllCaps="false"
+            android:background="@drawable/sp_button"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginBottom="@dimen/dp20"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:id="@+id/btn_signup"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".learningcompanion.login.signin.LoginFragment">
+
+
+        <EditText
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:id="@+id/et_emailid"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/mobile_number_or_email"
+            android:inputType="text"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:layout_marginTop="@dimen/dp10"
+            android:id="@+id/et_pwd"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+
+        <CheckBox
+            android:text="@string/show_password"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cb_pwd"/>
+
+        <Button
+            android:id="@+id/btn_sign_in"                    android:text="@string/sign_in"
+            android:textAllCaps="false"
+            android:background="@drawable/sp_button"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginBottom="@dimen/dp20"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"/>
+</LinearLayout>

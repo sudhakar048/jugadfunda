@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/dp5"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp5">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quiz_title"
+            android:textColor="@color/orange" />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quiz_description"
+            android:textColor="@color/orange"
+            android:layout_marginTop="@dimen/dp2"/>
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_attempted"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attempted By: 1200 users"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btn_start"
+            android:text="@string/start"
+            android:textColor="@color/white"
+            android:background="@drawable/sp_button"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/dp5"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp30"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

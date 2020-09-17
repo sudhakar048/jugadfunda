@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".learningcompanion.home.HomeActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/dp10"
+            android:paddingEnd="@dimen/dp10">
+
+
+            <ImageView
+                android:layout_width="@dimen/dp45"
+                android:layout_height="@dimen/dp50"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/ic_lc_icon" />
+
+            <ImageView
+                android:id="@+id/iv_setting"
+                android:layout_width="40dp"
+                android:layout_centerVertical="true"
+                android:layout_height="@dimen/dp45"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/ic_more"
+                android:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/iv_share"
+                android:layout_width="40dp"
+                android:layout_centerVertical="true"
+                android:layout_height="@dimen/dp45"
+                android:layout_toStartOf="@+id/iv_setting"
+                android:padding="@dimen/dp8"
+                android:src="@drawable/ic_appshare"
+                android:tint="@color/white" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <LinearLayout
+        android:id="@+id/li_adds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar"
+        android:layout_margin="@dimen/dp2">
+
+        <ImageView
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:src="@drawable/ic_eye" />
+
+        <TextView
+            android:id="@+id/tv_adds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:text="@string/achievements"
+            android:layout_marginLeft="@dimen/dp1"/>
+
+    </LinearLayout>
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_tab"
+        style="@style/Widget.AppCompat.PopupMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/li_adds"
+        android:background="@color/white">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="auto" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/container_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/app_bar_tab" />
+
+
+</RelativeLayout>

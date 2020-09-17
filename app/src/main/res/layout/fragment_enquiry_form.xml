@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbars="none"
+    tools:context=".learningcompanion.inquiryform.industryenquiry.EnquiryFormFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp10">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="500"
+            app:helperText="Company Name"
+            android:layout_marginTop="@dimen/dp5"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_companyname"
+            android:layout_marginTop="@dimen/dp20"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_company_name"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="500"
+            app:helperText="Company Address"
+            android:layout_marginTop="@dimen/dp5"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_companyaddress"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_company_address"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="150"
+            app:helperText="Owner/Sarpanch/Principal Name"
+            android:layout_marginTop="@dimen/dp5"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_ospname"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_owner_sarpanch_principal_name"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="100"
+            app:helperText="City"
+            android:layout_marginTop="@dimen/dp5">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_city"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_city"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="6"
+            app:helperText="Pincode"
+            android:layout_marginTop="@dimen/dp5">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_pincode"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_pincode"
+            android:inputType="phone"
+            android:maxLength="6"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Pan Number"
+            android:layout_marginTop="@dimen/dp5">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_industrypanno"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_industry_pan_no"
+            android:inputType="textCapSentences"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="EmailId"
+            android:layout_marginTop="@dimen/dp5">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_companyemailid"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_company_email_id"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Contact Number"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="10">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_companycontact"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_company"
+            android:inputType="phone"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="10"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_establishyear"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_establishment_year"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:focusable="false"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Number of Department"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="3"
+            app:counterEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_noofdept"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_no_of_departments"
+            android:inputType="phone"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="3"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Number of Employee"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="7"
+            app:counterEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_noofemp"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_no_of_employees"
+            android:inputType="phone"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="7"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Annual Turnover"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="20"
+            app:counterEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_turnover"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_annual_turnover"
+            android:inputType="textCapSentences"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Description"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="1000"
+            app:counterEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_briefdescription"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_brief_description"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Keywords"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="500"
+            app:counterEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_keywords"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_10_keyword"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Aadhaar Number"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="12"
+            app:counterEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_aadhar"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_aadhaar_no"
+            android:inputType="phone"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:maxLength="12"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Secondary EmailId"
+            android:layout_marginTop="@dimen/dp5"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_secondaryemailid"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/enter_email_id"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Secondary Contact"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="10"
+            app:counterEnabled="true"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_secondarycontact"
+            android:layout_marginBottom="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/secondry_person_contact_no_if_any"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:inputType="phone"
+            android:maxLength="10"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dp10"
+            android:text="@string/challenges_faced_by_industry"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/sp18"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Efficient Infrastructure"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="1000"
+            app:counterEnabled="true"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_efficientinfra"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/efficient_infrastructure"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Sales/Promotion Branding/Business Development"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="1000"
+            app:counterEnabled="true"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_salespromotion"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/sales_promotion_"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Operations and Compliance Management"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="1000"
+            app:counterEnabled="true"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_operation"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/operations_and_compliance_management"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Technology/Rnd/Innovations"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="1000"
+            app:counterEnabled="true"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_technology"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/technology_rnd_innovations"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="Contact Management and Documentation"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="1000"
+            app:counterEnabled="true"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_contentmgmt"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/contact_management_and_documentation"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="IT (Web Presence and Apps)"
+            android:layout_marginTop="@dimen/dp5"
+            app:counterMaxLength="1000"
+            app:counterEnabled="true"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_itweb"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_grayborder"
+            android:hint="@string/it_web_presence_and_apps"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/required_fields"
+            android:padding="@dimen/dp5"
+            android:textSize="@dimen/sp14"
+            android:layout_marginTop="@dimen/dp10"
+            android:textColor="@color/black"/>
+        <Button
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp45"
+            android:id="@+id/btn_submit"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dp20"
+            android:background="@drawable/sp_button"
+            android:text="@string/submit"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+
+</ScrollView>

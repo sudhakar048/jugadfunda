@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".learningcompanion.track.TrackFragment">
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <app.jugaadfunda.learningcompanion.track.MovableFloatingActionButton
+         android:id="@+id/floating_add"
+         android:src="@drawable/ic_record_audio"
+         android:layout_alignParentEnd="true"
+         android:layout_alignParentBottom="true"
+         android:layout_margin="@dimen/dp10"
+         android:layout_width="@dimen/dp60"
+         android:layout_height="@dimen/dp60"
+        />
+
+</RelativeLayout>
