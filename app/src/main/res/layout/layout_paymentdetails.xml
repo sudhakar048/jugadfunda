@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cv_paymentdetails"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/dp5"
+    android:padding="@dimen/dp5"
+    android:layout_margin="3dp"
+    android:visibility="gone">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Payment Details"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp16"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/orange"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/orange"
+            android:layout_marginTop="@dimen/dp1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/paymentdate"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_paymentdate"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/utr"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_utr"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/amt"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_amt"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/confirmation"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_confirmation"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp10"
+            />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

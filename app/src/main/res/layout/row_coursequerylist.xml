@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/dp2"
+    app:cardCornerRadius="@dimen/dp5">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dp5">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textSize="@dimen/sp14"
+                android:textStyle="bold"
+                android:layout_weight=".3"
+              />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_date"
+                android:text="@string/date"
+                android:textSize="@dimen/sp14"
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_weight=".5"
+                />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp40"
+                android:id="@+id/btn_edit"
+                android:background="@drawable/ic_edit"
+                android:layout_weight=".1"
+                android:visibility="gone"
+                />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp40"
+                android:id="@+id/btn_delete"
+                android:background="@drawable/ic_delete"
+                android:layout_weight=".1"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Added Query"
+        android:textSize="@dimen/sp14"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/dp2"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_coursequery"
+        android:textSize="@dimen/sp14"
+        />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/course"
+            android:textSize="@dimen/sp14"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dp2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_course"
+            android:textSize="@dimen/sp14"
+           />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/course_module"
+            android:textSize="@dimen/sp14"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dp2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_coursemodule"
+            android:textSize="@dimen/sp14"
+            />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/course_submodule"
+        android:textSize="@dimen/sp14"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/dp2"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_submodule"/>
+
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:clickable="true"
+        android:numStars="5"
+        android:stepSize="1"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp5"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp30"
+        android:text="@string/rate_us"
+        android:layout_gravity="center"
+        android:id="@+id/btn_rate"
+        android:background="@color/orange"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rating_msg"
+        android:layout_marginTop="@dimen/dp3"
+        android:textSize="@dimen/sp14"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+
+</LinearLayout>
+</androidx.cardview.widget.CardView>

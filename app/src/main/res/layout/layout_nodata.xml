@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:id="@+id/linear_nodata"
     android:visibility="gone"
-    android:layout_gravity="center"
+    android:gravity="center"
     android:orientation="vertical">
 
     <ImageView

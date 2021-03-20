@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/dp1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum=".9">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp35"
+            android:id="@+id/et_keyword1"
+            android:layout_weight=".3"
+            android:layout_margin="@dimen/dp1"
+            android:background="@drawable/sp_grayborder"
+            android:textSize="@dimen/sp12"
+           />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp35"
+            android:id="@+id/et_keyword2"
+            android:layout_weight=".3"
+            android:layout_margin="@dimen/dp1"
+            android:background="@drawable/sp_grayborder"
+            android:textSize="@dimen/sp12"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp35"
+            android:id="@+id/et_keyword3"
+            android:layout_weight=".3"
+            android:layout_margin="@dimen/dp1"
+            android:background="@drawable/sp_grayborder"
+            android:textSize="@dimen/sp12"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum=".9">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp35"
+            android:id="@+id/et_keyword4"
+            android:layout_weight=".3"
+            android:layout_margin="@dimen/dp1"
+            android:background="@drawable/sp_grayborder"
+            android:textSize="@dimen/sp12"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp35"
+            android:id="@+id/et_keyword5"
+            android:layout_weight=".3"
+            android:layout_margin="@dimen/dp1"
+            android:background="@drawable/sp_grayborder"
+            android:textSize="@dimen/sp12"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp35"
+            android:id="@+id/et_keyword6"
+            android:layout_weight=".3"
+            android:layout_margin="@dimen/dp1"
+            android:background="@drawable/sp_grayborder"
+            android:textSize="@dimen/sp12"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp35"
+            android:id="@+id/et_keyword7"
+            android:layout_weight=".25"
+            android:layout_margin="@dimen/dp1"
+            android:background="@drawable/sp_grayborder"
+            android:textSize="@dimen/sp12"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp35"
+            android:id="@+id/et_keyword8"
+            android:layout_weight=".25"
+            android:layout_margin="@dimen/dp1"
+            android:background="@drawable/sp_grayborder"
+            android:textSize="@dimen/sp12"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp35"
+            android:id="@+id/et_keyword9"
+            android:layout_weight=".25"
+            android:layout_margin="@dimen/dp1"
+            android:background="@drawable/sp_grayborder"
+            android:textSize="@dimen/sp12"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp35"
+            android:id="@+id/et_keyword10"
+            android:layout_weight=".25"
+            android:layout_margin="@dimen/dp1"
+            android:background="@drawable/sp_grayborder"
+            android:textSize="@dimen/sp12"/>
+    </LinearLayout>
+</LinearLayout>

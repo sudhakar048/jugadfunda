@@ -9,12 +9,8 @@
 
     <include layout="@layout/toolbar_app"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:paddingTop="@dimen/dp5"
-        android:paddingStart="@dimen/dp5"
-        android:paddingEnd="@dimen/dp5"
-        android:clipToPadding="false"
+    <WebView
+        android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

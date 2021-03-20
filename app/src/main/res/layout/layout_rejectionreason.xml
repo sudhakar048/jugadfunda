@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linear_rejectionreason"
+    android:orientation="vertical"
+    android:visibility="gone"
+    android:layout_marginTop="@dimen/dp10"
+    android:layout_marginBottom="@dimen/dp10">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp100"
+        android:id="@+id/et_rejectionreason"
+        android:hint="@string/enter_reason"
+        android:padding="@dimen/dp10"
+        android:textSize="@dimen/sp14"
+        android:maxLength="500"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp5"
+        android:text="@string/enter_reason_valid"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:layout_marginTop="@dimen/dp5">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp30"
+        android:id="@+id/btn_rejectionreason"
+        android:text="@string/submit"
+        android:textSize="@dimen/sp14"
+        android:layout_gravity="right"
+        android:background="@color/orange"
+        android:onClick="onClick"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp30"
+            android:id="@+id/btn_rejectionreasonclose"
+            android:text="@string/close"
+            android:textSize="@dimen/sp14"
+            android:layout_gravity="right"
+            android:background="@color/orange"
+            android:layout_marginLeft="@dimen/dp5"
+            android:onClick="onClick"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/dp2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".8"
+            android:padding="@dimen/dp5"
+            android:text="@string/industry_details"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/sp16"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+           android:src="@drawable/ic_close"
+            android:elevation="@dimen/dp2"
+            android:gravity="center"
+            android:padding="@dimen/dp5"
+            android:text="@string/close"
+            android:textSize="@dimen/sp16"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+   <!-- <view
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:layout_marginTop="@dimen/dp2" />
+-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:padding="@dimen/dp5"
+        android:text="@string/companyname"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_companyname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:padding="@dimen/dp5"
+        android:text="@string/companyname"
+        android:textSize="@dimen/sp16" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:padding="@dimen/dp5"
+        android:text="@string/companyaddress"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:padding="@dimen/dp5"
+        android:text="@string/companyaddress"
+        android:textSize="@dimen/sp16" />
+
+    <!--<view
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:layout_marginTop="@dimen/dp5" />-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:padding="@dimen/dp5"
+        android:text="@string/coname"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_coname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:padding="@dimen/dp5"
+        android:text="@string/coname"
+        android:textSize="@dimen/sp16" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:padding="@dimen/dp5"
+        android:text="@string/comobilenumber"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_comobilenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:padding="@dimen/dp5"
+        android:text="@string/comobilenumber"
+        android:textSize="@dimen/sp16" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:padding="@dimen/dp5"
+        android:text="@string/coemailid"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_coemailid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:padding="@dimen/dp5"
+        android:text="@string/coemailid"
+        android:textSize="@dimen/sp16" />
+
+</LinearLayout>

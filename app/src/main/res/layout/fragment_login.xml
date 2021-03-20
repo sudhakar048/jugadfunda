@@ -3,46 +3,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".learningcompanion.login.signin.LoginFragment">
+    >
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="@dimen/dp10"
+        app:cardUseCompatPadding="true"
+        android:padding="@dimen/dp5"
+        >
 
-        <EditText
-            android:layout_marginTop="@dimen/dp20"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp45"
-            android:id="@+id/et_emailid"
-            android:background="@drawable/sp_grayborder"
-            android:hint="@string/mobile_number_or_email"
-            android:inputType="text"
-            android:padding="@dimen/dp5"
-            android:textSize="@dimen/sp14" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/dp5">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp45"
-            android:layout_marginTop="@dimen/dp10"
-            android:id="@+id/et_pwd"
-            android:background="@drawable/sp_grayborder"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:padding="@dimen/dp5"
-            android:textSize="@dimen/sp14" />
+            <ImageView
+                android:layout_margin="@dimen/dp20"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_jugaadfunda_logo"
+                android:layout_width="@dimen/dp150"
+                android:layout_height="@dimen/dp150"
+                android:textSize="@dimen/sp18"/>
 
-        <CheckBox
-            android:text="@string/show_password"
-            android:layout_marginTop="@dimen/dp10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/cb_pwd"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:text="@string/welcome"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp18"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_sign_in"                    android:text="@string/sign_in"
-            android:textAllCaps="false"
-            android:background="@drawable/sp_button"
-            android:textColor="@color/white"
-            android:layout_marginTop="@dimen/dp20"
-            android:layout_marginBottom="@dimen/dp20"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp45"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_instruction"
+                android:text="@string/jugaadfunda_instruction"
+                android:layout_marginBottom="@dimen/dp10"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                android:id="@+id/linear_spinner"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp45"
+                    android:text="@string/loginas"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:textColor="@color/black"/>
+                <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp45"
+                    android:id="@+id/spinner_modules"
+                    android:padding="@dimen/dp5"
+                    android:textSize="@dimen/sp14"
+                    android:layout_marginLeft="@dimen/dp3"
+                    android:layout_weight="8"/>
+            </LinearLayout>
+            <EditText
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40"
+                android:id="@+id/et_emailid"
+                android:background="@drawable/sp_grayborder"
+                android:hint="@string/email"
+                android:inputType="text"
+                android:padding="@dimen/dp5"
+                android:textSize="@dimen/sp14" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40"
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/et_pwd"
+                android:background="@drawable/sp_grayborder"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:padding="@dimen/dp5"
+                android:textSize="@dimen/sp14" />
+
+            <CheckBox
+                android:text="@string/show_password"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cb_pwd"/>
+
+            <Button
+                android:id="@+id/btn_sign_in"
+                android:text="@string/sign_in"
+                android:textAllCaps="false"
+                android:background="@drawable/sp_button"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40"/>
+
+            <TextView
+                android:id="@+id/tv_user"
+                android:text="@string/guest_user"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp16"
+                android:textStyle="bold"
+                android:gravity="center"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

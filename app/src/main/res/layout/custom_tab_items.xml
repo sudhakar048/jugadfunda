@@ -8,7 +8,6 @@
 
     <ImageView
         android:id="@+id/iv_image"
-        android:src="@drawable/ic_internetradio"
         android:layout_width="@dimen/dp30"
         android:layout_height="@dimen/dp30"/>
 
@@ -16,6 +15,7 @@
         android:id="@+id/tv_title"
         android:textColor="@drawable/selector_text_color"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textSize="10sp"/>
 
 </LinearLayout>

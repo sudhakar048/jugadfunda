@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/linear_getotp"
+    android:visibility="gone">
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="@dimen/dp40"
+        android:id="@+id/btn_previous"
+        android:text="@string/previous"
+        android:layout_gravity="center"
+        android:background="@drawable/gradient_button_round"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="@dimen/dp20"
+        android:visibility="gone"
+        />
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="@dimen/dp5"
+        app:cardUseCompatPadding="true"
+        app:cardBackgroundColor="#E3E3E3"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginEnd="@dimen/dp20"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="@dimen/dp10"
+            android:paddingEnd="@dimen/dp10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableEnd="@drawable/ic_arrow_drop_down_black"
+                android:drawableRight="@drawable/ic_arrow_drop_down_black"
+                android:gravity="center"
+                android:text="+91"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp16" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparentcolor"
+                android:hint="@string/enter_phone_number"
+                android:inputType="phone"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
+
+            <ImageView
+                android:id="@+id/iv_clear"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dp5"
+                android:layout_marginLeft="@dimen/dp5"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/ic_close" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_otp"
+        app:cardCornerRadius="@dimen/dp5"
+        app:cardUseCompatPadding="true"
+        app:cardBackgroundColor="#E3E3E3"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginEnd="@dimen/dp20"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50">
+        <LinearLayout
+            android:paddingStart="@dimen/dp10"
+            android:paddingEnd="@dimen/dp10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <EditText
+                android:id="@+id/et_otp"
+                android:layout_weight="1"
+                android:hint="@string/enter_your_code"
+                android:background="@color/transparentcolor"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+
+
+            <Button
+                android:id="@+id/btn_getotp"
+                android:text="@string/get_code"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:gravity="center"
+                android:background="@drawable/gradient_button_round"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/dp80"
+                android:layout_height="@dimen/dp30"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/iv_login"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_login_icon"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
+        />
+
+    <TextView
+        android:gravity="center"
+        android:textSize="@dimen/sp16"
+        android:layout_marginTop="@dimen/dp30"
+        android:text="@string/login_screen_message"
+        android:layout_marginStart="@dimen/dp30"
+        android:layout_marginEnd="@dimen/dp30"
+        android:textColor="?android:attr/textColorPrimary"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -23,7 +23,7 @@
                 android:layout_width="@dimen/dp45"
                 android:layout_height="@dimen/dp50"
                 android:padding="@dimen/dp5"
-                android:src="@drawable/ic_lc_icon" />
+                android:src="@drawable/ic_jugaadfundaicon" />
 
             <ImageView
                 android:id="@+id/iv_setting"

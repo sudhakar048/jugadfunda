@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".learningcompanion.home.HomeActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/dp10"
+            android:paddingEnd="@dimen/dp10">
+
+
+            <ImageView
+                android:layout_width="@dimen/dp45"
+                android:layout_height="@dimen/dp50"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/ic_jugaadfundaicon" />
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="40dp"
+                android:layout_centerVertical="true"
+                android:layout_height="@dimen/dp45"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/ic_arrow_back_white"
+                android:tint="@color/white" />
+
+
+
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/app_bar"/>
+</RelativeLayout>

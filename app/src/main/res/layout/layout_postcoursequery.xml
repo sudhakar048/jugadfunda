@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear_postquery"
+    android:layout_marginTop="@dimen/dp40"
+    android:elevation="@dimen/dp5"
+    android:visibility="gone"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_qureytype"
+        android:text="@string/course_query"
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/orange"
+        android:textStyle="bold"
+        android:padding="@dimen/dp5"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/orange"
+        android:layout_marginTop="@dimen/dp1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear_coursequery"
+        android:orientation="vertical"
+        android:visibility="gone">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_course"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold"
+        android:padding="@dimen/dp5"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:tooltipText="@string/select_course"
+        android:id="@+id/spinner_selectcourse"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold"
+        android:padding="@dimen/dp5"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_module"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold"
+        android:padding="@dimen/dp5"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:tooltipText="@string/select_module"
+        android:id="@+id/spinner_selectmodule"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold"
+        android:padding="@dimen/dp5"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_submodule"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold"
+        android:padding="@dimen/dp5"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:tooltipText="@string/select_submodule"
+        android:id="@+id/spinner_selectsubmodule"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold"
+        android:padding="@dimen/dp5"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_postgeneralquery"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:layout_marginTop="@dimen/dp5">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp30"
+            android:id="@+id/btn_submit"
+            android:text="@string/submit"
+            android:background="@color/orange"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp30"
+            android:id="@+id/btn_reset"
+            android:text="@string/reset"
+            android:background="@color/orange"
+            android:layout_marginLeft="@dimen/dp5"/>
+    </LinearLayout>
+</LinearLayout>

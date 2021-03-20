@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="visible">
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:counterEnabled="true"
+    app:counterMaxLength="200"
+    app:helperText="@string/query_instruction"
+    android:layout_marginTop="@dimen/dp5"
+    >
+<com.google.android.material.textfield.TextInputEditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/et_query"
+    android:layout_marginTop="@dimen/dp10"
+    android:background="@drawable/sp_grayborder"
+    android:hint="@string/query"
+    android:padding="@dimen/dp5"
+    android:textSize="@dimen/sp14"
+    android:maxLength="1000"
+    android:gravity="left|top"
+    />
+</com.google.android.material.textfield.TextInputLayout>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/postquery_instruction"
+    android:textSize="@dimen/sp12"
+    android:textStyle="bold"
+    android:padding="@dimen/dp5"
+    android:layout_marginTop="@dimen/dp3"/>>
+
+</LinearLayout>

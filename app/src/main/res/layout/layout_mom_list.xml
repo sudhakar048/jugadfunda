@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear_momlist"
+    android:orientation="vertical"
+    android:visibility="visible">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_gravity="center">
+
+        <SearchView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp40"
+            android:id="@+id/search_data"
+            android:tooltipText="Search"
+            android:layout_weight=".7"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp35"
+            android:id="@+id/btn_addmom"
+            android:text="@string/addmom"
+            android:background="@drawable/sp_button"
+            android:layout_weight=".3"
+            />
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"/>
+
+    <include layout="@layout/layout_nodata"/>
+
+</LinearLayout>

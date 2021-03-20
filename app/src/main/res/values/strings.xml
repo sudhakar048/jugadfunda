@@ -1,20 +1,17 @@
 <resources>
-    <string name="app_name">Learning Companion</string>
+    <string name="app_name">JugaadFunda (LC)</string>
     <string name="welcome">Welcome</string>
-    <string name="mobile_number_or_email">Mobile Number or Email</string>
+    <string name="jugaadfunda_instruction">SignIn with your www.jugaadfunda.com Credentials</string>
+    <string name="guest_instruction">SignIn with your Guest User Credentials</string>
+    <string name="loginas">SignIn As</string>
     <string name="password">Password</string>
     <string name="show_password">Show Password</string>
     <string name="continue_">Continue</string>
     <string name="sign_in">Sign In</string>
-    <string name="new_to_jugad_create_account">New to Jugad? Create Account.</string>
-    <string name="name">Name</string>
-    <string name="mobile_number">Mobile Number</string>
-    <string name="email">Email</string>
+    <string name="guest_user">Switch to Guest User</string>
+    <string name="jugaadfunda_user">Switch to Jugaadfunda User</string>
+    <string name="email">Email Id</string>
     <string name="set_password">Set Password</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="enter_designation">Enter Designation (Optional)</string>
-    <string name="btn_signup">SignUp</string>
-    <string name="already_user_login">Already User? Login</string>
     <string name="add_track">Add Track</string>
     <string name="track_name">Track Name</string>
     <string name="track_description">Track Description</string>
@@ -28,11 +25,11 @@
     <string name="upload">Upload</string>
     <string name="save_to_disk">Save to Disk</string>
     <string name="radio">Radio</string>
-    <string name="my_notifications">My Notification</string>
+    <string name="scheduled_sessions">Scheduled Sessions</string>
     <string name="cartoon_corner">Fun Corner</string>
     <string name="virtual_exb">Virtual Exhibition</string>
-    <string name="quiz">Quiz</string>
-    <string name="business_model">Business Activity</string>
+    <string name="quiz">Quiz / Poll</string>
+    <string name="business_model">Business Model Canvas</string>
     <string name="dummy_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
     <string name="enable_notifications">Enable Notifications</string>
     <string name="begin_my_startup">Begin My Startup</string>
@@ -44,11 +41,12 @@
     <string name="update_my_skill">Update My Skill</string>
     <string name="upgrade_my_business">Upgrade My Business</string>
     <string name="uplift_my_town_grom">Uplift My Town/Grom</string>
-    <string name="endustry_enquiry">Industry Inquiry</string>
+    <string name="endustry_enquiry">Industry Connect</string>
     <string name="capture_idea">Capture Idea</string>
     <string name="start">Start</string>
     <string name="back">Back</string>
     <string name="next">Next</string>
+    <string name="previous">Previous</string>
     <string name="enter_company_name">* Enter Company Name, Only uppercase, lowercase, numbers,-,_,.,\' and Max 500 charatcers are allowed</string>
     <string name="enter_email_id">* Enter Email ID</string>
     <string name="enter_aadhaar_no">Enter Aadhaar No</string>
@@ -63,7 +61,7 @@
     <string name="enter_industry_pan_no">Enter Industry Pan No</string>
     <string name="enter_pincode">* Enter Pincode, Only numbers and Max 6 digit are allowed</string>
     <string name="enter_city">* Enter City, Max 100 characters are allowed</string>
-    <string name="enter_owner_sarpanch_principal_name">* Enter Owner Name, Only uppercase, lowercase,.,\' and Max 150 charatcers are allowed</string>
+    <string name="enter_owner_name">* Enter Owner Name, Only uppercase, lowercase,.,\' and Max 150 charatcers are allowed</string>
     <string name="enter_company_address">* Enter Company Address, Max 500 characters are allowed</string>
     <string name="secondry_person_contact_no_if_any">Secondry Person Contact No. (if any) For ex - XXXXXXXXXX</string>
     <string name="challenges_faced_by_industry">Challenges faced by industry</string>
@@ -74,6 +72,11 @@
     <string name="contact_management_and_documentation">Contact Management and Documentation, Only uppercase, lowercase,numbers.,\' and Max 1000 charatcers are allowed</string>
     <string name="it_web_presence_and_apps">IT (Web Presence and Apps), Only uppercase, lowercase,numbers.,\' and Max 1000 charatcers are allowed</string>
     <string name="submit">Submit</string>
+    <string name="update">Update</string>
+    <string name="reset">Reset</string>
+    <string name="submitreport_claimremuneration">Submit Report &amp; Claim Remuneration</string>
+    <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
     <string name="save_changes">Save Changes</string>
     <string name="summary_of_meeting">Summary of Meeting</string>
     <string name="technology_business_interns_details">Technology Business Interns Details</string>
@@ -119,10 +122,11 @@
     <string name="required_fields">Note : All the fields with * marks are required</string>
     <string name="achievements">Ideas Transformed: 45, Institutes Registered: 36, Students Addressed:6542, Mentors Trained:56, Industries Registered:65</string>
     <string name="password_required">Use atleast one uppercase, one lowercase, one number, one special character and minimum 8 characters</string>
-    <string name="event_howtoapply">How to Apply</string>
+    <string name="event_howtoapply">How to Apply/Join</string>
     <string name="event_description">Event Description</string>
     <string name="quiz_title">Quiz Title</string>
     <string name="quiz_description">Quiz Description</string>
+    <string name="next_step">Have you attended the session?</string>
     <string name="industry_grampanchayat_industry_interactionguidelines">
         1. Set an Intention of visit, plan what and how you will be interacting.\n\n
         2.	Prepare a note on introduce yourself, Practice one day before.\n\n
@@ -209,5 +213,162 @@
     <string name="revenuemodel">Revenue Model is a way a company makes income from each customer segment. Revenue model is the strategy that company uses to generate cost from the customers. Some of the revenue models are: Asset sales, Usage fees, Subscription fees, Renting, Licensing, Advertising.</string>
     <string name="title_valueproposition">What is Value Proposition?</string>
     <string name="valueproposition">Value Proposition is single line description  about why customer/ user will buy your product or services. It is what value in terms of product/service you will be giving to customer/user. Every customer/user will have different value proposition, based on need statement derived from PERSONA. Value that may matter to your customer like: cheaper, faster, availability.</string>
-    <string name="todo">TODO</string>
+
+    <!-- Session Report -->
+    <string name="no_of_attendees">No. Of attendees</string>
+    <string name="summary">Summary of Session</string>
+    <string name="feedback">Feedback / Suggestions</string>
+    <string name="drivelink">Google Drive link of session recording</string>
+    <string name="report_note">Please make sure grant public permission for google drive link, so user can access the link</string>
+
+    <!-- Payment Details   -->
+    <string name="paymentdate">Payment Date</string>
+    <string name="utr">UTR</string>
+    <string name="amt">Amount</string>
+    <string name="confirmation">Confirmation Message</string>
+
+    <!-- Session Details  -->
+    <string name="sessiondate">Session Date</string>
+    <string name="sessiontime">Session Time</string>
+    <string name="sessionvenue">Session Venue</string>
+    <string name="agenda">Purpose / Agenda of Session</string>
+    <string name="attend">Who will attend this Session</string>
+    <string name="link">Link (URL)</string>
+
+    <string name="view">View</string>
+    <string name="view_query">View User Query</string>
+
+    <!-- Submit Report -->
+    <string name="attendees_validation">* Please Enter only numbers</string>
+    <string name="summery_validation">* Please Enter 1000 characters only</string>
+    <string name="suggestion_validation">* Please Enter 1000 characters only</string>
+    <string name="url_validation">Please Enter valid url</string>
+
+    <string name="enter_reason">Enter Reason</string>
+    <string name="enter_reason_valid">*(Max 500 Charaters are allowed)</string>
+    <string name="rejection_reason">Reason for Session Rejection</string>
+
+    <!-- Post Query  -->
+    <string name="post_query">Post Query</string>
+    <string name="course_query">Course Query</string>
+    <string name="general_query">General Query</string>
+    <string name="select_course"><font fgcolor='#EA6359'>*</font> Select Course</string>
+    <string name="selected_course">Selected Course</string>
+    <string name="selected_module">Selected Module</string>
+    <string name="selected_submodule">Selected SubModule</string>
+    <string name="select_module"><font fgcolor='#EA6359'>*</font> Select Module</string>
+    <string name="select_submodule"><font fgcolor='#EA6359'>*</font> Select Sub-Module</string>
+    <string name="query"><font fgcolor='#EA6359'>*</font>Enter Query</string>
+    <string name="query_instruction"><font fgcolor='#EA6359'>*</font> Max 1000 Charatcers are Allowed.</string>
+    <string name="postquery_instruction"><font fgcolor='#EA6359'>Note -</font> Our next mentoring session and /or our next broadcast on radiojf program shall resolve your query keep listening to our programs for your maximum benefits</string>
+
+    <string name="course">Course Name</string>
+    <string name="course_module">Module Name</string>
+    <string name="course_submodule">Sub-Modules</string>
+    <string name="rating_msg">If your query has been resolved.Please rate us by selecting stars and Clicking on Rate Us button</string>
+
+    <!-- Mentor Post Query  -->
+    <string name="mentor_course">Course</string>
+    <string name="mentor_course_module">Course Module</string>
+    <string name="mentor_course_submodule">Course Sub-Module</string>
+    <string name="mentor_coursequery">Query</string>
+    <string name="mentor_queryinstruction">Rating given by User for your Solution</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="search_query"><font fgcolor='#ffff8800' size="12">Search By Course Name or Added Query</font></string>
+
+    <!-- Add MOM -->
+    <string name="addmom">Add MoM</string>
+    <string name="stime">Start Time</string>
+    <string name="etime">End Time</string>
+    <string name="location">Location</string>
+    <string name="attendees">Attendees Name</string>
+    <string name="points">Points Discussed</string>
+    <string name="studname">Student Name</string>
+    <string name="clgname">College Name</string>
+    <string name="deptname">Department Name</string>
+    <string name="year">Year</string>
+
+    <!-- Capture Problem -->
+    <string name="whatproblem"><font fgcolor='#DD1C0E' size="12">*</font> What is the Problem?</string>
+    <string name="whyproblem"><font fgcolor='#ffff8800' size="12">*</font>Why is it a Problem?</string>
+    <string name="whereproblem"><font fgcolor='#ffff8800' size="12">*</font>Where is this problem observed?</string>
+    <string name="whoimpacted"><font fgcolor='#ffff8800' size="12">*</font>Who is impacted by this problem?</string>
+    <string name="aware"><font fgcolor='#ffff8800' size="12">*</font>When did you first become aware of this problem?</string>
+    <string name="howobserve"><font fgcolor='#ffff8800' size="12">*</font>How do you observe this problem?What are the symptoms associated with the problem?</string>
+    <string name="keywords"><font fgcolor='#ffff8800' size="12">*</font><font fgcolor='#ffff8800' size="12">(First Three)</font> Enter 10 Keywords Describing the Problem </string>
+    <string name="observeperiod"><font fgcolor='#ffff8800' size="12">*</font>How often do you observe the problem? (Daily, Weekly, Monthly...is it becoming more frequent) </string>
+    <string name="businessdomain"><font fgcolor='#ffff8800' size="12">*</font>Select Business Domain </string>
+    <string name="product_service_sdomain"><font fgcolor='#ffff8800' size="12">*</font>Select Product/Service Domain </string>
+    <string name="skillrequirement"><font fgcolor='#ffff8800' size="12">*</font>Skill Requirement </string>
+    <string name="graduation_relevance"><font fgcolor='#ffff8800' size="12">*</font>Graduation Relevance </string>
+    <string name="priority_relevance"><font fgcolor='#ffff8800' size="12">*</font>Priority Relevance </string>
+    <string name="problem_analysis">Problem Analysis</string>
+    <string name="ideal"><font fgcolor='#ffff8800' size="12">*</font>Ideal </string>
+    <string name="reality"><font fgcolor='#ffff8800' size="12">*</font>Reality </string>
+    <string name="consequences"><font fgcolor='#ffff8800' size="12">*</font>Consequences </string>
+    <string name="measurable_outcomes"><font fgcolor='#ffff8800' size="12">*</font>Measurable Outcomes </string>
+    <string name="available_resources"><font fgcolor='#ffff8800' size="12">*</font>Available Resources</string>
+    <string name="expected_skills"><font fgcolor='#ffff8800' size="12">*</font>Expected Skills </string>
+    <string name="numberofapplicant"><font fgcolor='#ffff8800' size="12">*</font>Enter the number of applicants for solving this problem </string>
+    <string name="problemcatergory"><font fgcolor='#ffff8800' size="12">*</font>Problem statement categorized as </string>
+    <string name="consultancy">Consultancy Opportunity</string>
+    <string name="internship">Internship Opportunity</string>
+    <string name="project">Project Opportunity</string>
+    <string name="ps">Problem Statement</string>
+    <string name="otherbusiness">Enter Other Business Interdisciplinary Domain</string>
+    <string name="otherproduct">Enter Other Product/Service Interdisciplinary Domain</string>
+
+    <!-- Industry Registration -->
+    <string name="company_name"><font fgcolor='#ffff8800' size="12">* </font>Name of Company</string>
+    <string name="gstn">GSTN Number</string>
+    <string name="tenkeskills">Enter Your TEN Key Skills Set or Area of Expertise</string>
+    <string name="owner_name"><font fgcolor='#ffff8800' size="12">* </font>Name of Owner</string>
+    <string name="mobile_number"><font fgcolor='#ffff8800' size="12">* </font>Mobile Number</string>
+    <string name="emailid"><font fgcolor='#ffff8800' size="12">* </font>Email Id</string>
+    <string name="industry_coname"><font fgcolor='#ffff8800' size="12">* </font>Name of Industry Co-ordinator</string>
+    <string name="industry_cocontact"><font fgcolor='#ffff8800' size="12">* </font>Co-ordinator Mobile Number</string>
+    <string name="industry_coemailid"><font fgcolor='#ffff8800' size="12">* </font>Co-ordinator Email Id</string>
+    <string name="state"><font fgcolor='#ffff8800' size="12">* </font>Select State</string>
+    <string name="district"><font fgcolor='#ffff8800' size="12">* </font>Select District</string>
+    <string name="center"><font fgcolor='#ffff8800' size="12">* </font>Select Center</string>
+    <string name="select_institute"><font fgcolor='#ffff8800' size="12">* </font>Select Institute</string>
+    <string name="estab">Year of Establishment</string>
+    <string name="noofdept">Number of Department</string>
+    <string name="noofemp">Number of Employees</string>
+    <string name="turnover">Annual Turnover (In Rs.)</string>
+    <string name="cofficeaddress"><font fgcolor='#ffff8800' size="12">* </font>Company Office Address</string>
+    <string name="abt_company">About Company</string>
+    <string name="city"><font fgcolor='#ffff8800' size="12">* </font>City</string>
+    <string name="pincode"><font fgcolor='#ffff8800' size="12">* </font>Pincode</string>
+    <string name="industry_declaration">I hereby declare that all the statements made by me in the application form and information sheet are true and complete to the best of my knowledge.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="connect_indus">Connect Industry</string>
+    <string name="industry_details">Industry Details</string>
+    <string name="companyname">Company Name</string>
+    <string name="companyaddress">Address</string>
+    <string name="coname">Co-ordinator Name</string>
+    <string name="comobilenumber">Co-ordinator Mobile Number</string>
+    <string name="coemailid">Co-ordinator Email Id</string>
+    <string name="link_industry">Link Industry</string>
+
+
+    <string name="login_screen_message">When you tap on Get Code, Jugaadfunda will send a text with OTP.</string>
+    <string name="get_code">Get Code</string>
+    <string name="enter_your_code">Enter your code</string>
+    <string name="enter_phone_number">Enter phone number</string>
+
+    <!-- Fields marked with * are mandatory -->
+    <string name="mandatory_fields">Fields marked with <font fgcolor='#ffff8800' size="12">*</font> are mandatory </string>
+
+    <string name="tell_us_your_name">Tell us Your Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="tell_us_your_e_mail">Tell us Your e-mail</string>
+    <string name="mail_hint">\@mail.com</string>
+    <string name="tell_us_your_institute">Tell us Your Institute</string>
+    <string name="institute_name">Institute Name</string>
+    <string name="we_respect_privacy">We respect privacy!</string>
+    <string name="don_t_worry_your_data_is_safe_with_us">Don\'t worry, your data is safe with us.</string>
+
 </resources>

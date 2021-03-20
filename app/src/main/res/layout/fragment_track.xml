@@ -10,14 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <app.jugaadfunda.learningcompanion.track.MovableFloatingActionButton
-         android:id="@+id/floating_add"
-         android:src="@drawable/ic_record_audio"
-         android:layout_alignParentEnd="true"
-         android:layout_alignParentBottom="true"
-         android:layout_margin="@dimen/dp10"
-         android:layout_width="@dimen/dp60"
-         android:layout_height="@dimen/dp60"
+    <app.jugadfunda.track.MovableFloatingActionButton
+        android:id="@+id/floating_add"
+        android:src="@drawable/ic_record_audio"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dp10"
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
         />
-
 </RelativeLayout>

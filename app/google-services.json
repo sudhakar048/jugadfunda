@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "870176457044",
+    "firebase_url": "https://learning-companion.firebaseio.com",
+    "project_id": "learning-companion",
+    "storage_bucket": "learning-companion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870176457044:android:0ca8b0d13b0c3f3f4648c1",
+        "android_client_info": {
+          "package_name": "app.jugadfunda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870176457044-lstq4v14e83ab1tl118e7liik98uno1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiXSkz7cJwm2QH4HIlZ92BMfD991ToWbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870176457044-lstq4v14e83ab1tl118e7liik98uno1k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

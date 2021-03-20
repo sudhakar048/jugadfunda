@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/toolbar_app"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Scheduled Session"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/orange"
+            android:layout_weight=".5"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_viewquery"
+            android:text="View User Query"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp16"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/orange"
+            android:layout_weight=".5"
+            android:gravity="right"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/orange"
+            android:layout_marginTop="@dimen/dp1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sessiondate"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_sessiondate"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sessiontime"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_sessiontime"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sessionvenue"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_sessionvenue"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/agenda"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_agenda"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/attend"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_attend"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/link"
+            android:id="@+id/tv_urltitle"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_linkurl"
+            android:textSize="@dimen/sp12"
+            android:textColor="@color/golden_yellow"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textStyle="bold"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_rejectiontitle"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp14"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_rejectionmsg"
+                android:textSize="@dimen/sp12"
+                />
+
+        </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="right"
+    android:layout_marginTop="@dimen/dp10"
+   >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp30"
+            android:id="@+id/btn_accept"
+            android:background="@color/orange"
+            android:text="Accept"
+            android:textSize="@dimen/sp12"
+            android:padding="@dimen/dp1"
+            android:elevation="@dimen/dp1"
+            android:visibility="visible"
+          />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp30"
+            android:id="@+id/btn_reject"
+            android:background="@color/orange"
+            android:text="Reject"
+            android:textSize="@dimen/sp12"
+            android:padding="@dimen/dp1"
+            android:elevation="@dimen/dp1"
+            android:layout_marginLeft="@dimen/dp3"
+            android:layout_marginRight="@dimen/dp2"
+            android:visibility="gone"
+           />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp30"
+        android:id="@+id/btn_nextstep"
+        android:background="@color/orange"
+        android:text="Next Step"
+        android:textSize="@dimen/sp12"
+        android:padding="@dimen/dp1"
+        android:elevation="@dimen/dp1"
+        android:layout_marginLeft="@dimen/dp3"
+        android:layout_marginRight="@dimen/dp2"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp30"
+        android:id="@+id/btn_renumeration"
+        android:background="@color/orange"
+        android:text="@string/submitreport_claimremuneration"
+        android:textSize="@dimen/sp12"
+        android:padding="@dimen/dp1"
+        android:elevation="@dimen/dp1"
+        android:layout_marginLeft="@dimen/dp3"
+        android:layout_marginRight="@dimen/dp2"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp30"
+        android:id="@+id/btn_reopen"
+        android:background="@color/orange"
+        android:text="Reopen"
+        android:textSize="@dimen/sp12"
+        android:padding="@dimen/dp1"
+        android:elevation="@dimen/dp1"
+        android:layout_marginLeft="@dimen/dp3"
+        android:layout_marginRight="@dimen/dp2"
+        android:visibility="gone"
+        />
+
+</LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp30"
+            android:id="@+id/btn_rerequest_renumeration"
+            android:background="@color/orange"
+            android:text="Re-request renumeration"
+            android:textSize="@dimen/sp12"
+            android:padding="@dimen/dp1"
+            android:elevation="@dimen/dp1"
+            android:layout_marginLeft="@dimen/dp3"
+            android:layout_marginRight="@dimen/dp2"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dp2"
+            />
+
+        <include layout="@layout/layout_rejectionreason"/>
+
+        <include layout="@layout/layout_sessionreport"/>
+
+        <include layout="@layout/layout_paymentdetails"/>
+
+    </LinearLayout>
+</ScrollView>

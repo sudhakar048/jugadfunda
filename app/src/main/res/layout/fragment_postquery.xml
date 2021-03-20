@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp2"
+        >
+        <RadioGroup
+            android:id="@+id/rg_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp40"
+                android:id="@+id/tv_postquery"
+                android:textStyle="bold"
+                android:text="@string/post_query"
+                android:textColor="@color/orange"
+                android:gravity="center|left"
+                android:layout_marginRight="@dimen/dp10"
+                android:textSize="@dimen/sp16"/>
+
+                <RadioButton android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio1"
+                android:checked="true"
+                android:text="@string/course_query">
+            </RadioButton>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio2"
+                android:text="@string/general_query"
+                android:checked="true">
+            </RadioButton>
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/orange"
+            android:layout_marginTop="@dimen/dp40"/>
+
+        <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_data"
+            android:queryHint="@string/search_query"
+            android:tooltipText="Search"
+            android:layout_marginTop="@dimen/dp40"
+            />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_coursequery"
+        android:orientation="vertical"
+        android:padding="@dimen/dp2"
+        android:elevation="@dimen/dp2"
+        android:layout_marginTop="@dimen/dp80"
+        android:visibility="visible"
+        android:nestedScrollingEnabled="false"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_generalequery"
+        android:orientation="vertical"
+        android:padding="@dimen/dp2"
+        android:elevation="@dimen/dp2"
+        android:layout_marginTop="@dimen/dp80"
+        android:visibility="gone"
+        android:nestedScrollingEnabled="false"/>
+
+        <include layout="@layout/layout_postcoursequery"/>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

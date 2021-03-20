@@ -5,7 +5,8 @@
         android:title="@string/logout"/>
     <item
         android:id="@+id/notification_setting"
-        android:title="@string/notification_settings"/>
+        android:title="@string/notification_settings"
+        android:visible="false"/>
 
     <item
         android:id="@+id/business_canvas"

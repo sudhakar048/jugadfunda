@@ -8,4 +8,9 @@
 
     <color name="orange">@android:color/holo_orange_dark</color>
     <color name="gray">@android:color/darker_gray</color>
+    <color name="golden_yellow">#FFDF00</color>
+    <color name="red">#EA6359</color>
+    <color name="green">#48DD4E</color>
+
+    <color name="transparentcolor">#00FFFFFF</color>
 </resources>

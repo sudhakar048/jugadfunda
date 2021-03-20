@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cv_sessionreport"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/dp5"
+    android:padding="@dimen/dp5"
+    android:layout_margin="3dp"
+    android:visibility="gone">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Session Report"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp16"
+        android:gravity="left"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginLeft="@dimen/dp5"
+        android:textColor="@color/orange"
+        />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/orange"
+            android:layout_marginTop="@dimen/dp1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_of_attendees"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp14"
+        android:gravity="left"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginLeft="@dimen/dp5"
+        android:textColor="@color/black"
+
+        />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_attendees"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/summary"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_summery"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/feedback"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_feedback"
+            android:textSize="@dimen/sp12"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_drivelinktitle"
+            android:text="@string/drivelink"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp14"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_drivelink"
+            android:gravity="left"
+            android:textSize="@dimen/sp12"
+            android:textColor="@color/golden_yellow"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp10"
+            />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

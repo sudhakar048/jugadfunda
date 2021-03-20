@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Event Title:"
-            android:textColor="@color/black" />
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_marginTop="@dimen/dp5"
@@ -25,13 +25,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date:"
-            android:textColor="@color/black" />
+            android:textStyle="bold"
+            />
         <TextView
             android:layout_marginTop="@dimen/dp5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/event_description"
-            android:textColor="@color/orange" />
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tv_description"
@@ -39,14 +41,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Description:"
-            android:textColor="@color/black" />
+            android:textStyle="bold"
+           />
 
         <TextView
             android:layout_marginTop="@dimen/dp5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/event_howtoapply"
-            android:textColor="@color/orange" />
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_marginTop="@dimen/dp2"
@@ -54,7 +58,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_url"
             android:text="Link: "
-            android:textColor="@color/black" />
+            android:textColor="@color/golden_yellow"
+            android:textStyle="bold"
+            />
 
 
     </LinearLayout>
