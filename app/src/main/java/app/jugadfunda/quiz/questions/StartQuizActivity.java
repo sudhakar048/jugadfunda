@@ -57,12 +57,13 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
         SharedPreferences sh = getSharedPreferences("profile", Context.MODE_PRIVATE);
         mUserId = sh.getLong("uid",0);
         mobilenumber = sh.getString("mb","");
+        if(mobilenumber.contains("-")){
+            mobilenumber = mobilenumber.substring(4,13);
+        }
 
         ((TextView)findViewById(R.id.tv_title)).setText(title);
 
         implStartQuizPresenter.wsQuestionlist(quizid);
-
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -74,8 +75,6 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
 
         mSelectedList = new ArrayList<>();
         posList = new ArrayList<>();
-
-
     }
 
     private void openMenu(View view){
@@ -94,39 +93,51 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
     @Override
     public void passDataToRecyclerView(ArrayList<QuestionListResponse> questionsList) {
         qList = questionsList;
-        if(qList != null){
-            adapter = new QuizQuestionsRecyclerAdapter(this, qList,this);
-            recyclerView.setAdapter(adapter);
-        }else{
-            findViewById(R.id.linear_nodata).setVisibility(View.VISIBLE);
-            recyclerView.setVisibility(View.GONE);
-            findViewById(R.id.btn_submit).setVisibility(View.GONE);
-            mTVnoData.setText("No Questions Found");
-        }
-
+        adapter = new QuizQuestionsRecyclerAdapter(this, qList,this);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
-    public void selectOptions(int pos, long optionid) {
+    public void selectOptions(int pos, long optionid, int option) {
         SelectedOptions selectedOptions = new SelectedOptions(pos, optionid);
-        if(!posList.contains(pos)){
+        if (!posList.contains(pos)) {
             mSelectedList.add(selectedOptions);
             posList.add(pos);
-        }else{
+        } else {
             selectedOptions = mSelectedList.get(pos);
             selectedOptions.setOptionid(optionid);
             selectedOptions.setPos(pos);
         }
-        if(mSelectedList.size() == qList.size()){
+
+        if (mSelectedList.size() == qList.size()) {
             findViewById(R.id.btn_submit).setVisibility(View.VISIBLE);
         }
+
+        QuestionListResponse qls = qList.get(pos);
+        qls.setOption(option);
+        qList.set(pos, qls);
+
+        adapter.notifyItemChanged(pos, qls);
     }
 
     @Override
-    public void serAdapter() {
+    public void refreshAdapter() {
+        for(int i =0 ; i< qList.size(); i++){
+            QuestionListResponse qlp = qList.get(i);
+            qlp.setOption(0);
+            qList.set(i, qlp);
+        }
         adapter = new QuizQuestionsRecyclerAdapter(this, qList,this);
         recyclerView.setAdapter(adapter);
         findViewById(R.id.btn_submit).setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showEmptyData() {
+        findViewById(R.id.linear_nodata).setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.GONE);
+        findViewById(R.id.btn_submit).setVisibility(View.GONE);
+        mTVnoData.setText("No Questions Found");
     }
 
     @Override
@@ -151,12 +162,19 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
 
     @Override
     public void onBackPressed() {
+        checkForAutoLogin();
+    }
+
+    void checkForAutoLogin(){
         SharedPreferences sp = getSharedPreferences("profile",MODE_PRIVATE);
         String AUTO_LOGIN = sp.getString("autologin","");
+        Intent intent = null;
         if(AUTO_LOGIN.equals("yes")){
-          startActivity(new Intent(StartQuizActivity.this, HomeActivity.class));
+            intent = new Intent(StartQuizActivity.this, HomeActivity.class);
         }else{
-            startActivity(new Intent(StartQuizActivity.this, LoginActivity.class));
+            intent = new Intent(StartQuizActivity.this, LoginActivity.class);
         }
+        intent.putExtra("check","quiz");
+        startActivity(intent);
     }
 }

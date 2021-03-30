@@ -36,14 +36,6 @@
             android:text="Description"
             android:textColor="@color/black" />
 
-        <TextView
-            android:id="@+id/tv_attempted"
-            android:layout_marginTop="@dimen/dp5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Attempted By: 1200 users"
-            android:textColor="@color/black" />
-
         <Button
             android:id="@+id/btn_start"
             android:text="@string/start"

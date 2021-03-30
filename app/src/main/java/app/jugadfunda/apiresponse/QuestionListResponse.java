@@ -5,12 +5,14 @@ import java.util.ArrayList;
 public class QuestionListResponse {
     private long quesid;
     private String title;
-    ArrayList<OptionResponse> options;
+    private ArrayList<OptionResponse> options;
+    private int option;
 
-    public QuestionListResponse(long quesid, String title, ArrayList<OptionResponse> options) {
+    public QuestionListResponse(long quesid, String title, ArrayList<OptionResponse> options, int option) {
         this.quesid = quesid;
         this.title = title;
         this.options = options;
+        this.option = option;
     }
 
     public long getQuesid() {
@@ -37,12 +39,21 @@ public class QuestionListResponse {
         this.options = options;
     }
 
+    public int getOption() {
+        return option;
+    }
+
+    public void setOption(int option) {
+        this.option = option;
+    }
+
     @Override
     public String toString() {
         return "QuestionListResponse{" +
                 "quesid=" + quesid +
                 ", title='" + title + '\'' +
                 ", options=" + options +
+                ", option=" + option +
                 '}';
     }
 }

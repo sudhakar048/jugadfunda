@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JugaadFunda (LC)</string>
+    <string name="app_name">Scientific JugaadFunda</string>
     <string name="welcome">Welcome</string>
     <string name="jugaadfunda_instruction">SignIn with your www.jugaadfunda.com Credentials</string>
     <string name="guest_instruction">SignIn with your Guest User Credentials</string>
@@ -353,16 +353,20 @@
     <string name="link_industry">Link Industry</string>
 
 
-    <string name="login_screen_message">When you tap on Get Code, Jugaadfunda will send a text with OTP.</string>
+    <string name="login_screen_message">When you tap on Get Code, Jugaadfunda will send a text with OTP and it will be valid for 24 hours.</string>
     <string name="get_code">Get Code</string>
     <string name="enter_your_code">Enter your code</string>
     <string name="enter_phone_number">Enter phone number</string>
-
+    <string name="select_gender">Select Gender</string>
+    <string name="male">Male</string>
+    <string name="female">FeMale</string>
+    <string name="dob_hint">Date of Birth (MM/DD/YYYY)</string>
     <!-- Fields marked with * are mandatory -->
     <string name="mandatory_fields">Fields marked with <font fgcolor='#ffff8800' size="12">*</font> are mandatory </string>
 
     <string name="tell_us_your_name">Tell us Your Name</string>
     <string name="first_name">First Name</string>
+    <string name="middle_name">Middle Name</string>
     <string name="last_name">Last Name</string>
     <string name="tell_us_your_e_mail">Tell us Your e-mail</string>
     <string name="mail_hint">\@mail.com</string>

@@ -1,6 +1,7 @@
 package app.jugadfunda.quiz.questions;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,8 +32,11 @@ public class ImplStartQuizPresenter implements StartQuizInterfaceImpl {
             @Override
             public void onResponse(Call<List<QuestionListResponse>> call, Response<List<QuestionListResponse>> response) {
                 ArrayList<QuestionListResponse> list = (ArrayList<QuestionListResponse>) response.body();
-
-                mStartQuizInterfaceView.passDataToRecyclerView(list);
+               if(list != null){
+                   mStartQuizInterfaceView.passDataToRecyclerView(list);
+               }else{
+                   mStartQuizInterfaceView.showEmptyData();
+               }
             }
 
             @Override
@@ -53,11 +57,16 @@ public class ImplStartQuizPresenter implements StartQuizInterfaceImpl {
                 mobilenumber).enqueue(new Callback<SignupResponse>() {
             @Override
             public void onResponse(Call<SignupResponse> call, Response<SignupResponse> response) {
-                SignupResponse signupResponse = response.body();
-                if(signupResponse.isFlag()){
-                    mStartQuizInterfaceView.serAdapter();
+                if(response.body() != null){
+                    SignupResponse signupResponse = response.body();
+                    if(signupResponse.isFlag()){
+                        mStartQuizInterfaceView.refreshAdapter();
+                    }
+                    Toast.makeText(mContext,""+signupResponse.getResult(),Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(mContext,"Unable to connect internet. Pls try again after some time",Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(mContext,""+signupResponse.getResult(),Toast.LENGTH_LONG).show();
+
             }
 
             @Override

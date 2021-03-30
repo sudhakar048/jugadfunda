@@ -129,6 +129,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Sig
     @Override
     public void movetoHomeScreen() {
         Intent intents=new Intent(getContext(), HomeActivity.class);
+        intents.putExtra("check","event");
         intents.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intents);
     }

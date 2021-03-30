@@ -4,13 +4,11 @@ public class QuizListResponse {
     private long qid;
     private String qtitle;
     private String qdescription;
-    private String noofattempts;
 
-    public QuizListResponse(long qid, String qtitle, String qdescription, String noofattempts) {
+    public QuizListResponse(long qid, String qtitle, String qdescription) {
         this.qid = qid;
         this.qtitle = qtitle;
         this.qdescription = qdescription;
-        this.noofattempts = noofattempts;
     }
 
     public long getQid() {
@@ -37,11 +35,12 @@ public class QuizListResponse {
         this.qdescription = qdescription;
     }
 
-    public String getNoofattempts() {
-        return noofattempts;
-    }
-
-    public void setNoofattempts(String noofattempts) {
-        this.noofattempts = noofattempts;
+    @Override
+    public String toString() {
+        return "QuizListResponse{" +
+                "qid=" + qid +
+                ", qtitle='" + qtitle + '\'' +
+                ", qdescription='" + qdescription + '\'' +
+                '}';
     }
 }

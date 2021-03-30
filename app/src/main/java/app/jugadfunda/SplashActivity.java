@@ -41,7 +41,9 @@ public class SplashActivity extends AppCompatActivity {
         if(AUTO_LOGIN.equals("yes")){
             mUserId = sp.getLong("uid",0);
             mModuleType = sp.getString("mt","");
-            startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+            Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
+            intent.putExtra("check","event");
+            startActivity(intent);
         }else{
             mUserId = 0;
             mModuleType = "newuser";

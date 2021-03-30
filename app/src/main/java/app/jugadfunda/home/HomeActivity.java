@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -35,7 +37,9 @@ import app.jugadfunda.track.TrackFragment;
 
 public class HomeActivity extends AppCompatActivity {
     private TabLayout tabLayout;
-
+    private TabLayout.Tab tab;
+    private String check = "event";
+    private String mType = "";
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +49,11 @@ public class HomeActivity extends AppCompatActivity {
         init();
 
         SharedPreferences sh = getSharedPreferences("profile", MODE_PRIVATE);
-        String mType = sh.getString("mt","");
+        mType = sh.getString("mt","");
         setTabs(mType);
 
+        check = getIntent().getStringExtra("check");
         if (shouldAskPermissions()) {
-
             askPermissions();
         }
     }
@@ -100,6 +104,22 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         addFragments(0, mType);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //finding fragment
+        check = getIntent().getStringExtra("check");
+        if(check.equals("quiz")){
+            addFragments(2, mType);
+            tab = tabLayout.getTabAt(2);
+        }else {
+            addFragments(0, mType);
+            tab = tabLayout.getTabAt(0);
+        }
+        tab.select();
     }
 
     private void setCustomView(String title, Integer image) {
@@ -108,7 +128,6 @@ public class HomeActivity extends AppCompatActivity {
         ((ImageView) view.findViewById(R.id.iv_image)).setImageResource(image);
         tabLayout.addTab(tabLayout.newTab().setCustomView(view));
     }
-
 
     private void addFragments(int position,String mType) {
         Fragment fragment = null;
@@ -180,7 +199,9 @@ public class HomeActivity extends AppCompatActivity {
         editor.putString("ut","");
         editor.putString("autologin","no");
         editor.commit();
-        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+        intent.putExtra("check","login");
+        startActivity(intent);
     }
 
 

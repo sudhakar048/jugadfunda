@@ -30,7 +30,7 @@ public class QuizListRecyclerAdapter extends RecyclerView.Adapter<QuizListRecycl
     @Override
     public QuizViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new QuizViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.row_quiz,parent,false),viewType);
+                .inflate(R.layout.row_quiz,parent,false));
     }
 
     @Override
@@ -38,7 +38,7 @@ public class QuizListRecyclerAdapter extends RecyclerView.Adapter<QuizListRecycl
         QuizListResponse quizListResponse = quizlist.get(position);
         holder.tv_title.setText(quizListResponse.getQtitle());
         holder.tv_desc.setText(quizListResponse.getQdescription());
-        holder.tv_attemptedby.setText(quizListResponse.getNoofattempts());
+        holder.tv_title.setTag(position);
     }
 
     @Override
@@ -52,11 +52,10 @@ public class QuizListRecyclerAdapter extends RecyclerView.Adapter<QuizListRecycl
     TextView tv_desc;
     TextView tv_attemptedby;
     Button btn_start;
-        public QuizViewHolder(@NonNull View itemView, int position) {
+        public QuizViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_title = itemView.findViewById(R.id.tv_title);
             tv_desc = itemView.findViewById(R.id.tv_description);
-            tv_attemptedby = itemView.findViewById(R.id.tv_attempted);
             btn_start = itemView.findViewById(R.id.btn_start);
 
             itemView.findViewById(R.id.btn_start).setOnClickListener(view -> {
@@ -68,7 +67,9 @@ public class QuizListRecyclerAdapter extends RecyclerView.Adapter<QuizListRecycl
                 }else{
                     intent=new Intent(itemView.getContext(), GenerateOtp.class);
                 }
-                intent.putExtra("qiz", quizlist.get(position).getQid());
+
+                int pos = (int) tv_title.getTag();
+                intent.putExtra("qiz", quizlist.get(pos).getQid());
                 intent.putExtra("title", tv_title.getText().toString());
                 itemView.getContext().startActivity(intent);
             });

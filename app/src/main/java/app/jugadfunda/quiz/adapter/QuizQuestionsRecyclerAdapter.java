@@ -1,6 +1,7 @@
 package app.jugadfunda.quiz.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,9 +39,11 @@ public class QuizQuestionsRecyclerAdapter extends RecyclerView.Adapter<QuizQuest
         QuestionListResponse questionListResponse = mList.get(position);
         holder.tv_question.setText(questionListResponse.getTitle());
         ArrayList<OptionResponse>optionlist = questionListResponse.getOptions();
-        holder.rb_option1.setText(optionlist.get(0).getOpts());
-        holder.rb_option2.setText(optionlist.get(1).getOpts());
-        holder.rb_option3.setText(optionlist.get(2).getOpts());
+        if(!optionlist.isEmpty()){
+            holder.rb_option1.setText(optionlist.get(0).getOpts());
+            holder.rb_option2.setText(optionlist.get(1).getOpts());
+            holder.rb_option3.setText(optionlist.get(2).getOpts());
+        }
 
         holder.rb_option1.setOnClickListener(this);
         holder.rb_option2.setOnClickListener(this);
@@ -48,15 +51,23 @@ public class QuizQuestionsRecyclerAdapter extends RecyclerView.Adapter<QuizQuest
         holder.rb_option4.setOnClickListener(this);
         holder.rb_option5.setOnClickListener(this);
 
+        holder.setIsRecyclable(false);
+        holder.rb_option1.setChecked(questionListResponse.getOption() == 1);
+        holder.rb_option2.setChecked(questionListResponse.getOption() == 2);
+        holder.rb_option3.setChecked(questionListResponse.getOption() == 3);
+
         if(optionlist.size() == 3){
             holder.rb_option4.setVisibility(View.GONE);
             holder.rb_option5.setVisibility(View.GONE);
         }else if (optionlist.size() == 4){
             holder.rb_option4.setText(optionlist.get(3).getOpts());
             holder.rb_option5.setVisibility(View.GONE);
+            holder.rb_option4.setChecked(questionListResponse.getOption() == 4);
         }else if (optionlist.size() == 5){
             holder.rb_option4.setText(optionlist.get(3).getOpts());
             holder.rb_option5.setText(optionlist.get(4).getOpts());
+            holder.rb_option4.setChecked(questionListResponse.getOption() == 4);
+            holder.rb_option5.setChecked(questionListResponse.getOption() == 5);
         }
 
         holder.rb_option1.setTag(position);
@@ -64,6 +75,7 @@ public class QuizQuestionsRecyclerAdapter extends RecyclerView.Adapter<QuizQuest
         holder.rb_option3.setTag(position);
         holder.rb_option4.setTag(position);
         holder.rb_option5.setTag(position);
+
     }
 
     @Override
@@ -78,23 +90,23 @@ public class QuizQuestionsRecyclerAdapter extends RecyclerView.Adapter<QuizQuest
         ArrayList<OptionResponse> options = questionListResponse.getOptions();
         switch (v.getId()){
             case R.id.rb_radio1:
-                startQuizInterfaceView.selectOptions(pos, options.get(0).getOid());
+                startQuizInterfaceView.selectOptions(pos, options.get(0).getOid(), 1);
                 break;
 
             case R.id.rb_radio2:
-                startQuizInterfaceView.selectOptions(pos, options.get(1).getOid());
+                startQuizInterfaceView.selectOptions(pos, options.get(1).getOid(), 2);
                 break;
 
             case R.id.rb_radio3:
-                startQuizInterfaceView.selectOptions(pos, options.get(2).getOid());
+                startQuizInterfaceView.selectOptions(pos, options.get(2).getOid(), 3);
                 break;
 
             case R.id.rb_radio4:
-                startQuizInterfaceView.selectOptions(pos, options.get(3).getOid());
+                startQuizInterfaceView.selectOptions(pos, options.get(3).getOid(), 4);
                 break;
 
             case R.id.rb_radio5:
-                startQuizInterfaceView.selectOptions(pos, options.get(4).getOid());
+                startQuizInterfaceView.selectOptions(pos, options.get(4).getOid(), 5);
                 break;
         }
     }

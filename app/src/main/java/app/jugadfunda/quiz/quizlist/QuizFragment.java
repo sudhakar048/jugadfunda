@@ -2,13 +2,18 @@ package app.jugadfunda.quiz.quizlist;
 
 import androidx.fragment.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
@@ -25,6 +30,7 @@ public class QuizFragment extends Fragment implements QuizListView {
     private ProgressDialog dialog;
     private LinearLayout mLinearNodata;
     private TextView mTVNodata;
+    private String mobilenumber = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,13 +38,16 @@ public class QuizFragment extends Fragment implements QuizListView {
         View view= inflater.inflate(R.layout.fragment_quiz, container, false);
         loadProgressBar();
         setRecyclerView(view);
+
+        SharedPreferences sh = getContext().getSharedPreferences("profile", Context.MODE_PRIVATE);
+        mobilenumber = sh.getString("mb","");
+
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        loadProgressBar();
     }
 
     @Override
@@ -62,7 +71,6 @@ public class QuizFragment extends Fragment implements QuizListView {
         }else{
             checkforNodata();
         }
-
     }
 
     @Override
@@ -72,10 +80,11 @@ public class QuizFragment extends Fragment implements QuizListView {
         dialog.setMessage("Loading Quiz....");
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.show();
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                implQuizListPresenter.wsQuizList();
+                implQuizListPresenter.wsQuizList(mobilenumber);
                 dialog.cancel();
             }
         }, 1000);

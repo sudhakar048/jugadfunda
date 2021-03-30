@@ -98,4 +98,8 @@ public class LoginActivity extends AppCompatActivity {
         editor.commit();
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }

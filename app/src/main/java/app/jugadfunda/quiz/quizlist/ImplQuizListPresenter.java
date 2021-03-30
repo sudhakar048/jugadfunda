@@ -21,9 +21,9 @@ public class ImplQuizListPresenter implements QuizListInterfaceImpl{
     }
 
     @Override
-    public void wsQuizList() {
+    public void wsQuizList(String mobilenumber) {
         EndPointInterface endPointInterface = ApiClient.getmRetrofitInstance().create(EndPointInterface.class);
-        endPointInterface.wsQuizlist().enqueue(new Callback<List<QuizListResponse>>() {
+        endPointInterface.wsQuizlist(mobilenumber).enqueue(new Callback<List<QuizListResponse>>() {
             @Override
             public void onResponse(Call<List<QuizListResponse>> call, Response<List<QuizListResponse>> response) {
                 if(response.body() != null){
