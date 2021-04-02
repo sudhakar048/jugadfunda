@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 <LinearLayout
     android:id="@+id/fl"
     android:layout_width="match_parent"
@@ -11,8 +12,8 @@
     tools:context=".generateOtp.GenerateOtp">
 
     <include layout="@layout/layout_personaldetail"/>
-
-   <!-- <include layout="@layout/layout_getotp"/>-->
+    
+    <include layout="@layout/layout_institutedetails"/>
 
 </LinearLayout>
 </ScrollView>

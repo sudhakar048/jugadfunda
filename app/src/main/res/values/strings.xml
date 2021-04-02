@@ -364,6 +364,7 @@
     <!-- Fields marked with * are mandatory -->
     <string name="mandatory_fields">Fields marked with <font fgcolor='#ffff8800' size="12">*</font> are mandatory </string>
 
+    <string name="enter_details">Enter Your Details</string>
     <string name="tell_us_your_name">Tell us Your Name</string>
     <string name="first_name">First Name</string>
     <string name="middle_name">Middle Name</string>
@@ -374,5 +375,7 @@
     <string name="institute_name">Institute Name</string>
     <string name="we_respect_privacy">We respect privacy!</string>
     <string name="don_t_worry_your_data_is_safe_with_us">Don\'t worry, your data is safe with us.</string>
-
+    <string name="select_state">Select State</string>
+    <string name="select_district">Select State</string>
+    <string name="select_center">Select State</string>
 </resources>

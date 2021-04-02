@@ -10,18 +10,27 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import app.jugadfunda.R;
+import app.jugadfunda.generateOtp.GenerateOtpView;
 import app.jugadfunda.home.pojo.DistrictList;
+import app.jugadfunda.home.pojo.StateList;
 import app.jugadfunda.inquiryform.linkindustry.LinkIndustryView;
 
 public class DistrictListAdapter extends BaseAdapter implements View.OnClickListener {
     private Context mContext;
     private ArrayList<DistrictList>mDistrictList;
     private LinkIndustryView mLinkIndustryView;
+    private GenerateOtpView mGenerateOtpView;
 
     public DistrictListAdapter(Context mContext, ArrayList<DistrictList>mDistrictList, LinkIndustryView mLinkIndustryView){
         this.mContext = mContext;
         this.mDistrictList = mDistrictList;
         this.mLinkIndustryView = mLinkIndustryView;
+    }
+
+    public DistrictListAdapter(Context mContext, ArrayList<DistrictList>mDistrictList, GenerateOtpView mGenerateOtpView){
+        this.mContext = mContext;
+        this.mDistrictList = mDistrictList;
+        this.mGenerateOtpView = mGenerateOtpView;
     }
 
     @Override

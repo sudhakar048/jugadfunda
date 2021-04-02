@@ -14,17 +14,25 @@ import java.util.ArrayList;
 
 import app.jugadfunda.R;
 import app.jugadfunda.apiresponse.InstituteList;
+import app.jugadfunda.generateOtp.GenerateOtpView;
 import app.jugadfunda.inquiryform.linkindustry.LinkIndustryView;
 
 public class InstituteListAdapter extends BaseAdapter implements View.OnClickListener {
     private Context mContext;
     private ArrayList<InstituteList> mInstituteList;
     private LinkIndustryView mLinkIndustryView;
+    private GenerateOtpView mGenerateOtpView;
 
     public InstituteListAdapter(Context mContext, ArrayList<InstituteList> mInstituteList, LinkIndustryView mLinkIndustryView){
         this.mContext = mContext;
         this.mInstituteList = mInstituteList;
         this.mLinkIndustryView = mLinkIndustryView;
+    }
+
+    public InstituteListAdapter(Context mContext, ArrayList<InstituteList> mInstituteList, GenerateOtpView mGenerateOtpView){
+        this.mContext = mContext;
+        this.mInstituteList = mInstituteList;
+        this.mGenerateOtpView = mGenerateOtpView;
     }
 
     @Override

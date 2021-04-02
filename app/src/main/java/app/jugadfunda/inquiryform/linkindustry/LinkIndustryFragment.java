@@ -378,7 +378,6 @@ public class LinkIndustryFragment extends Fragment implements View.OnClickListen
     @Override
     public void populateCenterList(List<CenterList> mCenterList) {
         mGlobalCenterList = (ArrayList<CenterList>) mCenterList;
-        Toast.makeText(getContext(),""+mGlobalCenterList,Toast.LENGTH_LONG).show();
         mCenterListAdapter = new CenterListAdapter(getContext(), mGlobalCenterList, this);
         mSpinnerCenter.setAdapter(mCenterListAdapter);
     }

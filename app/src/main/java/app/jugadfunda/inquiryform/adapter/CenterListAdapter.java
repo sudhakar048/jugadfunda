@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import app.jugadfunda.R;
+import app.jugadfunda.generateOtp.GenerateOtpView;
 import app.jugadfunda.home.pojo.CenterList;
 import app.jugadfunda.inquiryform.linkindustry.LinkIndustryView;
 
@@ -19,11 +20,18 @@ public class CenterListAdapter extends BaseAdapter implements View.OnClickListen
     private Context mContext;
     private ArrayList<CenterList> mCenterList;
     private LinkIndustryView mLinkIndustryView;
+    private GenerateOtpView mGenerateOtpView;
 
     public CenterListAdapter(Context mContext, ArrayList<CenterList> mCenterList, LinkIndustryView mLinkIndustryView){
         this.mContext = mContext;
         this.mCenterList = mCenterList;
         this.mLinkIndustryView = mLinkIndustryView;
+    }
+
+    public CenterListAdapter(Context mContext, ArrayList<CenterList> mCenterList, GenerateOtpView mGenerateOtpView){
+        this.mContext = mContext;
+        this.mCenterList = mCenterList;
+        this.mGenerateOtpView = mGenerateOtpView;
     }
 
     @Override

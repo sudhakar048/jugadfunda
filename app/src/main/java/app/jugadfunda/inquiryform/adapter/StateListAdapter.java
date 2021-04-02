@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import app.jugadfunda.R;
+import app.jugadfunda.generateOtp.GenerateOtpView;
 import app.jugadfunda.home.pojo.StateList;
 import app.jugadfunda.inquiryform.linkindustry.LinkIndustryView;
 
@@ -20,11 +21,18 @@ public class StateListAdapter extends BaseAdapter implements View.OnClickListene
     private Context mContext;
     private ArrayList<StateList> mStateList;
     private LinkIndustryView mLinkIndustryView;
+    private GenerateOtpView mGenerateOtpView;
 
     public StateListAdapter(Context mContext, ArrayList<StateList> mStateList, LinkIndustryView mLinkIndustryView){
         this.mContext = mContext;
         this.mStateList = mStateList;
         this.mLinkIndustryView = mLinkIndustryView;
+    }
+
+    public StateListAdapter(Context mContext, ArrayList<StateList> mStateList, GenerateOtpView mGenerateOtpView){
+        this.mContext = mContext;
+        this.mStateList = mStateList;
+        this.mGenerateOtpView = mGenerateOtpView;
     }
 
     @Override

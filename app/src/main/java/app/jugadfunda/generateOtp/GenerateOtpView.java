@@ -1,5 +1,12 @@
 package app.jugadfunda.generateOtp;
 
+import java.util.ArrayList;
+
+import app.jugadfunda.apiresponse.InstituteList;
+import app.jugadfunda.home.pojo.CenterList;
+import app.jugadfunda.home.pojo.DistrictList;
+import app.jugadfunda.home.pojo.StateList;
+
 public interface GenerateOtpView {
 
     void movetoQuizActivity();
@@ -9,4 +16,12 @@ public interface GenerateOtpView {
     void showMsg(String message);
 
     void generateOtp(String otp);
+
+    void populateStates(ArrayList<StateList> stateLists);
+
+    void populateDistricts(ArrayList<DistrictList> districtLists);
+
+    void populateCenters(ArrayList<CenterList> centerLists);
+
+    void populateInstitutes(ArrayList<InstituteList> instituteLists);
 }
