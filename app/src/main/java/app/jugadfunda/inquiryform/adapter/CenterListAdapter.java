@@ -21,17 +21,20 @@ public class CenterListAdapter extends BaseAdapter implements View.OnClickListen
     private ArrayList<CenterList> mCenterList;
     private LinkIndustryView mLinkIndustryView;
     private GenerateOtpView mGenerateOtpView;
+    private String check;
 
-    public CenterListAdapter(Context mContext, ArrayList<CenterList> mCenterList, LinkIndustryView mLinkIndustryView){
+    public CenterListAdapter(Context mContext, ArrayList<CenterList> mCenterList, LinkIndustryView mLinkIndustryView, String check){
         this.mContext = mContext;
         this.mCenterList = mCenterList;
         this.mLinkIndustryView = mLinkIndustryView;
+        this.check = check;
     }
 
-    public CenterListAdapter(Context mContext, ArrayList<CenterList> mCenterList, GenerateOtpView mGenerateOtpView){
+    public CenterListAdapter(Context mContext, ArrayList<CenterList> mCenterList, GenerateOtpView mGenerateOtpView, String check){
         this.mContext = mContext;
         this.mCenterList = mCenterList;
         this.mGenerateOtpView = mGenerateOtpView;
+        this.check = check;
     }
 
     @Override
@@ -65,8 +68,12 @@ public class CenterListAdapter extends BaseAdapter implements View.OnClickListen
         switch (v.getId()){
             case R.id.tv_coursename:
                 int pos = (int) v.getTag();
-                Toast.makeText(mContext,"pos - "+pos,Toast.LENGTH_LONG).show();
-                mLinkIndustryView.callCenterList(pos);
+              if(check.equals("otp")){
+                  mGenerateOtpView.callCenterList(pos);
+              }else{
+                  mLinkIndustryView.callCenterList(pos);
+              }
+
                 break;
         }
     }

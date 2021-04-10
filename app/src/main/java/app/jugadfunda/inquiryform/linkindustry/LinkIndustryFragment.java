@@ -364,28 +364,28 @@ public class LinkIndustryFragment extends Fragment implements View.OnClickListen
     @Override
     public void populateStateList(List<StateList> mStateList) {
         mGlobalStateList = (ArrayList<StateList>) mStateList;
-        mStateListAdapter = new StateListAdapter(getContext(), mGlobalStateList, this);
+        mStateListAdapter = new StateListAdapter(getContext(), mGlobalStateList, this, "");
         mSpinnerState.setAdapter(mStateListAdapter);
     }
 
     @Override
     public void populateDistrictList(List<DistrictList> mDistrictList) {
         mGlobalDistrictList = (ArrayList<DistrictList>) mDistrictList;
-        mDistrictListAdapter = new DistrictListAdapter(getContext(), mGlobalDistrictList, this);
+        mDistrictListAdapter = new DistrictListAdapter(getContext(), mGlobalDistrictList, this, "");
         mSpinnerDistrict.setAdapter(mDistrictListAdapter);
     }
 
     @Override
     public void populateCenterList(List<CenterList> mCenterList) {
         mGlobalCenterList = (ArrayList<CenterList>) mCenterList;
-        mCenterListAdapter = new CenterListAdapter(getContext(), mGlobalCenterList, this);
+        mCenterListAdapter = new CenterListAdapter(getContext(), mGlobalCenterList, this, "");
         mSpinnerCenter.setAdapter(mCenterListAdapter);
     }
 
     @Override
     public void populateInstituteList(List<InstituteList> mInstituteList) {
         mGlobalInstituteList = (ArrayList<InstituteList>) mInstituteList;
-        mInstituteListAdapter = new InstituteListAdapter(getContext(), mGlobalInstituteList, this);
+        mInstituteListAdapter = new InstituteListAdapter(getContext(), mGlobalInstituteList, this, "");
         mSpinnerInstitute.setAdapter(mInstituteListAdapter);
     }
 

@@ -22,17 +22,20 @@ public class InstituteListAdapter extends BaseAdapter implements View.OnClickLis
     private ArrayList<InstituteList> mInstituteList;
     private LinkIndustryView mLinkIndustryView;
     private GenerateOtpView mGenerateOtpView;
+    private String check;
 
-    public InstituteListAdapter(Context mContext, ArrayList<InstituteList> mInstituteList, LinkIndustryView mLinkIndustryView){
+    public InstituteListAdapter(Context mContext, ArrayList<InstituteList> mInstituteList, LinkIndustryView mLinkIndustryView, String check){
         this.mContext = mContext;
         this.mInstituteList = mInstituteList;
         this.mLinkIndustryView = mLinkIndustryView;
+        this.check = check;
     }
 
-    public InstituteListAdapter(Context mContext, ArrayList<InstituteList> mInstituteList, GenerateOtpView mGenerateOtpView){
+    public InstituteListAdapter(Context mContext, ArrayList<InstituteList> mInstituteList, GenerateOtpView mGenerateOtpView, String check){
         this.mContext = mContext;
         this.mInstituteList = mInstituteList;
         this.mGenerateOtpView = mGenerateOtpView;
+        this.check = check;
     }
 
     @Override
@@ -66,7 +69,11 @@ public class InstituteListAdapter extends BaseAdapter implements View.OnClickLis
         switch (v.getId()){
             case R.id.tv_coursename:
                 int pos = (int) v.getTag();
-                mLinkIndustryView.callInstituteList(pos);
+                if(check.equals("otp")){
+                    mGenerateOtpView.callInstituteList(pos);
+                }else{
+                    mLinkIndustryView.callInstituteList(pos);
+                }
                 break;
         }
     }

@@ -20,17 +20,20 @@ public class DistrictListAdapter extends BaseAdapter implements View.OnClickList
     private ArrayList<DistrictList>mDistrictList;
     private LinkIndustryView mLinkIndustryView;
     private GenerateOtpView mGenerateOtpView;
+    private String check;
 
-    public DistrictListAdapter(Context mContext, ArrayList<DistrictList>mDistrictList, LinkIndustryView mLinkIndustryView){
+    public DistrictListAdapter(Context mContext, ArrayList<DistrictList>mDistrictList, LinkIndustryView mLinkIndustryView, String check){
         this.mContext = mContext;
         this.mDistrictList = mDistrictList;
         this.mLinkIndustryView = mLinkIndustryView;
+        this.check = check;
     }
 
-    public DistrictListAdapter(Context mContext, ArrayList<DistrictList>mDistrictList, GenerateOtpView mGenerateOtpView){
+    public DistrictListAdapter(Context mContext, ArrayList<DistrictList>mDistrictList, GenerateOtpView mGenerateOtpView, String check){
         this.mContext = mContext;
         this.mDistrictList = mDistrictList;
         this.mGenerateOtpView = mGenerateOtpView;
+        this.check = check;
     }
 
     @Override
@@ -64,7 +67,12 @@ public class DistrictListAdapter extends BaseAdapter implements View.OnClickList
         switch (v.getId()){
             case R.id.tv_coursename:
                 int pos = (int) v.getTag();
-                mLinkIndustryView.callDistrictList(pos);
+                if(check.equals("otp")){
+                    mGenerateOtpView.callDistrictList(pos);
+                }else{
+                    mLinkIndustryView.callDistrictList(pos);
+                }
+
                 break;
         }
     }

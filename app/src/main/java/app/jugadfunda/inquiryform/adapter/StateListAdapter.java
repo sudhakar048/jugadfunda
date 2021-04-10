@@ -22,17 +22,20 @@ public class StateListAdapter extends BaseAdapter implements View.OnClickListene
     private ArrayList<StateList> mStateList;
     private LinkIndustryView mLinkIndustryView;
     private GenerateOtpView mGenerateOtpView;
+    private String check;
 
-    public StateListAdapter(Context mContext, ArrayList<StateList> mStateList, LinkIndustryView mLinkIndustryView){
+    public StateListAdapter(Context mContext, ArrayList<StateList> mStateList, LinkIndustryView mLinkIndustryView, String check){
         this.mContext = mContext;
         this.mStateList = mStateList;
         this.mLinkIndustryView = mLinkIndustryView;
+        this.check = check;
     }
 
-    public StateListAdapter(Context mContext, ArrayList<StateList> mStateList, GenerateOtpView mGenerateOtpView){
+    public StateListAdapter(Context mContext, ArrayList<StateList> mStateList, GenerateOtpView mGenerateOtpView, String check){
         this.mContext = mContext;
         this.mStateList = mStateList;
         this.mGenerateOtpView = mGenerateOtpView;
+        this.check = check;
     }
 
     @Override
@@ -66,7 +69,11 @@ public class StateListAdapter extends BaseAdapter implements View.OnClickListene
         switch (v.getId()){
             case R.id.tv_coursename:
                 int pos = (int) v.getTag();
-                mLinkIndustryView.callStateList(pos);
+                if(check.equals("otp")){
+                    mGenerateOtpView.callStateList(pos);
+                }else{
+                    mLinkIndustryView.callStateList(pos);
+                }
                 break;
         }
     }

@@ -33,7 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void addTabs() {
         setCustomView("Sign In");
-        setCustomView("Event / News");
+        setCustomView("Events");
+        setCustomView("News");
         setCustomView("Quiz / Poll");
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -55,8 +56,8 @@ public class LoginActivity extends AppCompatActivity {
 
         String check = getIntent().getStringExtra("check");
         if(check.equals("quiz")){
-            addFragment(2);
-            tab = tabLayout.getTabAt(2);
+            addFragment(3);
+            tab = tabLayout.getTabAt(3);
         }else  if(check.equals("event")){
             addFragment(1);
             tab = tabLayout.getTabAt(1);
@@ -82,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
             setModuleToNull();
             fragment = new EventMessagesFragment();
         }
-        else if (position == 2){
+        else if (position == 3){
             setModuleToNull();
             fragment = new QuizFragment();
         }

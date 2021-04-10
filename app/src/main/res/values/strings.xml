@@ -353,7 +353,7 @@
     <string name="link_industry">Link Industry</string>
 
 
-    <string name="login_screen_message">When you tap on Get Code, Jugaadfunda will send a text with OTP and it will be valid for 24 hours.</string>
+    <string name="login_screen_message">Please enter correct mobile number because our backend Team will connect you on  the same number.</string>
     <string name="get_code">Get Code</string>
     <string name="enter_your_code">Enter your code</string>
     <string name="enter_phone_number">Enter phone number</string>
@@ -378,4 +378,7 @@
     <string name="select_state">Select State</string>
     <string name="select_district">Select State</string>
     <string name="select_center">Select State</string>
+
+    <string name="partnerKey">ZZer186b01f443dbf4494a54834bebe6833ea</string>
+    <string name="appKey">ZZer186b01f443dbf4494a54834bebe6833ea</string>
 </resources>

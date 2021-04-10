@@ -5,15 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/institutedetails"
-    android:visibility="visible">
+    android:visibility="gone">
 
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="@dimen/dp40"
+    <ImageView
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
         android:id="@+id/btn_previous"
-        android:text="@string/previous"
         android:layout_gravity="center"
-        android:background="@drawable/gradient_button_round"
+        android:src="@drawable/ic_previous"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:layout_marginTop="@dimen/dp20"
@@ -184,13 +183,12 @@
         android:layout_gravity="end"
         android:layout_marginRight="@dimen/dp20"/>
 
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="@dimen/dp40"
-        android:id="@+id/btn_submit"
-        android:text="@string/submit"
+    <ImageView
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
+        android:id="@+id/iv_ssubmit"
         android:layout_gravity="center"
-        android:background="@drawable/gradient_button_round"
+        android:src="@drawable/ic_next"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:layout_marginTop="@dimen/dp20"

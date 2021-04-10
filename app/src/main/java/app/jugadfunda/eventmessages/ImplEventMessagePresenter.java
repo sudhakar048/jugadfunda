@@ -24,13 +24,12 @@ public class ImplEventMessagePresenter implements EventInterfaceImpl {
    }
 
     @Override
-    public void wsEventList(String mModuleCode) {
+    public void wsEventList(String mParam) {
         EndPointInterface mEndPointInterface = ApiClient.getmRetrofitInstance().create(EndPointInterface.class);
-        mEndPointInterface.wsEventlist(mModuleCode).enqueue(new Callback<List<EventResponse>>() {
+        mEndPointInterface.wsEventlist(mParam).enqueue(new Callback<List<EventResponse>>() {
             @Override
             public void onResponse(Call<List<EventResponse>> call, Response<List<EventResponse>> response) {
-                Log.e("list",""+response.body());
-                if(response.body() != null){
+                if(!response.body().isEmpty()){
                     ArrayList<EventResponse> mEventList = (ArrayList<EventResponse>) response.body();
                     mEventInterfaceView.setEventListtoAdapter(mEventList);
                 }else{

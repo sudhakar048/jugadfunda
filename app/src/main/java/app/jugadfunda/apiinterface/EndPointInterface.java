@@ -40,7 +40,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
 
-public interface EndPointInterface {
+public interface    EndPointInterface {
 
     //for signin
     @POST("STBI/MobileLogin")
@@ -59,8 +59,8 @@ public interface EndPointInterface {
 
 
     //for list of quiz
-    @GET("Jugaadfunda_Admin/GetQuizListContoller")
-    Call<List<QuizListResponse>> wsQuizlist(@Query("mb") String mobilrNumber);
+    @GET("Jugaadfunda-Admin/GetQuizListContoller")
+    Call<List<QuizListResponse>> wsQuizlist();
 
     //for question list
     @POST("Jugaadfunda_Admin/GetAllQuestionsController")
@@ -74,8 +74,9 @@ public interface EndPointInterface {
     Call<SignupResponse> wsAddAnswers(@Field("qzid") long mQuizId, @Field("quids") String mQuesId, @Field("optsids") String mOptionIds, @Field("uid") long mUserId, @Field("mb") String mMobileNumber);
 
     // show event list
-    @GET("STBI/EventListShow")
-    Call<List<EventResponse>> wsEventlist(@Query("modulecode") String mModuleCode);
+    @POST("STBI/GetEventListController")
+    @FormUrlEncoded
+    Call<List<EventResponse>> wsEventlist(@Field("param") String mParam);
 
     // show event list
     @GET("Jugaadfunda_Admin/showLastImageController")
@@ -198,5 +199,5 @@ public interface EndPointInterface {
 
     @POST("STBI/VerifyOtpController")
     @FormUrlEncoded
-    Call<VerifyOtpResponse> wsVerifyOtp(@Field("fname")String mFirstname, @Field("mname")String mMiddlename, @Field("lname")String mLastname, @Field("gen")String mGender, @Field("dob")String mDob, @Field("e")String mEmailId, @Field("mb")String mMobileNumber, @Field("sid")int mStateId, @Field("did")int mDistrictId, @Field("cid")long mCenterId, @Field("insid")long mInstituteId,@Field("qzid")long mQuizId);
+    Call<VerifyOtpResponse> wsVerifyOtp(@Field("fname")String mFirstname, @Field("mname")String mMiddlename, @Field("lname")String mLastname, @Field("gen")String mGender, @Field("dob")String mDob, @Field("mb")String mMobileNumber, @Field("e")String mEmailId, @Field("sid")int mStateId, @Field("did")int mDistrictId, @Field("cid")long mCenterId, @Field("insid")long mInstituteId,@Field("qzid")long mQuizId);
 }

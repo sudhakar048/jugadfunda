@@ -34,10 +34,10 @@ public class EventMessagesRecyclerAdapter extends RecyclerView.Adapter<EventMess
     @Override
     public void onBindViewHolder(@NonNull EventMessagesHolder holder, int position) {
         EventResponse eventResponse = mEventList.get(position);
-        holder.tv_title.setText(eventResponse.getGetTitle());
-        holder.tv_date.setText(eventResponse.getOd()+" to "+eventResponse.getCd());
-        holder.tv_desc.setText(eventResponse.getDesc());
-        holder.tv_url.setText(eventResponse.getHta());
+        holder.tv_title.setText(eventResponse.getTitle());
+        holder.tv_date.setText(eventResponse.getOpeningdate()+" to "+eventResponse.getClosingdate());
+        holder.tv_desc.setText(eventResponse.getDescription());
+        holder.tv_url.setText(eventResponse.getHowtoapply());
         holder.tv_url.setOnClickListener(this);
         holder.tv_url.setTag(position);
     }
@@ -52,7 +52,7 @@ public class EventMessagesRecyclerAdapter extends RecyclerView.Adapter<EventMess
         switch (v.getId()){
             case R.id.tv_url:
                 int pos = (int) v.getTag();
-                mEventInterfaceView.openUrl(mEventList.get(pos).getHta());
+                mEventInterfaceView.openUrl(mEventList.get(pos).getHowtoapply());
                 break;
         }
     }

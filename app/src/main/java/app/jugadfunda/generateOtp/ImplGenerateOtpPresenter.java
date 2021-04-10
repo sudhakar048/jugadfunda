@@ -1,7 +1,6 @@
 package app.jugadfunda.generateOtp;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -40,7 +39,6 @@ public class ImplGenerateOtpPresenter implements GenerateOtpImpl {
         ).enqueue(new Callback<GenerateOtpResponse>() {
             @Override
             public void onResponse(Call<GenerateOtpResponse> call, Response<GenerateOtpResponse> response) {
-                Log.d("onResponse", "onResponse() called with: call = [" + call + "], response = [" + response.body() + "]");
                 GenerateOtpResponse res = response.body();
 
                 if(res.getMsg().length() > 4) {
@@ -81,12 +79,12 @@ public class ImplGenerateOtpPresenter implements GenerateOtpImpl {
         ).enqueue(new Callback<VerifyOtpResponse>() {
             @Override
             public void onResponse(Call<VerifyOtpResponse> call, Response<VerifyOtpResponse> response) {
-                VerifyOtpResponse res = response.body();
-                if(res.isFlag()){
+                VerifyOtpResponse data = response.body();
+                if(data.isFlag()){
                     mGenerateOtpView.movetoQuizActivity();
                     mGenerateOtpView.clearForm();
                 }
-                Toast.makeText(mContext, res.getRes(), Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, data.getRes(), Toast.LENGTH_LONG).show();
              }
 
             @Override

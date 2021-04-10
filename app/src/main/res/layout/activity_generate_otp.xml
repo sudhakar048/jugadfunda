@@ -15,5 +15,7 @@
     
     <include layout="@layout/layout_institutedetails"/>
 
+    <include layout="@layout/layout_getotp"/>
+
 </LinearLayout>
 </ScrollView>

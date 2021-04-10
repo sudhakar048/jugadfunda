@@ -24,4 +24,12 @@ public interface GenerateOtpView {
     void populateCenters(ArrayList<CenterList> centerLists);
 
     void populateInstitutes(ArrayList<InstituteList> instituteLists);
+
+    void callStateList(int pos);
+
+    void callDistrictList(int pos);
+
+    void callCenterList(int pos);
+
+    void callInstituteList(int pos);
 }

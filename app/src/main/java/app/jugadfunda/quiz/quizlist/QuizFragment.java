@@ -84,7 +84,7 @@ public class QuizFragment extends Fragment implements QuizListView {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                implQuizListPresenter.wsQuizList(mobilenumber);
+                implQuizListPresenter.wsQuizList();
                 dialog.cancel();
             }
         }, 1000);
