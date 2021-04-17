@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,7 @@ public class ImplStartQuizPresenter implements StartQuizInterfaceImpl {
             @Override
             public void onResponse(Call<List<QuestionListResponse>> call, Response<List<QuestionListResponse>> response) {
                 ArrayList<QuestionListResponse> list = (ArrayList<QuestionListResponse>) response.body();
+                Log.d("List", "onResponse() called with: call = [" + call + "], response = [" + list + "]");
                if(list != null){
                    mStartQuizInterfaceView.passDataToRecyclerView(list);
                }else{
@@ -47,14 +50,14 @@ public class ImplStartQuizPresenter implements StartQuizInterfaceImpl {
     }
 
     @Override
-    public void wsAddAnswers(long mQuizId, String mQuestions, String mOptions, long mUserId, String mobilenumber) {
+    public void wsAddAnswers(long mQuizId, JSONArray list, String mobilenumber, int minutetime, int secondtime) {
         EndPointInterface endPointInterface= ApiClient.getmRetrofitInstance().create(EndPointInterface.class);
         endPointInterface.wsAddAnswers(
                 mQuizId,
-                mQuestions,
-                mOptions,
-                mUserId,
-                mobilenumber).enqueue(new Callback<SignupResponse>() {
+                list.toString(),
+                mobilenumber,
+                minutetime,
+                secondtime).enqueue(new Callback<SignupResponse>() {
             @Override
             public void onResponse(Call<SignupResponse> call, Response<SignupResponse> response) {
                 if(response.body() != null){

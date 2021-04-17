@@ -18,15 +18,17 @@
         android:id="@+id/recycler_dots"
         android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp60">
-
-
+        android:layout_height="@dimen/dp50">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
-            app:tabMode="fixed"
+            app:tabMode="auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        </ScrollView>
     </com.google.android.material.appbar.AppBarLayout>
-
 
 </RelativeLayout>

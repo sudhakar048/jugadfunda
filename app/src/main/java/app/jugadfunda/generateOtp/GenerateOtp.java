@@ -169,7 +169,7 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
                         setGetOtpVisible();
                     }
                 } else {
-                    Toast.makeText(this, "check" + check1, Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, check1, Toast.LENGTH_LONG).show();
                 }
                 break;
 

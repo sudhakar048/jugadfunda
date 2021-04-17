@@ -1,8 +1,10 @@
 package app.jugadfunda.quiz.questions;
 
+import org.json.JSONArray;
+
 public interface StartQuizInterfaceImpl {
 
     void wsQuestionlist(long mQuizId);
 
-    void wsAddAnswers(long mQuizId, String mQuestions, String mOptions,long mUserId, String mobilenumber);
+    void wsAddAnswers(long mQuizId, JSONArray list, String mobilenumber, int miutetime, int secondtime);
 }

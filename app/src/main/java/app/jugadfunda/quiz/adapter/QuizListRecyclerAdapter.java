@@ -65,7 +65,7 @@ public class QuizListRecyclerAdapter extends RecyclerView.Adapter<QuizListRecycl
                 if(mType != null){
                     intent=new Intent(itemView.getContext(), StartQuizActivity.class);
                 }else{
-                    intent=new Intent(itemView.getContext(), GenerateOtp.class);
+                    intent=new Intent(itemView.getContext(), StartQuizActivity.class);
                 }
 
                 int pos = (int) tv_title.getTag();

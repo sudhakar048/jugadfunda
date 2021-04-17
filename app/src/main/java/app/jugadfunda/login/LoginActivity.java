@@ -12,6 +12,7 @@ import com.google.android.material.tabs.TabLayout;
 import app.jugadfunda.R;
 import app.jugadfunda.eventmessages.EventMessagesFragment;
 import app.jugadfunda.login.fragment.LoginFragment;
+import app.jugadfunda.login.news.NewFragment;
 import app.jugadfunda.quiz.quizlist.QuizFragment;
 
 public class LoginActivity extends AppCompatActivity {
@@ -35,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         setCustomView("Sign In");
         setCustomView("Events");
         setCustomView("News");
+        setCustomView("Get Inspired");
         setCustomView("Quiz / Poll");
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -56,8 +58,8 @@ public class LoginActivity extends AppCompatActivity {
 
         String check = getIntent().getStringExtra("check");
         if(check.equals("quiz")){
-            addFragment(3);
-            tab = tabLayout.getTabAt(3);
+            addFragment(4);
+            tab = tabLayout.getTabAt(4);
         }else  if(check.equals("event")){
             addFragment(1);
             tab = tabLayout.getTabAt(1);
@@ -78,12 +80,20 @@ public class LoginActivity extends AppCompatActivity {
         Fragment fragment = null;
         if (position == 0){
             fragment = new LoginFragment();
-        }
-        else if (position == 1) {
+        } else if (position == 1) {
             setModuleToNull();
             fragment = new EventMessagesFragment();
-        }
-        else if (position == 3){
+        } else if (position == 2) {
+            fragment = new NewFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("check", "news");
+            fragment.setArguments(bundle);
+        } else if (position == 3) {
+            fragment = new NewFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("check", "story");
+            fragment.setArguments(bundle);
+        } else if (position == 4){
             setModuleToNull();
             fragment = new QuizFragment();
         }

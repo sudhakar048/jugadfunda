@@ -20,7 +20,9 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+import app.jugadfunda.ContentActivity;
 import app.jugadfunda.R;
+import app.jugadfunda.apiclient.ApiClient;
 import app.jugadfunda.home.HomeActivity;
 import app.jugadfunda.login.ImplSigninPresenter;
 import app.jugadfunda.login.LoginActivity;
@@ -70,6 +72,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Sig
         view.findViewById(R.id.cb_pwd).setOnClickListener(this);
         view.findViewById(R.id.btn_sign_in).setOnClickListener(this);
         view.findViewById(R.id.tv_user).setOnClickListener(this);
+        view.findViewById(R.id.tv_disclaimer).setOnClickListener(this);
+        view.findViewById(R.id.tv_pp).setOnClickListener(this);
+        view.findViewById(R.id.tv_tou).setOnClickListener(this);
     }
 
     @Override
@@ -122,6 +127,24 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Sig
                     mTvInstruction.setText(R.string.jugaadfunda_instruction);
                     mLinearSpinner.setVisibility(View.VISIBLE);
                 }
+                break;
+
+            case R.id.tv_disclaimer:
+                Intent intent1 = new Intent(getContext(), ContentActivity.class);
+                intent1.putExtra("url", ApiClient.BASE_URL+"jugaadfunda-agreements/Disclaimer.jsp");
+                startActivity(intent1);
+                break;
+
+            case R.id.tv_pp:
+                Intent intent2 = new Intent(getContext(), ContentActivity.class);
+                intent2.putExtra("url",ApiClient.BASE_URL+"jugaadfunda-agreements/Privacy_Statement.jsp");
+                startActivity(intent2);
+                break;
+
+            case R.id.tv_tou:
+                Intent intent3 = new Intent(getContext(), ContentActivity.class);
+                intent3.putExtra("url",ApiClient.BASE_URL+"jugaadfunda-agreements/Terms_Use.jsp");
+                startActivity(intent3);
                 break;
         }
     }

@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     >
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="@dimen/dp10"
+        app:cardCornerRadius="@dimen/dp5"
         app:cardUseCompatPadding="true"
-        android:padding="@dimen/dp5"
+        android:padding="@dimen/dp2"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="@dimen/dp5">
+            android:layout_margin="@dimen/dp2">
 
             <ImageView
-                android:layout_margin="@dimen/dp20"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_jugaadfunda_logo"
                 android:layout_width="@dimen/dp150"
                 android:layout_height="@dimen/dp150"
-                android:textSize="@dimen/sp18"/>
+               android:layout_marginTop="@dimen/dp20"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
                 android:layout_marginBottom="@dimen/dp10"
                 android:text="@string/welcome"
                 android:textColor="@color/black"
@@ -119,6 +119,63 @@
                 android:textSize="@dimen/sp16"
                 android:textStyle="bold"
                 android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_disclaimer"
+                    android:text="@string/disclaimer"
+                    android:textSize="@dimen/sp16"
+                    android:textStyle="bold"
+                    android:textColor="@color/orange"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="|"
+                    android:textSize="@dimen/sp16"
+                    android:textStyle="bold"
+                    android:textColor="@color/orange"
+                    android:layout_marginLeft="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_pp"
+                    android:text="@string/privacypolicy"
+                    android:textSize="@dimen/sp16"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/orange"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="|"
+                    android:textSize="@dimen/sp16"
+                    android:textStyle="bold"
+                    android:textColor="@color/orange"
+                    android:layout_marginRight="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_tou"
+                    android:text="@string/tou"
+                    android:textSize="@dimen/sp16"
+                    android:textStyle="bold"
+                    android:textColor="@color/orange"/>
+            </LinearLayout>
+
         </LinearLayout>
+
+
     </androidx.cardview.widget.CardView>
+</ScrollView>
 </LinearLayout>

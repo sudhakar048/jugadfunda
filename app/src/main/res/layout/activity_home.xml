@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".learningcompanion.home.HomeActivity">
+    tools:context=".home.HomeActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -33,7 +33,7 @@
                 android:layout_alignParentEnd="true"
                 android:padding="@dimen/dp5"
                 android:src="@drawable/ic_more"
-                android:tint="@color/white" />
+                app:tint="@color/white" />
 
             <ImageView
                 android:id="@+id/iv_share"
@@ -43,7 +43,7 @@
                 android:layout_toStartOf="@+id/iv_setting"
                 android:padding="@dimen/dp8"
                 android:src="@drawable/ic_appshare"
-                android:tint="@color/white" />
+                app:tint="@color/white" />
 
         </RelativeLayout>
 

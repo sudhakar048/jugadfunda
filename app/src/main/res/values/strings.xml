@@ -376,9 +376,15 @@
     <string name="we_respect_privacy">We respect privacy!</string>
     <string name="don_t_worry_your_data_is_safe_with_us">Don\'t worry, your data is safe with us.</string>
     <string name="select_state">Select State</string>
-    <string name="select_district">Select State</string>
-    <string name="select_center">Select State</string>
+    <string name="select_district">Select District</string>
+    <string name="select_center">Select Center</string>
 
     <string name="partnerKey">ZZer186b01f443dbf4494a54834bebe6833ea</string>
     <string name="appKey">ZZer186b01f443dbf4494a54834bebe6833ea</string>
+
+    <string name="disclaimer">Disclaimer</string>
+    <string name="privacypolicy">Privacy Policy</string>
+    <string name="tou">Term of Use</string>
+
+    <string name="remainingtime">Remaining Time</string>
 </resources>

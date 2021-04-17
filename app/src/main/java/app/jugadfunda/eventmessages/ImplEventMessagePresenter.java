@@ -29,7 +29,7 @@ public class ImplEventMessagePresenter implements EventInterfaceImpl {
         mEndPointInterface.wsEventlist(mParam).enqueue(new Callback<List<EventResponse>>() {
             @Override
             public void onResponse(Call<List<EventResponse>> call, Response<List<EventResponse>> response) {
-                if(!response.body().isEmpty()){
+                if(response.body() != null){
                     ArrayList<EventResponse> mEventList = (ArrayList<EventResponse>) response.body();
                     mEventInterfaceView.setEventListtoAdapter(mEventList);
                 }else{

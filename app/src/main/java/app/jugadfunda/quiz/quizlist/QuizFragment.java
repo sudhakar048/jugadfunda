@@ -6,14 +6,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
@@ -21,9 +18,6 @@ import app.jugadfunda.R;
 import app.jugadfunda.apiresponse.QuizListResponse;
 import app.jugadfunda.quiz.adapter.QuizListRecyclerAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class QuizFragment extends Fragment implements QuizListView {
     private ImplQuizListPresenter implQuizListPresenter = null;
     private RecyclerView recycler;

@@ -6,9 +6,9 @@ public class QuestionListResponse {
     private long quesid;
     private String title;
     private ArrayList<OptionResponse> options;
-    private int option;
+    private String option;
 
-    public QuestionListResponse(long quesid, String title, ArrayList<OptionResponse> options, int option) {
+    public QuestionListResponse(long quesid, String title, ArrayList<OptionResponse> options, String option) {
         this.quesid = quesid;
         this.title = title;
         this.options = options;
@@ -39,11 +39,11 @@ public class QuestionListResponse {
         this.options = options;
     }
 
-    public int getOption() {
+    public String getOption() {
         return option;
     }
 
-    public void setOption(int option) {
+    public void setOption(String option) {
         this.option = option;
     }
 
