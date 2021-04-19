@@ -10,16 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import app.jugadfunda.R;
-import app.jugadfunda.generateOtp.GenerateOtpView;
+import app.jugadfunda.generateOtp.PsychometricTestView;
 import app.jugadfunda.home.pojo.DistrictList;
-import app.jugadfunda.home.pojo.StateList;
 import app.jugadfunda.inquiryform.linkindustry.LinkIndustryView;
 
 public class DistrictListAdapter extends BaseAdapter implements View.OnClickListener {
     private Context mContext;
     private ArrayList<DistrictList>mDistrictList;
     private LinkIndustryView mLinkIndustryView;
-    private GenerateOtpView mGenerateOtpView;
+    private PsychometricTestView mGenerateOtpView;
     private String check;
 
     public DistrictListAdapter(Context mContext, ArrayList<DistrictList>mDistrictList, LinkIndustryView mLinkIndustryView, String check){
@@ -29,7 +28,7 @@ public class DistrictListAdapter extends BaseAdapter implements View.OnClickList
         this.check = check;
     }
 
-    public DistrictListAdapter(Context mContext, ArrayList<DistrictList>mDistrictList, GenerateOtpView mGenerateOtpView, String check){
+    public DistrictListAdapter(Context mContext, ArrayList<DistrictList>mDistrictList, PsychometricTestView mGenerateOtpView, String check){
         this.mContext = mContext;
         this.mDistrictList = mDistrictList;
         this.mGenerateOtpView = mGenerateOtpView;

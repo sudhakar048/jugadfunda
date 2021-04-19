@@ -17,42 +17,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ImplGenerateOtpPresenter implements GenerateOtpImpl {
+public class ImplPsychometricTestPresenter implements PsychometricTestImpl {
     private Context mContext;
-    private GenerateOtpView mGenerateOtpView;
+    private PsychometricTestView mGenerateOtpView;
 
-    public ImplGenerateOtpPresenter(Context mContext, GenerateOtpView mGenerateOtpView){
+    public ImplPsychometricTestPresenter(Context mContext, PsychometricTestView mGenerateOtpView){
         this.mContext = mContext;
         this.mGenerateOtpView = mGenerateOtpView;
-    }
-
-    @Override
-    public void generateOtp(String mobilenumber, long qzid) {
-         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            mobilenumber = Base64.getEncoder().encodeToString(mobilenumber.getBytes());
-        }
-
-        EndPointInterface mEndPointInterface = ApiClient.getmRetrofitInstance().create(EndPointInterface.class);
-        mEndPointInterface.wsGenerateOtp(
-                mobilenumber,
-                qzid
-        ).enqueue(new Callback<GenerateOtpResponse>() {
-            @Override
-            public void onResponse(Call<GenerateOtpResponse> call, Response<GenerateOtpResponse> response) {
-                GenerateOtpResponse res = response.body();
-
-                if(res.getMsg().length() > 4) {
-                    mGenerateOtpView.showMsg(res.getMsg());
-                }else{
-                    mGenerateOtpView.generateOtp(res.getMsg());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GenerateOtpResponse> call, Throwable t) {
-                Toast.makeText(mContext,"Unable to connect internet. Pls try again after some time",Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override

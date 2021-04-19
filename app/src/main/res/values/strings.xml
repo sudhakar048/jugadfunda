@@ -370,6 +370,8 @@
     <string name="middle_name">Middle Name</string>
     <string name="last_name">Last Name</string>
     <string name="tell_us_your_e_mail">Tell us Your e-mail</string>
+    <string name="tell_us_your_dob">Tell us Your Date Of Birth</string>
+    <string name="tell_us_your_mobilenumber">Tell us Your Mobile Number</string>
     <string name="mail_hint">\@mail.com</string>
     <string name="tell_us_your_institute">Tell us Your Institute</string>
     <string name="institute_name">Institute Name</string>
@@ -387,4 +389,8 @@
     <string name="tou">Term of Use</string>
 
     <string name="remainingtime">Remaining Time</string>
+    <string name="enter_code">Please enter the code</string>
+    <string name="enter_quizcode_instructions">The Psychometric Test Code will be given on the day of the Psychometric Test. Kindly contact your college to know the date and time of the Psychometric Test.</string>
+    <string name="enter_code_instructions">Please enter the code</string>
+    <string name="enter_code_hint">i.e. PQSIn1234567</string>
 </resources>

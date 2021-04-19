@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import app.jugadfunda.R;
 import app.jugadfunda.apiresponse.QuizListResponse;
-import app.jugadfunda.generateOtp.GenerateOtp;
 import app.jugadfunda.quiz.questions.StartQuizActivity;
 
 public class QuizListRecyclerAdapter extends RecyclerView.Adapter<QuizListRecyclerAdapter.QuizViewHolder> {

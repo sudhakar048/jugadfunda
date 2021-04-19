@@ -1,6 +1,7 @@
 package app.jugadfunda.quiz.quizlist;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ public class ImplQuizListPresenter implements QuizListInterfaceImpl{
         endPointInterface.wsQuizlist().enqueue(new Callback<List<QuizListResponse>>() {
             @Override
             public void onResponse(Call<List<QuizListResponse>> call, Response<List<QuizListResponse>> response) {
+                Log.d("TAG", "onResponse() called with: call = [" + call + "], response = [" + response.body() + "]");
                 if(response.body() != null){
                         ArrayList<QuizListResponse> list = (ArrayList<QuizListResponse>) response.body();
                         quizListView.passDatatoRecyclerView(list);

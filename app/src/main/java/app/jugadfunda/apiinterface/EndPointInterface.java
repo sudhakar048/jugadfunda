@@ -41,7 +41,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
 
-public interface    EndPointInterface {
+public interface EndPointInterface {
 
     //for signin
     @POST("MobileLogin")
@@ -60,11 +60,11 @@ public interface    EndPointInterface {
 
 
     //for list of quiz
-    @GET("Jugaadfunda-Admin/GetQuizListContoller")
+    @GET("STBI/GetQuizListContoller")
     Call<List<QuizListResponse>> wsQuizlist();
 
     //for question list
-    @POST("Jugaadfunda-Admin/GetAllQuestionsController")
+    @POST("STBI/GetAllQuestionsController")
     @FormUrlEncoded
     Call<List<QuestionListResponse>> wsQuestionList(@Field("qzid") long mQuizId);
 
@@ -204,11 +204,7 @@ public interface    EndPointInterface {
     @GET("GeLinktIndustryDetailsController")
     Call<List<LinkedIndustryList>> wsLiknedIndustryList(@Query("userid") long mUserId, @Query("module") String mModuleType);
 
-    @POST("GenerateOtpController")
-    @FormUrlEncoded
-    Call<GenerateOtpResponse> wsGenerateOtp(@Field("mb")String mMobileNumber, @Field("qzid")long mQuizId);
-
-    @POST("STBI/VerifyOtpController")
+   @POST("STBI/VerifyOtpController")
     @FormUrlEncoded
     Call<VerifyOtpResponse> wsVerifyOtp(@Field("fname")String mFirstname, @Field("mname")String mMiddlename, @Field("lname")String mLastname, @Field("gen")String mGender, @Field("dob")String mDob, @Field("mb")String mMobileNumber, @Field("e")String mEmailId, @Field("sid")int mStateId, @Field("did")int mDistrictId, @Field("cid")long mCenterId, @Field("insid")long mInstituteId,@Field("qzid")long mQuizId);
 }

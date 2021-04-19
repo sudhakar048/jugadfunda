@@ -6,13 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import app.jugadfunda.R;
-import app.jugadfunda.generateOtp.GenerateOtpView;
+import app.jugadfunda.generateOtp.PsychometricTestView;
 import app.jugadfunda.home.pojo.CenterList;
 import app.jugadfunda.inquiryform.linkindustry.LinkIndustryView;
 
@@ -20,7 +19,7 @@ public class CenterListAdapter extends BaseAdapter implements View.OnClickListen
     private Context mContext;
     private ArrayList<CenterList> mCenterList;
     private LinkIndustryView mLinkIndustryView;
-    private GenerateOtpView mGenerateOtpView;
+    private PsychometricTestView mGenerateOtpView;
     private String check;
 
     public CenterListAdapter(Context mContext, ArrayList<CenterList> mCenterList, LinkIndustryView mLinkIndustryView, String check){
@@ -30,7 +29,7 @@ public class CenterListAdapter extends BaseAdapter implements View.OnClickListen
         this.check = check;
     }
 
-    public CenterListAdapter(Context mContext, ArrayList<CenterList> mCenterList, GenerateOtpView mGenerateOtpView, String check){
+    public CenterListAdapter(Context mContext, ArrayList<CenterList> mCenterList, PsychometricTestView mGenerateOtpView, String check){
         this.mContext = mContext;
         this.mCenterList = mCenterList;
         this.mGenerateOtpView = mGenerateOtpView;

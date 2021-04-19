@@ -9,13 +9,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".generateOtp.GenerateOtp">
+    tools:context=".generateOtp.PschyometricTestFragment">
 
     <include layout="@layout/layout_personaldetail"/>
     
     <include layout="@layout/layout_institutedetails"/>
 
-    <include layout="@layout/layout_getotp"/>
+    <!-- <include layout="@layout/layout_getotp"/> -->
 
 </LinearLayout>
 </ScrollView>

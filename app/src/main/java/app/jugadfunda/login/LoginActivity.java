@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.tabs.TabLayout;
 import app.jugadfunda.R;
 import app.jugadfunda.eventmessages.EventMessagesFragment;
+import app.jugadfunda.generateOtp.PschyometricTestFragment;
 import app.jugadfunda.login.fragment.LoginFragment;
 import app.jugadfunda.login.news.NewFragment;
 import app.jugadfunda.quiz.quizlist.QuizFragment;
@@ -37,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         setCustomView("Events");
         setCustomView("News");
         setCustomView("Get Inspired");
-        setCustomView("Quiz / Poll");
+        setCustomView("Pschyometric Test");
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -95,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
             fragment.setArguments(bundle);
         } else if (position == 4){
             setModuleToNull();
-            fragment = new QuizFragment();
+            fragment = new PschyometricTestFragment();
         }
 
         if (fragment != null)

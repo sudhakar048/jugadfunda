@@ -28,7 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-      <activity android:name=".generateOtp.GenerateOtp"
+      <activity android:name=".generateOtp.PschyometricTestFragment"
           android:screenOrientation="portrait"></activity>
         <activity
             android:name=".home.sessions.QueryListActivity"

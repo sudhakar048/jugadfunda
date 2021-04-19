@@ -7,15 +7,11 @@ import app.jugadfunda.home.pojo.CenterList;
 import app.jugadfunda.home.pojo.DistrictList;
 import app.jugadfunda.home.pojo.StateList;
 
-public interface GenerateOtpView {
+public interface PsychometricTestView {
 
     void movetoQuizActivity();
 
     void clearForm();
-
-    void showMsg(String message);
-
-    void generateOtp(String otp);
 
     void populateStates(ArrayList<StateList> stateLists);
 

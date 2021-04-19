@@ -69,6 +69,7 @@ public class QuizFragment extends Fragment implements QuizListView {
 
     @Override
     public void loadProgressBar() {
+
         dialog = new ProgressDialog(getContext());
         dialog.setTitle("Quiz / Poll");
         dialog.setMessage("Loading Quiz....");

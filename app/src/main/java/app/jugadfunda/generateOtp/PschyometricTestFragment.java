@@ -2,7 +2,9 @@ package app.jugadfunda.generateOtp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -11,9 +13,10 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -39,25 +42,22 @@ import app.jugadfunda.inquiryform.adapter.CenterListAdapter;
 import app.jugadfunda.inquiryform.adapter.DistrictListAdapter;
 import app.jugadfunda.inquiryform.adapter.InstituteListAdapter;
 import app.jugadfunda.inquiryform.adapter.StateListAdapter;
-import app.jugadfunda.login.LoginActivity;
 import app.jugadfunda.quiz.questions.StartQuizActivity;
 import app.jugadfunda.validate.Validate;
 
-public class GenerateOtp extends AppCompatActivity implements View.OnClickListener, GenerateOtpView, RadioGroup.OnCheckedChangeListener {
+public class PschyometricTestFragment extends Fragment implements View.OnClickListener, PsychometricTestView, RadioGroup.OnCheckedChangeListener {
     private EditText mEtfirstname;
     private EditText mEtmiddlename;
     private EditText mEtlastname;
     private EditText mEtemailid;
     private EditText mEtdob;
     private EditText mEtPhone;
-    private EditText mEtOtp;
     private Spinner mSpinnerState;
     private Spinner mSpinnerDistrict;
     private Spinner mSpinnerCenter;
     private Spinner mSpinnerInstitute;
     private RadioGroup rg_gender;
-    private TextView mTvTiming;
-    private ImplGenerateOtpPresenter mImplGenerateOtpPresenter = null;
+    private ImplPsychometricTestPresenter mImplGenerateOtpPresenter = null;
     private long quizId = 0;
     private String title = "";
     private ArrayList<StateList> mStateLists;
@@ -76,36 +76,41 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
     private static final String TAG = "TrueCallerVerification";
     private String[] permissionArrays = null;
     private String mobilenumber;
-    private Handler handler = new Handler();
+    private boolean flag = false;
+    private View itemView = null;
 
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_generate_otp);
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        itemView = inflater.inflate(R.layout.activity_generate_otp, container, false);
         setUI();
-
+        return itemView;
     }
 
     void setUI() {
-        mEtPhone = findViewById(R.id.et_phone_otp);
-        mEtfirstname = findViewById(R.id.et_firstname);
-        mEtlastname = findViewById(R.id.et_lastname);
-        mEtemailid = findViewById(R.id.et_email);
-        mEtmiddlename = findViewById(R.id.et_middlename);
-        mEtdob = findViewById(R.id.et_dob);
-        mEtOtp = findViewById(R.id.et_otp);
-        mSpinnerInstitute = findViewById(R.id.spinner_institute);
-        mSpinnerCenter = findViewById(R.id.spinner_center);
-        mSpinnerState = findViewById(R.id.spinner_state);
-        mSpinnerDistrict = findViewById(R.id.spinner_district);
-        rg_gender = findViewById(R.id.rg_gender);
-        mTvTiming = findViewById(R.id.tv_timer);
+        mEtPhone = itemView.findViewById(R.id.et_phone_otp);
+        mEtfirstname = itemView.findViewById(R.id.et_firstname);
+        mEtlastname = itemView.findViewById(R.id.et_lastname);
+        mEtemailid = itemView.findViewById(R.id.et_email);
+        mEtmiddlename = itemView.findViewById(R.id.et_middlename);
+        mEtdob = itemView.findViewById(R.id.et_dob);
+        mSpinnerInstitute = itemView.findViewById(R.id.spinner_institute);
+        mSpinnerCenter = itemView.findViewById(R.id.spinner_center);
+        mSpinnerState = itemView.findViewById(R.id.spinner_state);
+        mSpinnerDistrict = itemView.findViewById(R.id.spinner_district);
+        rg_gender = itemView.findViewById(R.id.rg_gender);
 
-        mImplGenerateOtpPresenter = new ImplGenerateOtpPresenter(this, this);
+        trueCallerTrucallerUserInit();
 
-        quizId = getIntent().getLongExtra("qiz", 0);
-        title = getIntent().getStringExtra("title");
+        boolean flag = TruecallerSDK.getInstance().isUsable();
+        if(flag){
+            itemView.findViewById(R.id.cv_mobilenumber).setVisibility(View.GONE);
+            itemView.findViewById(R.id.tv_msg).setVisibility(View.GONE);
+            itemView.findViewById(R.id.tv_tellusmobile).setVisibility(View.GONE);
+        }
+
+        mImplGenerateOtpPresenter = new ImplPsychometricTestPresenter(getContext(), this);
 
         setListener();
 
@@ -116,14 +121,11 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
     }
 
     void setListener() {
-        findViewById(R.id.iv_clear).setOnClickListener(this);
-        findViewById(R.id.btn_next).setOnClickListener(this);
-        findViewById(R.id.iv_ssubmit).setOnClickListener(this);
-        findViewById(R.id.btn_previous).setOnClickListener(this);
-        findViewById(R.id.btn_getotp).setOnClickListener(this);
-        findViewById(R.id.iv_login).setOnClickListener(this);
-        findViewById(R.id.iv_previous).setOnClickListener(this);
-        findViewById(R.id.et_dob).setOnClickListener(this);
+        itemView.findViewById(R.id.iv_clear).setOnClickListener(this);
+        itemView.findViewById(R.id.btn_next).setOnClickListener(this);
+        itemView.findViewById(R.id.iv_ssubmit).setOnClickListener(this);
+        itemView.findViewById(R.id.btn_previous).setOnClickListener(this);
+        itemView.findViewById(R.id.et_dob).setOnClickListener(this);
         rg_gender.setOnCheckedChangeListener(this);
     }
 
@@ -134,64 +136,36 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
                 dateDialog();
                 break;
 
-            case R.id.iv_login:
-              /*  TrueProfile mTrueProfile = new TrueProfile();
-                mTrueProfile.firstName = mEtfirstname.getText().toString();
-                mTrueProfile.lastName = mEtlastname.getText().toString();
-
-                TruecallerSDK.getInstance().verifyMissedCall(mTrueProfile, apiCallback);*/
-                if(mEtPhone.getText().toString().isEmpty() || mEtPhone.getText().toString().length() != 10){
-                    Toast.makeText(this,"Invalid Mobile Number",Toast.LENGTH_LONG).show();
-                }else{
-                    mobilenumber = "+91"+mEtPhone.getText().toString();
-                    mImplGenerateOtpPresenter.verifyOtp(mEtfirstname.getText().toString(), mEtmiddlename.getText().toString(), mEtlastname.getText().toString(), gender, mEtdob.getText().toString(), mobilenumber, mEtemailid.getText().toString(), mStateId, mDistrictId, mCenterId, mInstituteId, quizId);
-                }
-
-                break;
-
-            case R.id.btn_getotp:
-         //       startTimer();
-           //     trueCallerNonTrucallerUserInit();
-             //   TruecallerSDK.getInstance().requestVerification("IN", mEtPhone.getText().toString(), apiCallback, GenerateOtp.this);
-             //   findViewById(R.id.btn_getotp).setEnabled(false);
-             //   findViewById(R.id.lineartimer).setVisibility(View.VISIBLE);
-                break;
-
-
             case R.id.iv_ssubmit:
                 String check1 = validateNextDetails();
-                trueCallerTrucallerUserInit();
                 if (check1.equals("ok")) {
-                    boolean flag = TruecallerSDK.getInstance().isUsable();
                     if (flag) {
                         TruecallerSDK.getInstance().getUserProfile(this);
                     } else {
-                        setGetOtpVisible();
+                        mobilenumber = "+91"+mEtPhone.getText().toString();
+                        mImplGenerateOtpPresenter.verifyOtp(mEtfirstname.getText().toString(), mEtmiddlename.getText().toString(), mEtlastname.getText().toString(), gender, mEtdob.getText().toString(), mobilenumber, mEtemailid.getText().toString(), mStateId, mDistrictId, mCenterId, mInstituteId, quizId);
                     }
                 } else {
-                    Toast.makeText(this, check1, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), check1, Toast.LENGTH_LONG).show();
                 }
                 break;
 
-            case R.id.iv_previous:
-                setGetOtpGone();
-                break;
 
             case R.id.btn_next:
-                String check2 = validateDetails(mEtfirstname.getText().toString(), mEtmiddlename.getText().toString(), mEtlastname.getText().toString(), gender, mEtdob.getText().toString(), mEtemailid.getText().toString());
+                String check2 = validateDetails(mEtfirstname.getText().toString(), mEtmiddlename.getText().toString(), mEtlastname.getText().toString(), gender, mEtdob.getText().toString(), mEtemailid.getText().toString(),mEtPhone.getText().toString());
                 if (check2.equals("ok")) {
-                    findViewById(R.id.institutedetails).setVisibility(View.VISIBLE);
-                    findViewById(R.id.linear_pdetails).setVisibility(View.GONE);
+                    itemView.findViewById(R.id.institutedetails).setVisibility(View.VISIBLE);
+                    itemView.findViewById(R.id.linear_pdetails).setVisibility(View.GONE);
                 } else {
-                    Toast.makeText(this, check2, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), check2, Toast.LENGTH_LONG).show();
                 }
 
 
                 break;
 
             case R.id.btn_previous:
-                findViewById(R.id.institutedetails).setVisibility(View.GONE);
-                findViewById(R.id.linear_pdetails).setVisibility(View.VISIBLE);
+                itemView.findViewById(R.id.institutedetails).setVisibility(View.GONE);
+                itemView.findViewById(R.id.linear_pdetails).setVisibility(View.VISIBLE);
                 break;
 
             case R.id.spinner_district:
@@ -208,33 +182,35 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    void setGetOtpVisible() {
+/*    void setGetOtpVisible() {
         findViewById(R.id.linear_getotp).setVisibility(View.VISIBLE);
         findViewById(R.id.linear_pdetails).setVisibility(View.GONE);
         findViewById(R.id.institutedetails).setVisibility(View.GONE);
-    }
+    }*/
 
-    void setGetOtpGone() {
+ /*   void setGetOtpGone() {
         findViewById(R.id.linear_getotp).setVisibility(View.GONE);
         findViewById(R.id.linear_pdetails).setVisibility(View.GONE);
         findViewById(R.id.institutedetails).setVisibility(View.VISIBLE);
     }
-
+*/
     @Override
     public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions,
                                            @NonNull final int[] grantResults) {
-        TruecallerSDK.getInstance().requestVerification("IN", mEtPhone.getText().toString(), apiCallback, GenerateOtp.this);
+        TruecallerSDK.getInstance().requestVerification("IN", mEtPhone.getText().toString(), apiCallback, (FragmentActivity) getContext());
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == TruecallerSDK.SHARE_PROFILE_REQUEST_CODE) {
-            TruecallerSDK.getInstance().onActivityResultObtained(this, requestCode, resultCode, data);
+            TruecallerSDK.getInstance().onActivityResultObtained((FragmentActivity) getContext(), requestCode, resultCode, data);
         }
     }
 
-    public String validateDetails(String firstname, String middlename, String lastname, String gender, String dob, String emailId) {
+    public String validateDetails(String firstname, String middlename, String lastname, String gender, String dob, String emailId, String mobileumber) {
+
+       Toast.makeText(getContext(),""+flag,Toast.LENGTH_LONG).show();
         if (!Pattern.matches(Validate.FIRSTNAME_PATTERN, firstname)) {
             return "Invalid first name";
         } else if (!Pattern.matches(Validate.FIRSTNAME_PATTERN, middlename)) {
@@ -247,12 +223,16 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
             return "Please Add Date Of Birth";
         } else if (!Pattern.matches(Validate.EMAILID_PATTERN, emailId)) {
             return "Invalid emailid";
+        }else if (flag) {
+            return "ok";
+        }else if(!flag && mobileumber.length() != 10){
+            return "Invalid Mobile Number";
         }
         return "ok";
     }
 
     public String validateNextDetails() {
-        if (mStateId == 0) {
+        if (mStateId == 0) {  
             return "Please Select State";
         } else if (mDistrictId == 0) {
             return "Please Select District";
@@ -266,12 +246,12 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void movetoQuizActivity() {
-        SharedPreferences sh = getSharedPreferences("profile", Context.MODE_PRIVATE);
+        SharedPreferences sh = getContext().getSharedPreferences("profile", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sh.edit();
         editor.putString("mb", mobilenumber);
         editor.commit();
 
-        Intent intent = new Intent(GenerateOtp.this, StartQuizActivity.class);
+        Intent intent = new Intent(getContext(), StartQuizActivity.class);
         intent.putExtra("qiz", quizId);
         intent.putExtra("title", title);
         startActivity(intent);
@@ -286,42 +266,31 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
         mEtemailid.setText("");
     }
 
-
-    @Override
-    public void showMsg(String message) {
-
-    }
-
-    @Override
-    public void generateOtp(String otp) {
-
-    }
-
     @Override
     public void populateStates(ArrayList<StateList> stateLists) {
         mStateLists = stateLists;
-        mStateListAdapter = new StateListAdapter(this, mStateLists, this, "otp");
+        mStateListAdapter = new StateListAdapter(getContext(), mStateLists, this, "otp");
         mSpinnerState.setAdapter(mStateListAdapter);
     }
 
     @Override
     public void populateDistricts(ArrayList<DistrictList> districtLists) {
         mDistrictLists = districtLists;
-        mDistrictListAdapter = new DistrictListAdapter(this, mDistrictLists, this, "otp");
+        mDistrictListAdapter = new DistrictListAdapter(getContext(), mDistrictLists, this, "otp");
         mSpinnerDistrict.setAdapter(mDistrictListAdapter);
     }
 
     @Override
     public void populateCenters(ArrayList<CenterList> centerLists) {
         mCenterLists = centerLists;
-        mCenterListAdapter = new CenterListAdapter(this, mCenterLists, this, "otp");
+        mCenterListAdapter = new CenterListAdapter(getContext(), mCenterLists, this, "otp");
         mSpinnerCenter.setAdapter(mCenterListAdapter);
     }
 
     @Override
     public void populateInstitutes(ArrayList<InstituteList> instituteLists) {
         mInstituteLists = instituteLists;
-        mInstituteListAdapter = new InstituteListAdapter(this, mInstituteLists, this, "otp");
+        mInstituteListAdapter = new InstituteListAdapter(getContext(), mInstituteLists, this, "otp");
         mSpinnerInstitute.setAdapter(mInstituteListAdapter);
     }
 
@@ -349,12 +318,7 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
 
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(GenerateOtp.this, LoginActivity.class);
-        intent.putExtra("check", "quiz");
-        startActivity(intent);
-    }
+
 
 
     @Override
@@ -370,7 +334,7 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
     }
 
     void trueCallerTrucallerUserInit() {
-        TruecallerSdkScope trueScope = new TruecallerSdkScope.Builder(this, sdkCallback)
+        TruecallerSdkScope trueScope = new TruecallerSdkScope.Builder(getContext(), sdkCallback)
                 .consentMode(TruecallerSdkScope.CONSENT_MODE_BOTTOMSHEET)
                 .buttonColor(Color.parseColor("#e0af1f"))
                 .buttonTextColor(Color.parseColor("#ffffff"))
@@ -389,7 +353,7 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
     }
 
     void trueCallerNonTrucallerUserInit() {
-        TruecallerSdkScope trueScope = new TruecallerSdkScope.Builder(this, sdkCallback)
+        TruecallerSdkScope trueScope = new TruecallerSdkScope.Builder(getContext(), sdkCallback)
                 .consentMode(TruecallerSdkScope.CONSENT_MODE_BOTTOMSHEET)
                 .buttonColor(Color.parseColor("#e0af1f"))
                 .buttonTextColor(Color.parseColor("#ffffff"))
@@ -412,14 +376,14 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
 
         @Override
         public void onSuccessProfileShared(@NonNull final TrueProfile trueProfile) {
-            findViewById(R.id.iv_ssubmit).setEnabled(true);
+            itemView.findViewById(R.id.iv_ssubmit).setEnabled(true);
             mobilenumber = trueProfile.phoneNumber;
             mImplGenerateOtpPresenter.verifyOtp(mEtfirstname.getText().toString(), mEtmiddlename.getText().toString(), mEtlastname.getText().toString(), gender, mEtdob.getText().toString(), mobilenumber, mEtemailid.getText().toString(), mStateId, mDistrictId, mCenterId, mInstituteId, quizId);
         }
 
         @Override
         public void onFailureProfileShared(@NonNull final TrueError trueError) {
-            findViewById(R.id.iv_ssubmit).setEnabled(false);
+            itemView.findViewById(R.id.iv_ssubmit).setEnabled(false);
             Log.d(TAG, "onFailureProfileShared() called with: trueError = [" + trueError + "]");
         }
 
@@ -489,47 +453,16 @@ public class GenerateOtp extends AppCompatActivity implements View.OnClickListen
                 mEtdob.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
             }
         };
-        DatePickerDialog dpDialog = new DatePickerDialog(this, listener, 1993, 0, 1);
+        DatePickerDialog dpDialog = new DatePickerDialog(getContext(), listener, 1993, 0, 1);
         dpDialog.show();
     }
 
-
-//Callback for Timer
-        int i = 60;
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                i--;
-                mTvTiming.setText("" + i);
-
-                startTimer();
-                if(i == 0){
-                    cancelTimer();
-                    findViewById(R.id.btn_getotp).setEnabled(true);
-                    findViewById(R.id.lineartimer).setVisibility(View.GONE);
-                }
-            }
-        };
-
-    public void startTimer() {
-        handler.postDelayed(runnable, 1000);
-    }
-
-    public void cancelTimer() {
-        handler.removeCallbacks(runnable);
-    }
-
     @Override
-    protected void onStop() {
-        super.onStop();
-        handler.removeCallbacks(runnable);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         TruecallerSDK.clear();
     }
+
 }
 
 

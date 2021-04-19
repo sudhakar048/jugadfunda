@@ -14,14 +14,14 @@ import java.util.ArrayList;
 
 import app.jugadfunda.R;
 import app.jugadfunda.apiresponse.InstituteList;
-import app.jugadfunda.generateOtp.GenerateOtpView;
+import app.jugadfunda.generateOtp.PsychometricTestView;
 import app.jugadfunda.inquiryform.linkindustry.LinkIndustryView;
 
 public class InstituteListAdapter extends BaseAdapter implements View.OnClickListener {
     private Context mContext;
     private ArrayList<InstituteList> mInstituteList;
     private LinkIndustryView mLinkIndustryView;
-    private GenerateOtpView mGenerateOtpView;
+    private PsychometricTestView mGenerateOtpView;
     private String check;
 
     public InstituteListAdapter(Context mContext, ArrayList<InstituteList> mInstituteList, LinkIndustryView mLinkIndustryView, String check){
@@ -31,7 +31,7 @@ public class InstituteListAdapter extends BaseAdapter implements View.OnClickLis
         this.check = check;
     }
 
-    public InstituteListAdapter(Context mContext, ArrayList<InstituteList> mInstituteList, GenerateOtpView mGenerateOtpView, String check){
+    public InstituteListAdapter(Context mContext, ArrayList<InstituteList> mInstituteList, PsychometricTestView mGenerateOtpView, String check){
         this.mContext = mContext;
         this.mInstituteList = mInstituteList;
         this.mGenerateOtpView = mGenerateOtpView;

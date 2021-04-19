@@ -13,14 +13,12 @@ import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
 import app.jugadfunda.R;
 import app.jugadfunda.apiresponse.QuestionListResponse;
 import app.jugadfunda.home.HomeActivity;
