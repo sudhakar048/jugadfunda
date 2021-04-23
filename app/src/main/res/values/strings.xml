@@ -45,6 +45,8 @@
     <string name="capture_idea">Capture Idea</string>
     <string name="start">Start</string>
     <string name="back">Back</string>
+    <string name="skip">Skip</string>
+    <string name="submit_test">Submit Test</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="enter_company_name">* Enter Company Name, Only uppercase, lowercase, numbers,-,_,.,\' and Max 500 charatcers are allowed</string>
@@ -120,7 +122,7 @@
     <string name="btn_captureideafinal">Schedule Track</string>
     <string name="btn_savelocally">Schedule Track</string>
     <string name="required_fields">Note : All the fields with * marks are required</string>
-    <string name="achievements">Ideas Transformed: 45, Institutes Registered: 36, Students Addressed:6542, Mentors Trained:56, Industries Registered:65</string>
+    <string name="achievements">Ideas Under Transformation: 119, Institutions Registered: 96, Students Addressed:10542, Mentors Connected:304, Industries Registered:120</string>
     <string name="password_required">Use atleast one uppercase, one lowercase, one number, one special character and minimum 8 characters</string>
     <string name="event_howtoapply">How to Apply/Join</string>
     <string name="event_description">Event Description</string>
@@ -343,6 +345,7 @@
     <string name="industry_declaration">I hereby declare that all the statements made by me in the application form and information sheet are true and complete to the best of my knowledge.</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="start_quiz">Start Quiz</string>
     <string name="connect_indus">Connect Industry</string>
     <string name="industry_details">Industry Details</string>
     <string name="companyname">Company Name</string>
@@ -351,7 +354,6 @@
     <string name="comobilenumber">Co-ordinator Mobile Number</string>
     <string name="coemailid">Co-ordinator Email Id</string>
     <string name="link_industry">Link Industry</string>
-
 
     <string name="login_screen_message">Please enter correct mobile number because our backend Team will connect you on  the same number.</string>
     <string name="get_code">Get Code</string>
@@ -393,4 +395,7 @@
     <string name="enter_quizcode_instructions">The Psychometric Test Code will be given on the day of the Psychometric Test. Kindly contact your college to know the date and time of the Psychometric Test.</string>
     <string name="enter_code_instructions">Please enter the code</string>
     <string name="enter_code_hint">i.e. PQSIn1234567</string>
+
+    <string name="selected_institute">Your Selected Institute Is :</string>
+    <string name="continue_selected_institute">Would you like to continue with this Institute ?</string>
 </resources>

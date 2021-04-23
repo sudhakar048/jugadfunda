@@ -15,6 +15,7 @@
     
     <include layout="@layout/layout_institutedetails"/>
 
+    <include layout="@layout/layout_quizcode"/>
     <!-- <include layout="@layout/layout_getotp"/> -->
 
 </LinearLayout>

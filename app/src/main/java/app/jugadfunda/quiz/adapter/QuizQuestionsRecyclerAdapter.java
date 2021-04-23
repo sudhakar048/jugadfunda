@@ -38,6 +38,7 @@ public class QuizQuestionsRecyclerAdapter extends RecyclerView.Adapter<QuizQuest
     public void onBindViewHolder(@NonNull QuizQuestionsViewHolder holder, int position) {
         QuestionListResponse questionListResponse = mList.get(position);
         holder.tv_question.setText(questionListResponse.getTitle());
+        holder.tv_question_count.setText("Question "+(position+1));
         ArrayList<OptionResponse>optionlist = questionListResponse.getOptions();
         if(!optionlist.isEmpty()){
             holder.rb_option1.setText(optionlist.get(0).getOpts());
@@ -112,6 +113,7 @@ public class QuizQuestionsRecyclerAdapter extends RecyclerView.Adapter<QuizQuest
     }
 
     static class QuizQuestionsViewHolder extends RecyclerView.ViewHolder {
+        private TextView tv_question_count;
         private TextView tv_question;
         private RadioButton rb_option1;
         private RadioButton rb_option2;
@@ -122,6 +124,7 @@ public class QuizQuestionsRecyclerAdapter extends RecyclerView.Adapter<QuizQuest
 
         public QuizQuestionsViewHolder(@NonNull View itemView) {
             super(itemView);
+            tv_question_count = itemView.findViewById(R.id.tv_quescount);
             tv_question = itemView.findViewById(R.id.tv_question);
             rb_option1 = itemView.findViewById(R.id.rb_radio1);
             rb_option2 = itemView.findViewById(R.id.rb_radio2);

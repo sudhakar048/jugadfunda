@@ -48,4 +48,8 @@ public class  Validate {
 
     public static String INSTITUTE_NAME = "[A-Za-z0-9',.\\s]{1,500}";
 
+    public static String REGEX_QUIZ_CODE = "^(PQSIn21)[0-9]{7}";
+
+
+
 }

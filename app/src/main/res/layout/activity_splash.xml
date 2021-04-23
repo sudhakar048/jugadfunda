@@ -12,9 +12,9 @@
         android:padding="@dimen/dp5"
         >
         <ImageView
-            android:layout_width="@dimen/dp300"
-            android:layout_height="@dimen/dp300"
-            android:background="@drawable/ic_lc_splash"
+            android:layout_width="@dimen/dp150"
+            android:layout_height="@dimen/dp150"
+            android:background="@drawable/ic_jugaadfunda_logo"
             android:layout_gravity="center"/>
     </androidx.cardview.widget.CardView>
 

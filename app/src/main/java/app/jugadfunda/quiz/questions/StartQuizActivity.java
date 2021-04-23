@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +29,6 @@ import app.jugadfunda.quiz.pojo.SelectedOptions;
 public class StartQuizActivity extends AppCompatActivity implements StartQuizInterfaceView, View.OnClickListener {
 
    private ViewPager2 viewPager2;
-   private DotsIndicator indicator;
    private ImplStartQuizPresenter implStartQuizPresenter;
    private ArrayList<QuestionListResponse> qList;
    private ArrayList<SelectedOptions> mSelectedList;
@@ -42,8 +40,10 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
    private QuizQuestionsRecyclerAdapter adapter;
    private CountDownTimer cTimer = null;
    private TextView mTvtimer;
-   private int minutetime = 40;
+   private TextView mTvInstructions;
+   private int minutetime = 0;
    private int secondtime = 60;
+   private String mInstructions = "";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -56,10 +56,11 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
 
     private void setRecycler(){
         implStartQuizPresenter = new ImplStartQuizPresenter(this,this);
-        indicator = findViewById(R.id.dots_indicator);
         viewPager2=findViewById(R.id.pager);
         mTVnoData = findViewById(R.id.tv_nodata);
         mTvtimer = findViewById(R.id.tv_timer);
+        mTvInstructions = findViewById(R.id.tv_quizinstructions);
+
         setListener();
 
         mSelectedList = new ArrayList<>();
@@ -68,26 +69,30 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
         Intent intent = getIntent();
         quizid = intent.getLongExtra("qiz",0);
         title = intent.getStringExtra("title");
-
+        minutetime = intent.getIntExtra("d", 0);
+        int totalquestions = intent.getIntExtra("tq",0);
         SharedPreferences sh = getSharedPreferences("profile", Context.MODE_PRIVATE);
         mobilenumber = sh.getString("mb","");
         if(mobilenumber.contains("-")){
             mobilenumber = mobilenumber.substring(4,13);
         }
 
+        mInstructions = getInstructions(minutetime, totalquestions);
+
         ((TextView)findViewById(R.id.tv_title)).setText(title);
 
         implStartQuizPresenter.wsQuestionlist(quizid);
+
+        hidepager();
     }
 
     void setListener(){
-        findViewById(R.id.iv_menu).setOnClickListener(this::openMenu);
-        findViewById(R.id.iv_back).setOnClickListener(view -> onBackPressed());
         findViewById(R.id.tv_next).setOnClickListener(this);
-        findViewById(R.id.tv_back).setOnClickListener(this);
-        findViewById(R.id.floating_add).setOnClickListener(this);
+        findViewById(R.id.tv_skip).setOnClickListener(this);
+        findViewById(R.id.tv_submittest).setOnClickListener(this);
+        findViewById(R.id.btn_startquiz).setOnClickListener(this);
     }
-    private void openMenu(View view){
+   /* private void openMenu(View view){
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.getMenuInflater().inflate(R.menu.popup_quiz, popupMenu.getMenu());
         popupMenu.setOnMenuItemClickListener(menuItem -> {
@@ -98,7 +103,7 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
             return false;
         });
         popupMenu.show();
-    }
+    }*/
 
     @Override
     public void passDataToRecyclerView(ArrayList<QuestionListResponse> questionsList) {
@@ -106,9 +111,6 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
         adapter = new QuizQuestionsRecyclerAdapter(this, qList,this);
         viewPager2.setAdapter(adapter);
 
-        indicator.setViewPager2(viewPager2);
-
-        startTimer();
     }
 
     @Override
@@ -142,7 +144,8 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
         }
         adapter = new QuizQuestionsRecyclerAdapter(this, qList,this);
         viewPager2.setAdapter(adapter);
-        findViewById(R.id.floating_add).setVisibility(View.GONE);
+
+        checkForAutoLogin();
     }
 
     @Override
@@ -175,16 +178,15 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
         switch (v.getId()){
             case R.id.tv_next:
                 viewPager2.setCurrentItem(viewPager2.getCurrentItem()+1);
-                if (qList.size()  == viewPager2.getCurrentItem()+1) {
-                    findViewById(R.id.floating_add).setVisibility(View.VISIBLE);
-                }
+                showFloatingBtn();
                 break;
 
-            case R.id.tv_back:
-                viewPager2.setCurrentItem(viewPager2.getCurrentItem()-1);
+            case R.id.tv_skip:
+                viewPager2.setCurrentItem(viewPager2.getCurrentItem()+1);
+                showFloatingBtn();
                 break;
 
-            case R.id.floating_add:
+            case R.id.tv_submittest:
                 JSONArray list = convertListtoJSONArray(mSelectedList);
                 if(list.length() == 0){
                     Toast.makeText(this, "Please Attempt atleast one Question",Toast.LENGTH_LONG).show();
@@ -192,12 +194,11 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
                     implStartQuizPresenter.wsAddAnswers(quizid,list, mobilenumber,40,32);
                 }
                 break;
-        }
-    }
 
-    @Override
-    public void onBackPressed() {
-        checkForAutoLogin();
+            case R.id.btn_startquiz:
+                showpager();
+                break;
+        }
     }
 
     void checkForAutoLogin(){
@@ -223,8 +224,53 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
             }
             public void onFinish() {
                 mTvtimer.setText("Done!");
+                checkForAutoLogin();
             }
         };
         cTimer.start();
+    }
+
+    @Override
+    public void onBackPressed() {
+    }
+
+    void showFloatingBtn(){
+        if (qList.size()  == viewPager2.getCurrentItem()+1) {
+            findViewById(R.id.tv_submittest).setEnabled(true);
+        }
+    }
+
+    String getInstructions(int duration, int totalnoquestions){
+        String str = "1. The duration of the test is "+duration+" minutes*.\n" +
+                "2. The timer begins automatically once you start the test.\n" +
+                "3. The test will end automatically after "+duration+" minutes.\n" +
+                "4. There are a total of "+totalnoquestions+" questions.\n" +
+                "5. Each question has 4 options and only ONE correct answer.\n" +
+                "6. You can either answer the question or skip it, you cannot go back to the previous question or change your answer after going on to the next question.\n" +
+                "7. There is no negative marking.\n" +
+                "8. Each question carries 1 mark.\n" +
+                "9. Only 50 students will be shortlisted per institute.\n" +
+                "10. If 2 students have the same score the one who submitted the test first will be given priority.";
+        return str;
+    }
+
+    void showpager(){
+        findViewById(R.id.tv_timer).setVisibility(View.VISIBLE);
+        findViewById(R.id.pager).setVisibility(View.VISIBLE);
+        findViewById(R.id.recycler_dots).setVisibility(View.VISIBLE);
+
+        findViewById(R.id.linear_quizinstruction).setVisibility(View.GONE);
+        findViewById(R.id.tv_title).setVisibility(View.VISIBLE);
+        startTimer();
+    }
+
+
+    void hidepager(){
+        findViewById(R.id.linear_quizinstruction).setVisibility(View.VISIBLE);
+        findViewById(R.id.tv_timer).setVisibility(View.GONE);
+        findViewById(R.id.pager).setVisibility(View.GONE);
+        findViewById(R.id.recycler_dots).setVisibility(View.GONE);
+
+        mTvInstructions.setText(mInstructions);
     }
 }

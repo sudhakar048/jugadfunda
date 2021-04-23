@@ -2,10 +2,11 @@ package app.jugadfunda.generateOtp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -35,6 +37,7 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 import app.jugadfunda.R;
 import app.jugadfunda.apiresponse.InstituteList;
+import app.jugadfunda.apiresponse.QuizCodeResponse;
 import app.jugadfunda.home.pojo.CenterList;
 import app.jugadfunda.home.pojo.DistrictList;
 import app.jugadfunda.home.pojo.StateList;
@@ -57,9 +60,9 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
     private Spinner mSpinnerCenter;
     private Spinner mSpinnerInstitute;
     private RadioGroup rg_gender;
+    private TextView mTvDate;
+    private TextView mTvSlot;
     private ImplPsychometricTestPresenter mImplGenerateOtpPresenter = null;
-    private long quizId = 0;
-    private String title = "";
     private ArrayList<StateList> mStateLists;
     private ArrayList<DistrictList> mDistrictLists;
     private ArrayList<CenterList> mCenterLists;
@@ -78,7 +81,9 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
     private String mobilenumber;
     private boolean flag = false;
     private View itemView = null;
-
+    private String mInstituteName;
+    private EditText mEtQuizCode;
+    private TextView mTvMsg;
 
     @Nullable
     @Override
@@ -100,10 +105,13 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
         mSpinnerState = itemView.findViewById(R.id.spinner_state);
         mSpinnerDistrict = itemView.findViewById(R.id.spinner_district);
         rg_gender = itemView.findViewById(R.id.rg_gender);
-
+        mEtQuizCode = itemView.findViewById(R.id.et_quizcode);
+        mTvDate = itemView.findViewById(R.id.tv_date);
+        mTvSlot = itemView.findViewById(R.id.tv_slot);
+        mTvMsg = itemView.findViewById(R.id.tv_errormsg);
         trueCallerTrucallerUserInit();
 
-        boolean flag = TruecallerSDK.getInstance().isUsable();
+        flag = TruecallerSDK.getInstance().isUsable();
         if(flag){
             itemView.findViewById(R.id.cv_mobilenumber).setVisibility(View.GONE);
             itemView.findViewById(R.id.tv_msg).setVisibility(View.GONE);
@@ -114,10 +122,17 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
 
         setListener();
 
-        if (mStateLists == null) {
-            mImplGenerateOtpPresenter.populateStates();
+        SharedPreferences shcheck = getContext().getSharedPreferences("profile",Context.MODE_PRIVATE);
+        String check = shcheck.getString("c","");
+        if(check.equals("no")){
+            if (mStateLists == null) {
+                mImplGenerateOtpPresenter.populateStates();
+            }
+        }else{
+            itemView.findViewById(R.id.cv_quizcode).setVisibility(View.VISIBLE);
+            itemView.findViewById(R.id.institutedetails).setVisibility(View.GONE);
+            itemView.findViewById(R.id.linear_pdetails).setVisibility(View.GONE);
         }
-
     }
 
     void setListener() {
@@ -126,6 +141,7 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
         itemView.findViewById(R.id.iv_ssubmit).setOnClickListener(this);
         itemView.findViewById(R.id.btn_previous).setOnClickListener(this);
         itemView.findViewById(R.id.et_dob).setOnClickListener(this);
+        itemView.findViewById(R.id.btn_codesubmit).setOnClickListener(this);
         rg_gender.setOnCheckedChangeListener(this);
     }
 
@@ -142,9 +158,8 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
                     if (flag) {
                         TruecallerSDK.getInstance().getUserProfile(this);
                     } else {
-                        mobilenumber = "+91"+mEtPhone.getText().toString();
-                        mImplGenerateOtpPresenter.verifyOtp(mEtfirstname.getText().toString(), mEtmiddlename.getText().toString(), mEtlastname.getText().toString(), gender, mEtdob.getText().toString(), mobilenumber, mEtemailid.getText().toString(), mStateId, mDistrictId, mCenterId, mInstituteId, quizId);
-                    }
+                        selectInstituteAlert(mInstituteName);
+                   }
                 } else {
                     Toast.makeText(getContext(), check1, Toast.LENGTH_LONG).show();
                 }
@@ -179,21 +194,19 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
             case R.id.spinner_institute:
                 mImplGenerateOtpPresenter.populateInstitutes(mCenterId);
                 break;
+
+            case R.id.btn_codesubmit:
+                String check = validateQuizCode(mEtQuizCode.getText().toString());
+                if(check.equals("ok")){
+                    mImplGenerateOtpPresenter.verifyQuizCode(mEtQuizCode.getText().toString());
+                }else{
+                    Toast.makeText(getContext(), check, Toast.LENGTH_LONG).show();
+                }
+
+                break;
         }
     }
 
-/*    void setGetOtpVisible() {
-        findViewById(R.id.linear_getotp).setVisibility(View.VISIBLE);
-        findViewById(R.id.linear_pdetails).setVisibility(View.GONE);
-        findViewById(R.id.institutedetails).setVisibility(View.GONE);
-    }*/
-
- /*   void setGetOtpGone() {
-        findViewById(R.id.linear_getotp).setVisibility(View.GONE);
-        findViewById(R.id.linear_pdetails).setVisibility(View.GONE);
-        findViewById(R.id.institutedetails).setVisibility(View.VISIBLE);
-    }
-*/
     @Override
     public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions,
                                            @NonNull final int[] grantResults) {
@@ -208,12 +221,11 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
         }
     }
 
-    public String validateDetails(String firstname, String middlename, String lastname, String gender, String dob, String emailId, String mobileumber) {
+    public String validateDetails(String firstname, String middlename, String lastname, String gender, String dob, String emailId, String mb) {
 
-       Toast.makeText(getContext(),""+flag,Toast.LENGTH_LONG).show();
         if (!Pattern.matches(Validate.FIRSTNAME_PATTERN, firstname)) {
             return "Invalid first name";
-        } else if (!Pattern.matches(Validate.FIRSTNAME_PATTERN, middlename)) {
+        } else if (!middlename.isEmpty() && !Pattern.matches(Validate.FIRSTNAME_PATTERN, middlename)) {
             return "Invalid middle name";
         } else if (!Pattern.matches(Validate.FIRSTNAME_PATTERN, lastname)) {
             return "Invalid last name";
@@ -225,8 +237,15 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
             return "Invalid emailid";
         }else if (flag) {
             return "ok";
-        }else if(!flag && mobileumber.length() != 10){
+        }else if(!flag && !Pattern.matches(Validate.CONTACT_PATTERN, mb)){
             return "Invalid Mobile Number";
+        }
+        return "ok";
+    }
+
+    public String validateQuizCode(String quizcode){
+        if (!Pattern.matches(Validate.REGEX_QUIZ_CODE, quizcode)) {
+            return "Invalid Code";
         }
         return "ok";
     }
@@ -245,15 +264,12 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
     }
 
     @Override
-    public void movetoQuizActivity() {
-        SharedPreferences sh = getContext().getSharedPreferences("profile", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sh.edit();
-        editor.putString("mb", mobilenumber);
-        editor.commit();
-
+    public void movetoQuizActivity(long quizid, String title, int duration, int totalnoofquestions) {
         Intent intent = new Intent(getContext(), StartQuizActivity.class);
-        intent.putExtra("qiz", quizId);
+        intent.putExtra("qiz", quizid);
         intent.putExtra("title", title);
+        intent.putExtra("d", duration);
+        intent.putExtra("tq", totalnoofquestions);
         startActivity(intent);
     }
 
@@ -315,10 +331,78 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
     @Override
     public void callInstituteList(int pos) {
         mInstituteId = mInstituteLists.get(pos).getInstituteId();
+        mInstituteName = mInstituteLists.get(pos).getInstituteName();
 
     }
 
+    @Override
+    public void checkSignUp(boolean flag) {
+        if(flag){
+            itemView.findViewById(R.id.cv_quizcode).setVisibility(View.VISIBLE);
+            itemView.findViewById(R.id.institutedetails).setVisibility(View.GONE);
+            itemView.findViewById(R.id.linear_pdetails).setVisibility(View.GONE);
 
+            SharedPreferences sh = getContext().getSharedPreferences("profile", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sh.edit();
+            editor.putString("mb", mobilenumber);
+            editor.putString("c", "yes");
+            editor.commit();
+        }
+    }
+
+    @Override
+    public void selectInstituteAlert(String instituteName) {
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.layout_alert_institute, null);
+        alertDialogBuilder.setView(view);
+        alertDialogBuilder.setCancelable(false);
+        final AlertDialog dialog = alertDialogBuilder.create();
+        dialog.show();
+        TextView tv_institute = view.findViewById(R.id.tv_institutename);
+        Button btn_yes = view.findViewById(R.id.btn_yes);
+        Button btn_no = view.findViewById(R.id.btn_no);
+        tv_institute.setText(instituteName);
+
+        btn_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mobilenumber = "+91-"+mEtPhone.getText().toString();
+                mImplGenerateOtpPresenter.verifyOtp(mEtfirstname.getText().toString(), mEtmiddlename.getText().toString(), mEtlastname.getText().toString(), gender, mEtdob.getText().toString(), mobilenumber, mEtemailid.getText().toString(), mStateId, mDistrictId, mCenterId, mInstituteId);
+                dialog.cancel();
+            }
+        });
+
+        btn_no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+    }
+
+    @Override
+    public void passQuizCodeResponse(QuizCodeResponse quizCodeResponse) {
+        if(!quizCodeResponse.isFlag()){
+            mTvMsg.setVisibility(View.VISIBLE);
+            mTvMsg.setText(quizCodeResponse.getMsg());
+            itemView.findViewById(R.id.linear_slot).setVisibility(View.GONE);
+        }else{
+            if(quizCodeResponse.getCheck().equals("valid")){
+                movetoQuizActivity(quizCodeResponse.getQid(), quizCodeResponse.getQtitle(), quizCodeResponse.getDuration(), quizCodeResponse.getTotalquestions());
+            }else if(quizCodeResponse.getCheck().equals("before")){
+                mTvMsg.setVisibility(View.VISIBLE);
+                itemView.findViewById(R.id.linear_slot).setVisibility(View.GONE);
+                mTvMsg.setText("Your Psychometric Test Time has been Passed.Please contact to your Institute.");
+            }else{
+                itemView.findViewById(R.id.linear_slot).setVisibility(View.VISIBLE);
+                mTvMsg.setVisibility(View.VISIBLE);
+                mTvMsg.setText("Psychometric Test Details are :");
+                mTvDate.setText("Date - "+quizCodeResponse.getDate());
+                mTvSlot.setText("Slot - "+quizCodeResponse.getSlot());
+            }
+        }
+    }
 
 
     @Override
@@ -378,13 +462,13 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
         public void onSuccessProfileShared(@NonNull final TrueProfile trueProfile) {
             itemView.findViewById(R.id.iv_ssubmit).setEnabled(true);
             mobilenumber = trueProfile.phoneNumber;
-            mImplGenerateOtpPresenter.verifyOtp(mEtfirstname.getText().toString(), mEtmiddlename.getText().toString(), mEtlastname.getText().toString(), gender, mEtdob.getText().toString(), mobilenumber, mEtemailid.getText().toString(), mStateId, mDistrictId, mCenterId, mInstituteId, quizId);
+            mobilenumber = mobilenumber.substring(0,3)+"-"+mobilenumber.substring(3,13);
+            mImplGenerateOtpPresenter.verifyOtp(mEtfirstname.getText().toString(), mEtmiddlename.getText().toString(), mEtlastname.getText().toString(), gender, mEtdob.getText().toString(), mobilenumber, mEtemailid.getText().toString(), mStateId, mDistrictId, mCenterId, mInstituteId);
         }
 
         @Override
         public void onFailureProfileShared(@NonNull final TrueError trueError) {
             itemView.findViewById(R.id.iv_ssubmit).setEnabled(false);
-            Log.d(TAG, "onFailureProfileShared() called with: trueError = [" + trueError + "]");
         }
 
         @Override
@@ -462,7 +546,6 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
         super.onDestroyView();
         TruecallerSDK.clear();
     }
-
 }
 
 

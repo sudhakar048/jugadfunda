@@ -1,15 +1,15 @@
 package app.jugadfunda.generateOtp;
 
 import java.util.ArrayList;
-
 import app.jugadfunda.apiresponse.InstituteList;
+import app.jugadfunda.apiresponse.QuizCodeResponse;
 import app.jugadfunda.home.pojo.CenterList;
 import app.jugadfunda.home.pojo.DistrictList;
 import app.jugadfunda.home.pojo.StateList;
 
 public interface PsychometricTestView {
 
-    void movetoQuizActivity();
+    void movetoQuizActivity(long quizid, String title, int duration, int totalnoofquestions);
 
     void clearForm();
 
@@ -28,4 +28,11 @@ public interface PsychometricTestView {
     void callCenterList(int pos);
 
     void callInstituteList(int pos);
+
+    void checkSignUp(boolean flag);
+
+    void selectInstituteAlert(String instituteName);
+
+    void passQuizCodeResponse(QuizCodeResponse quizCodeResponse);
+
 }

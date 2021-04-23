@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         setUI();
-
+        checkUI();
     }
 
     private void setUI() {
@@ -35,10 +35,11 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void addTabs() {
         setCustomView("Sign In");
+        setCustomView("Pschyometric Test");
         setCustomView("Events");
         setCustomView("News");
         setCustomView("Get Inspired");
-        setCustomView("Pschyometric Test");
+
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -59,11 +60,11 @@ public class LoginActivity extends AppCompatActivity {
 
         String check = getIntent().getStringExtra("check");
         if(check.equals("quiz")){
-            addFragment(4);
-            tab = tabLayout.getTabAt(4);
-        }else  if(check.equals("event")){
             addFragment(1);
             tab = tabLayout.getTabAt(1);
+        }else  if(check.equals("event")){
+            addFragment(2);
+            tab = tabLayout.getTabAt(2);
         }else{
             addFragment(0);
             tab = tabLayout.getTabAt(0);
@@ -83,20 +84,21 @@ public class LoginActivity extends AppCompatActivity {
             fragment = new LoginFragment();
         } else if (position == 1) {
             setModuleToNull();
-            fragment = new EventMessagesFragment();
+            fragment = new PschyometricTestFragment();
         } else if (position == 2) {
+            setModuleToNull();
+            fragment = new EventMessagesFragment();
+        } else if (position == 3) {
             fragment = new NewFragment();
             Bundle bundle = new Bundle();
             bundle.putString("check", "news");
             fragment.setArguments(bundle);
-        } else if (position == 3) {
+
+        } else if (position == 4){
             fragment = new NewFragment();
             Bundle bundle = new Bundle();
             bundle.putString("check", "story");
             fragment.setArguments(bundle);
-        } else if (position == 4){
-            setModuleToNull();
-            fragment = new PschyometricTestFragment();
         }
 
         if (fragment != null)
@@ -113,5 +115,13 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+    }
+
+
+    void checkUI(){
+        SharedPreferences sh= getSharedPreferences("profile", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sh.edit();
+        editor.putString("c","no");
+        editor.commit();
     }
 }

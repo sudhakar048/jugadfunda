@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     private static Retrofit mRetrofit;
-    public static final String BASE_URL = "http://192.168.0.104:8090/";
+    public static final String BASE_URL = "http://juggadpanchayat.in/";
 
     public static Retrofit getmRetrofitInstance(){
         OkHttpClient client = new OkHttpClient.Builder()

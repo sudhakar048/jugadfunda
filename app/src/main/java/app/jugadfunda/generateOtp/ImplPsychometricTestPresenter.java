@@ -1,6 +1,7 @@
 package app.jugadfunda.generateOtp;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -9,6 +10,7 @@ import app.jugadfunda.apiclient.ApiClient;
 import app.jugadfunda.apiinterface.EndPointInterface;
 import app.jugadfunda.apiresponse.GenerateOtpResponse;
 import app.jugadfunda.apiresponse.InstituteList;
+import app.jugadfunda.apiresponse.QuizCodeResponse;
 import app.jugadfunda.apiresponse.VerifyOtpResponse;
 import app.jugadfunda.home.pojo.CenterList;
 import app.jugadfunda.home.pojo.DistrictList;
@@ -27,7 +29,7 @@ public class ImplPsychometricTestPresenter implements PsychometricTestImpl {
     }
 
     @Override
-    public void verifyOtp(String firstname,String middlename, String lastname, String gender, String dob, String mobilenumber, String emailId, int stateid, int districtid, long centerid, long instituteid, long quizid) {
+    public void verifyOtp(String firstname,String middlename, String lastname, String gender, String dob, String mobilenumber, String emailId, int stateid, int districtid, long centerid, long instituteid) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             mobilenumber = Base64.getEncoder().encodeToString(mobilenumber.getBytes());
             emailId = Base64.getEncoder().encodeToString(emailId.getBytes());
@@ -45,16 +47,12 @@ public class ImplPsychometricTestPresenter implements PsychometricTestImpl {
                 stateid,
                 districtid,
                 centerid,
-                instituteid,
-                quizid
+                instituteid
         ).enqueue(new Callback<VerifyOtpResponse>() {
             @Override
             public void onResponse(Call<VerifyOtpResponse> call, Response<VerifyOtpResponse> response) {
                 VerifyOtpResponse data = response.body();
-                if(data.isFlag()){
-                    mGenerateOtpView.movetoQuizActivity();
-                    mGenerateOtpView.clearForm();
-                }
+                mGenerateOtpView.checkSignUp(data.isFlag());
                 Toast.makeText(mContext, data.getRes(), Toast.LENGTH_LONG).show();
              }
 
@@ -136,6 +134,25 @@ public class ImplPsychometricTestPresenter implements PsychometricTestImpl {
 
             @Override
             public void onFailure(Call<List<InstituteList>> call, Throwable t) {
+                Toast.makeText(mContext,"Unable to connect internet. Pls try again after some time",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void verifyQuizCode(String code) {
+        EndPointInterface mEndPointInterface = ApiClient.getmRetrofitInstance().create(EndPointInterface.class);
+        mEndPointInterface.wsVerifyQuizCode(
+                code
+        ).enqueue(new Callback<QuizCodeResponse>() {
+            @Override
+            public void onResponse(Call<QuizCodeResponse> call, Response<QuizCodeResponse> response) {
+                QuizCodeResponse quizCodeResponse = response.body();
+                mGenerateOtpView.passQuizCodeResponse(quizCodeResponse);
+            }
+
+            @Override
+            public void onFailure(Call<QuizCodeResponse> call, Throwable t) {
                 Toast.makeText(mContext,"Unable to connect internet. Pls try again after some time",Toast.LENGTH_SHORT).show();
             }
         });

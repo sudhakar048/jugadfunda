@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import app.jugadfunda.apiresponse.EventResponse;
 import app.jugadfunda.apiresponse.FunCornerResponse;
-import app.jugadfunda.apiresponse.GenerateOtpResponse;
 import app.jugadfunda.apiresponse.IndustryRegistration;
 import app.jugadfunda.apiresponse.InstituteList;
 import app.jugadfunda.apiresponse.LinkedIndustryList;
 import app.jugadfunda.apiresponse.MoMResponse;
 import app.jugadfunda.apiresponse.QuestionListResponse;
+import app.jugadfunda.apiresponse.QuizCodeResponse;
 import app.jugadfunda.apiresponse.QuizListResponse;
 import app.jugadfunda.apiresponse.SigninResponse;
 import app.jugadfunda.apiresponse.SignupResponse;
@@ -51,26 +51,24 @@ public interface EndPointInterface {
                                   @Field("m") String mType,
                                   @Field("t") String mToken);
 
-
     //for guest user signin
     @POST("RecordingLoginController")
     @FormUrlEncoded
     Call<RadioLogin> wsRadioSignin(@Field("email") String mUserEmailid,
                                    @Field("upwd") String mPwd);
 
-
     //for list of quiz
-    @GET("STBI/GetQuizListContoller")
+    @GET("GetQuizListContoller")
     Call<List<QuizListResponse>> wsQuizlist();
 
     //for question list
-    @POST("STBI/GetAllQuestionsController")
+    @POST("GetAllQuestionsController")
     @FormUrlEncoded
     Call<List<QuestionListResponse>> wsQuestionList(@Field("qzid") long mQuizId);
 
 
     //for question list
-    @POST("STBI/AddAnswerController")
+    @POST("AddAnswerController")
     @FormUrlEncoded
     Call<SignupResponse> wsAddAnswers(@Field("qzid") long mQuizId, @Field("list")String list, @Field("mb") String mMobileNumber, @Field("mt") int minutetime,  @Field("st") int secondtime);
 
@@ -183,13 +181,13 @@ public interface EndPointInterface {
     @FormUrlEncoded
     Call<CaptureProblemPojo> wsCaptureProblem(@Field("industryid")long mIndustryId, @Field("keywords") String mKeyWords, @Field("whatcp") String mWhatcp, @Field("whycp") String mWhycp, @Field("wherecp") String mWherecp, @Field("whocp") String mWhocp, @Field("whencp") String mWhencp, @Field("howcp") String mHowcp, @Field("observecp") String mObservecp, @Field("ideal") String mIdeal, @Field("reality") String mReality, @Field("consequences") String mConsequences, @Field("outcome") String mOutcome, @Field("resources") String mResources, @Field("skills") String mSkills, @Field("skillreq") String mSkillreq, @Field("graduation") String mGraduation, @Field("priority") String mPriority, @Field("maxapplicants") int mMaxapplicants , @Field ("category") String mCategory, @Field("bdomain") String mBdomain, @Field("domains") String mDomains, @Field("subdomains") String mSubdomains, @Field("module") String mModule, @Field("bdomainother") String mBdomainother, @Field("psdomainother") String mPsdomainother, @Field("btn") String mBtn);
 
-    @GET("STBI/GetStateListController")
+    @GET("GetStateListController")
     Call<List<StateList>> wsStateList();
 
-    @GET("STBI/GetDistrictListController")
+    @GET("GetDistrictListController")
     Call<List<DistrictList>> wsDistrictList(@Query("sid")long mSid);
 
-    @POST("STBI/CenterListController")
+    @POST("CenterListController")
     @FormUrlEncoded
     Call<List<CenterList>> wsCenterList(@Field("sid") long mSid, @Field("did") long mDid);
 
@@ -197,14 +195,18 @@ public interface EndPointInterface {
     @FormUrlEncoded
     Call<IndustryRegistration> wsCallIndustryRegistration(@Field("cn")String mCompanyName, @Field("cpn")String mGstnnumber, @Field("on") String mOwnername, @Field("code") String mContactCode, @Field("c")String mContact, @Field("email") String mEmailId, @Field("module") String mModule, @Field("an") String mOwnerAadhaar, @Field("coname") String mCoordinatorName, @Field("cocode")String cocode, @Field("copmobilenumber")String mCoContact, @Field("coemail")String mCoOrEmailId, @Field("coadharnumber") String mCoAadhaar, @Field("someDate")String mDate, @Field("dept") String mDepartment, @Field("emp") String mEmp, @Field("annual")String mAnnualTurnover, @Field("address")String mAddress, @Field("about")String mAboutCompany, @Field("city")String mCity, @Field("pincode")String mPinCode, @Field("check") String mCheck, @Field("centerid")long mCenterId, @Field("instituteid")long mInstituteId, @Field("sid") int mStateId, @Field("did") int mDistrictId, @Field("tenkeys")String mTenKeywords, @Field("institute")String mInstituteName, @Field("maindomain")String mDomain, @Field("subdomain")String mSubDomain, @Field("userid")long mUserId, @Field("courseid")long mCourseId);
 
-    @POST("STBI/ListInstituteController")
+    @POST("ListInstituteController")
     @FormUrlEncoded
     Call<List<InstituteList>> wsInstituteList(@Field("cid")long mCenterId);
 
     @GET("GeLinktIndustryDetailsController")
     Call<List<LinkedIndustryList>> wsLiknedIndustryList(@Query("userid") long mUserId, @Query("module") String mModuleType);
 
-   @POST("STBI/VerifyOtpController")
+    @POST("VerifyOtpController")
     @FormUrlEncoded
-    Call<VerifyOtpResponse> wsVerifyOtp(@Field("fname")String mFirstname, @Field("mname")String mMiddlename, @Field("lname")String mLastname, @Field("gen")String mGender, @Field("dob")String mDob, @Field("mb")String mMobileNumber, @Field("e")String mEmailId, @Field("sid")int mStateId, @Field("did")int mDistrictId, @Field("cid")long mCenterId, @Field("insid")long mInstituteId,@Field("qzid")long mQuizId);
+    Call<VerifyOtpResponse> wsVerifyOtp(@Field("fname")String mFirstname, @Field("mname")String mMiddlename, @Field("lname")String mLastname, @Field("gen")String mGender, @Field("dob")String mDob, @Field("mb")String mMobileNumber, @Field("e")String mEmailId, @Field("sid")int mStateId, @Field("did")int mDistrictId, @Field("cid")long mCenterId, @Field("insid")long mInstituteId);
+
+    @POST("ValidateQuizCodeController")
+    @FormUrlEncoded
+    Call<QuizCodeResponse> wsVerifyQuizCode(@Field("quizcode")String mQuizCode);
 }

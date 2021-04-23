@@ -2,7 +2,7 @@ package app.jugadfunda.generateOtp;
 
 public interface PsychometricTestImpl {
 
-    void verifyOtp(String firstname,String middlename, String lastname, String gender, String dob, String mobilenumber, String emailId, int stateid, int districtid, long centerid, long instituteid, long quizid);
+    void verifyOtp(String firstname,String middlename, String lastname, String gender, String dob, String mobilenumber, String emailId, int stateid, int districtid, long centerid, long instituteid);
 
     void populateStates();
 
@@ -11,4 +11,6 @@ public interface PsychometricTestImpl {
     void populateCenters(long stateid, long districtid);
 
     void populateInstitutes(long centerid);
+
+    void verifyQuizCode(String code);
 }

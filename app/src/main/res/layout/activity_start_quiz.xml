@@ -1,47 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".quiz.questions.StartQuizActivity">
+    tools:context=".quiz.questions.StartQuizActivity"
+   >
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp50"
-        android:id="@+id/app_layout">
+        android:id="@+id/app_layout"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/iv_back"
-                android:padding="@dimen/dp10"
-                android:src="@drawable/ic_arrow_back_white"
-                android:layout_width="@dimen/dp50"
-                android:layout_height="match_parent"/>
-
             <TextView
-                android:id="@+id/tv_title"
+                android:id="@+id/tv_timer"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp16"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
-
-            <ImageView
-                android:id="@+id/iv_menu"
-                android:padding="@dimen/dp5"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_more"
-                android:layout_alignParentEnd="true"
-                android:layout_width="@dimen/dp40"
-                android:layout_height="@dimen/dp45"
-                app:tint="@color/white" />
+                android:layout_height="match_parent"
+                android:ellipsize="none"
+                android:scrollHorizontally="true"
+                android:text="Timer"/>
 
         </RelativeLayout>
 
@@ -49,56 +37,69 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="10">
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_timer"
+            android:layout_height="0dp"
+            android:id="@+id/tv_title"
             android:textSize="@dimen/sp16"
-            android:text="Timer"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:gravity="center"
             android:padding="@dimen/dp5"
-            android:layout_marginTop="@dimen/dp60"
+            android:layout_weight="1"
+            android:visibility="gone"
           />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_above="@+id/recycler_dots"
-        android:layout_marginTop="@dimen/dp90"/>
+        android:layout_weight="8"
+        />
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_alignParentBottom="true"
         android:id="@+id/recycler_dots"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp45">
+        android:layout_height="0dp"
+        android:weightSum="1"
+        android:layout_weight="1"
+        >
 
         <TextView
-            android:id="@+id/tv_back"
+            android:id="@+id/tv_skip"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"
-            android:text="@string/back"
+            android:text="@string/skip"
             android:padding="@dimen/dp10"
             android:layout_width="wrap_content"
             android:gravity="center"
             android:layout_height="match_parent"
+            android:layout_weight=".3"
             />
 
-        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-            android:id="@+id/dots_indicator"
+        <TextView
+            android:id="@+id/tv_submittest"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:text="@string/submit_test"
+            android:padding="@dimen/dp10"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            app:dotsColor="@color/gray"
-            app:dotsCornerRadius="@dimen/dp5"
-            app:dotsSize="@dimen/dp10"
-            app:dotsSpacing="@dimen/dp2"
-            app:dotsWidthFactor="2.5"
-            app:progressMode="false"
-            app:selectedDotColor="@color/colorAccent" />
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight=".4"
+            android:textSize="@dimen/sp16"
+            android:background="@drawable/sp_grayborder"
+            android:enabled="false"
+            />
 
         <TextView
             android:id="@+id/tv_next"
@@ -109,20 +110,13 @@
             android:padding="@dimen/dp10"
             android:layout_width="wrap_content"
             android:gravity="center"
-            android:layout_height="match_parent"/>
-    </RelativeLayout>
+            android:layout_height="match_parent"
+            android:layout_weight=".3"/>
+    </LinearLayout>
 
-    <app.jugadfunda.track.MovableFloatingActionButton
-        android:id="@+id/floating_add"
-        android:tooltipText="@string/submit"
-        android:src="@drawable/ic_add_white"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/dp10"
-        android:layout_width="@dimen/dp60"
-        android:layout_height="@dimen/dp60"
-        android:visibility="gone"/>
+        <include layout="@layout/layout_nodata"/>
+        <include layout="@layout/layout_quizinstructions"/>
+    </LinearLayout>
 
-    <include layout="@layout/layout_nodata"/>
 
-</RelativeLayout>
+</LinearLayout>
