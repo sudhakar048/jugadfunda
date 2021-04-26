@@ -28,12 +28,6 @@ public interface LinkIndustryView {
 
     void callStateList(int pos);
 
-    void callDistrictList(int pos);
-
-    void callCenterList(int pos);
-
-    void callInstituteList(int pos);
-
     void populateLinkedIndustries(List<LinkedIndustryList> mIndustryList);
 
     void loadIndustryDetailsDialog(int position);

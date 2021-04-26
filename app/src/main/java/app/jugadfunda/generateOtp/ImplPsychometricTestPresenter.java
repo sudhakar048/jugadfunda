@@ -51,9 +51,11 @@ public class ImplPsychometricTestPresenter implements PsychometricTestImpl {
         ).enqueue(new Callback<VerifyOtpResponse>() {
             @Override
             public void onResponse(Call<VerifyOtpResponse> call, Response<VerifyOtpResponse> response) {
-                VerifyOtpResponse data = response.body();
-                mGenerateOtpView.checkSignUp(data.isFlag());
-                Toast.makeText(mContext, data.getRes(), Toast.LENGTH_LONG).show();
+                if(response.body() != null){
+                    VerifyOtpResponse data = response.body();
+                    mGenerateOtpView.checkSignUp(data.isFlag());
+                    Toast.makeText(mContext, data.getRes(), Toast.LENGTH_LONG).show();
+                }
              }
 
             @Override

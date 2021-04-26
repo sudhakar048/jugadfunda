@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,6 +31,9 @@ import java.util.regex.Pattern;
 import app.jugadfunda.R;
 import app.jugadfunda.apiresponse.InstituteList;
 import app.jugadfunda.apiresponse.LinkedIndustryList;
+import app.jugadfunda.apiresponse.QuizCodeResponse;
+import app.jugadfunda.generateOtp.ImplPsychometricTestPresenter;
+import app.jugadfunda.generateOtp.PsychometricTestView;
 import app.jugadfunda.home.pojo.CenterList;
 import app.jugadfunda.home.pojo.DistrictList;
 import app.jugadfunda.home.pojo.StateList;
@@ -40,10 +45,11 @@ import app.jugadfunda.inquiryform.adapter.ProductDomainLinkIndustryAdapter;
 import app.jugadfunda.inquiryform.adapter.StateListAdapter;
 import app.jugadfunda.inquiryform.pojo.Domains;
 import app.jugadfunda.inquiryform.pojo.SubDomains;
+import app.jugadfunda.quiz.adapter.CustomSpinnerAdapter;
 import app.jugadfunda.utility.Utility;
 import app.jugadfunda.validate.Validate;
 
-public class LinkIndustryFragment extends Fragment implements View.OnClickListener, LinkIndustryView {
+public class LinkIndustryFragment extends Fragment implements View.OnClickListener, LinkIndustryView, PsychometricTestView {
     private TextInputEditText mTIETCompanyName;
     private TextInputEditText mTIETGSTNNumber;
     private EditText mETKey1;
@@ -86,13 +92,13 @@ public class LinkIndustryFragment extends Fragment implements View.OnClickListen
     private int mProductPosition = 0;
     private ImplLinkIndustry mImplLinkIndustry = null;
     private ArrayList<StateList> mGlobalStateList = null;
-    private StateListAdapter mStateListAdapter = null;
+    private ArrayAdapter<StateList> mStateListAdapter = null;
     private ArrayList<DistrictList> mGlobalDistrictList = null;
-    private DistrictListAdapter mDistrictListAdapter = null;
+    private ArrayAdapter<DistrictList> mDistrictListAdapter = null;
     private ArrayList<CenterList> mGlobalCenterList = null;
-    private CenterListAdapter mCenterListAdapter = null;
+    private ArrayAdapter<CenterList> mCenterListAdapter = null;
     private ArrayList<InstituteList> mGlobalInstituteList = null;
-    private InstituteListAdapter mInstituteListAdapter = null;
+    private ArrayAdapter<InstituteList> mInstituteListAdapter = null;
     private ArrayList<LinkedIndustryList> mGlobalIndustryList = null;
     private RecyclerView mRecyclerView;
     private LinearLayout mLinearSearch;
@@ -115,6 +121,7 @@ public class LinkIndustryFragment extends Fragment implements View.OnClickListen
     private String mEmp = "";
     private String mAnnualTurnOver = "";
     private String mAbtCompany = "";
+    private ImplPsychometricTestPresenter mImplPsychometricTestPresenter;
 
     @Nullable
     @Override
@@ -168,6 +175,8 @@ public class LinkIndustryFragment extends Fragment implements View.OnClickListen
         smartLiving = productDomainList.get(1).getSubdomains();
         agriculture = productDomainList.get(2).getSubdomains();
         wastemgmt = productDomainList.get(3).getSubdomains();
+
+        mImplPsychometricTestPresenter = new ImplPsychometricTestPresenter(getContext(), this);
 
         productAdapter =  new ProductDomainLinkIndustryAdapter(productDomainList, getContext(), this);
         mSpinnerProductService.setAdapter(productAdapter);
@@ -286,6 +295,11 @@ public class LinkIndustryFragment extends Fragment implements View.OnClickListen
     }
 
     @Override
+    public void movetoQuizActivity(long quizid, String title, int duration, int totalnoofquestions) {
+
+    }
+
+    @Override
     public void clearForm() {
        mTIETCompanyName.setText("");
        mTIETGSTNNumber.setText("");
@@ -322,6 +336,26 @@ public class LinkIndustryFragment extends Fragment implements View.OnClickListen
     }
 
     @Override
+    public void populateStates(ArrayList<StateList> stateLists) {
+
+    }
+
+    @Override
+    public void populateDistricts(ArrayList<DistrictList> districtLists) {
+
+    }
+
+    @Override
+    public void populateCenters(ArrayList<CenterList> centerLists) {
+
+    }
+
+    @Override
+    public void populateInstitutes(ArrayList<InstituteList> instituteLists) {
+
+    }
+
+    @Override
     public void selectProductServiceDomain(int check, int pos) {
         mProductPosition = pos;
 
@@ -335,7 +369,63 @@ public class LinkIndustryFragment extends Fragment implements View.OnClickListen
             }
         }
 
-        Toast.makeText(getContext(), ""+mProductDomainCode, Toast.LENGTH_SHORT).show();
+        mSpinnerState.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mImplPsychometricTestPresenter.populateDistricts(mGlobalStateList.get(position).getSid());
+                mStateId = mGlobalStateList.get(position).getSid();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getContext(), "Nothing Selected", Toast.LENGTH_LONG);
+            }
+        });
+
+        mSpinnerDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mImplPsychometricTestPresenter.populateDistricts(mStateId);
+                mDistrictId = mGlobalDistrictList.get(position).getDid();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getContext(), "Nothing Selected", Toast.LENGTH_LONG);
+            }
+        });
+
+        mSpinnerCenter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mImplPsychometricTestPresenter.populateCenters(mStateId, mDistrictId);
+                mCenterId = mGlobalCenterList.get(position).getCenterid();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getContext(), "Nothing Selected", Toast.LENGTH_LONG);
+            }
+        });
+
+        mSpinnerInstitute.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mImplPsychometricTestPresenter.populateInstitutes(mCenterId);
+                mInstituteId = mGlobalInstituteList.get(position).getInstituteId();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getContext(), "Nothing Selected", Toast.LENGTH_LONG);
+            }
+        });
+
+
     }
 
     @Override
@@ -364,52 +454,63 @@ public class LinkIndustryFragment extends Fragment implements View.OnClickListen
     @Override
     public void populateStateList(List<StateList> mStateList) {
         mGlobalStateList = (ArrayList<StateList>) mStateList;
-        mStateListAdapter = new StateListAdapter(getContext(), mGlobalStateList, this, "");
+        mStateListAdapter = new CustomSpinnerAdapter(getContext(), mGlobalStateList);
         mSpinnerState.setAdapter(mStateListAdapter);
     }
 
     @Override
     public void populateDistrictList(List<DistrictList> mDistrictList) {
         mGlobalDistrictList = (ArrayList<DistrictList>) mDistrictList;
-        mDistrictListAdapter = new DistrictListAdapter(getContext(), mGlobalDistrictList, this, "");
+        mDistrictListAdapter = new DistrictListAdapter(getContext(), mGlobalDistrictList);
         mSpinnerDistrict.setAdapter(mDistrictListAdapter);
     }
 
     @Override
     public void populateCenterList(List<CenterList> mCenterList) {
         mGlobalCenterList = (ArrayList<CenterList>) mCenterList;
-        mCenterListAdapter = new CenterListAdapter(getContext(), mGlobalCenterList, this, "");
+        mCenterListAdapter = new CenterListAdapter(getContext(), mGlobalCenterList);
         mSpinnerCenter.setAdapter(mCenterListAdapter);
     }
 
     @Override
     public void populateInstituteList(List<InstituteList> mInstituteList) {
         mGlobalInstituteList = (ArrayList<InstituteList>) mInstituteList;
-        mInstituteListAdapter = new InstituteListAdapter(getContext(), mGlobalInstituteList, this, "");
+        mInstituteListAdapter = new InstituteListAdapter(getContext(), mGlobalInstituteList);
         mSpinnerInstitute.setAdapter(mInstituteListAdapter);
     }
 
     @Override
     public void callStateList(int pos) {
-        mStateId = mGlobalStateList.get(pos).getSid();
-        mImplLinkIndustry.wsGetDistrictList(mStateId);
+
     }
 
     @Override
     public void callDistrictList(int pos) {
-        mDistrictId =  mGlobalDistrictList.get(pos).getDid();
-        mImplLinkIndustry.wsGetCenterList(mStateId, mDistrictId);
+
      }
 
     @Override
     public void callCenterList(int pos) {
-        mCenterId = mGlobalCenterList.get(pos).getCenterid();
-        mImplLinkIndustry.wsInstituteList(mCenterId);
+
     }
 
     @Override
     public void callInstituteList(int pos) {
-        mInstituteId = mGlobalInstituteList.get(pos).getInstituteId();
+
+    }
+
+    @Override
+    public void checkSignUp(boolean flag) {
+
+    }
+
+    @Override
+    public void selectInstituteAlert(String instituteName) {
+
+    }
+
+    @Override
+    public void passQuizCodeResponse(QuizCodeResponse quizCodeResponse) {
 
     }
 

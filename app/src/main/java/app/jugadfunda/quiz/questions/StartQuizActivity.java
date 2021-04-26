@@ -2,7 +2,6 @@ package app.jugadfunda.quiz.questions;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager2.widget.ViewPager2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,7 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-import android.widget.PopupMenu;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.json.JSONArray;
@@ -19,16 +18,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import app.jugadfunda.R;
+import app.jugadfunda.apiresponse.OptionResponse;
 import app.jugadfunda.apiresponse.QuestionListResponse;
 import app.jugadfunda.home.HomeActivity;
 import app.jugadfunda.login.LoginActivity;
-import app.jugadfunda.quiz.comparequiz.CompareQuizActivity;
-import app.jugadfunda.quiz.adapter.QuizQuestionsRecyclerAdapter;
 import app.jugadfunda.quiz.pojo.SelectedOptions;
 
 public class StartQuizActivity extends AppCompatActivity implements StartQuizInterfaceView, View.OnClickListener {
 
-   private ViewPager2 viewPager2;
    private ImplStartQuizPresenter implStartQuizPresenter;
    private ArrayList<QuestionListResponse> qList;
    private ArrayList<SelectedOptions> mSelectedList;
@@ -37,13 +34,22 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
    private String mobilenumber = null;
    private  String title = "";
    private TextView mTVnoData;
-   private QuizQuestionsRecyclerAdapter adapter;
    private CountDownTimer cTimer = null;
    private TextView mTvtimer;
    private TextView mTvInstructions;
-   private int minutetime = 0;
+   private int minutetime = 1;
    private int secondtime = 60;
    private String mInstructions = "";
+
+    private TextView tv_question_count;
+    private TextView tv_question;
+    private RadioButton rb_option1;
+    private RadioButton rb_option2;
+    private RadioButton rb_option3;
+    private RadioButton rb_option4;
+    private RadioButton rb_option5;
+    private int position = 0;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -51,15 +57,22 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_quiz);
 
-        setRecycler();
+        setUI();
     }
 
-    private void setRecycler(){
+    private void setUI(){
         implStartQuizPresenter = new ImplStartQuizPresenter(this,this);
-        viewPager2=findViewById(R.id.pager);
         mTVnoData = findViewById(R.id.tv_nodata);
         mTvtimer = findViewById(R.id.tv_timer);
         mTvInstructions = findViewById(R.id.tv_quizinstructions);
+
+        tv_question_count = findViewById(R.id.tv_quescount);
+        tv_question = findViewById(R.id.tv_question);
+        rb_option1 = findViewById(R.id.rb_radio1);
+        rb_option2 = findViewById(R.id.rb_radio2);
+        rb_option3 = findViewById(R.id.rb_radio3);
+        rb_option4 = findViewById(R.id.rb_radio4);
+        rb_option5 = findViewById(R.id.rb_radio5);
 
         setListener();
 
@@ -73,15 +86,12 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
         int totalquestions = intent.getIntExtra("tq",0);
         SharedPreferences sh = getSharedPreferences("profile", Context.MODE_PRIVATE);
         mobilenumber = sh.getString("mb","");
-        if(mobilenumber.contains("-")){
-            mobilenumber = mobilenumber.substring(4,13);
-        }
 
         mInstructions = getInstructions(minutetime, totalquestions);
 
-        ((TextView)findViewById(R.id.tv_title)).setText(title);
+        ((TextView)findViewById(R.id.tv_title)).setText("Testing");
 
-        implStartQuizPresenter.wsQuestionlist(quizid);
+        implStartQuizPresenter.wsQuestionlist(1);
 
         hidepager();
     }
@@ -91,26 +101,17 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
         findViewById(R.id.tv_skip).setOnClickListener(this);
         findViewById(R.id.tv_submittest).setOnClickListener(this);
         findViewById(R.id.btn_startquiz).setOnClickListener(this);
+        rb_option1.setOnClickListener(this);
+        rb_option2.setOnClickListener(this);
+        rb_option3.setOnClickListener(this);
+        rb_option4.setOnClickListener(this);
+        rb_option5.setOnClickListener(this);
     }
-   /* private void openMenu(View view){
-        PopupMenu popupMenu = new PopupMenu(this, view);
-        popupMenu.getMenuInflater().inflate(R.menu.popup_quiz, popupMenu.getMenu());
-        popupMenu.setOnMenuItemClickListener(menuItem -> {
-            Intent intent = new Intent(StartQuizActivity.this, CompareQuizActivity.class);
-            intent.putExtra("qzid",quizid);
-            intent.putExtra("title",title);
-            startActivity(intent);
-            return false;
-        });
-        popupMenu.show();
-    }*/
 
     @Override
-    public void passDataToRecyclerView(ArrayList<QuestionListResponse> questionsList) {
+    public void passList(ArrayList<QuestionListResponse> questionsList) {
         qList = questionsList;
-        adapter = new QuizQuestionsRecyclerAdapter(this, qList,this);
-        viewPager2.setAdapter(adapter);
-
+        setData(position);
     }
 
     @Override
@@ -125,33 +126,13 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
             selectedOptions.setQuestionId(questionId);
             selectedOptions.setPos(pos);
         }
-
-
-        QuestionListResponse qls = qList.get(pos);
-        qls.setOption(option);
-        qList.set(pos, qls);
-
-        adapter.notifyItemChanged(pos, qls);
-
     }
 
-    @Override
-    public void refreshAdapter() {
-        for(int i =0 ; i< qList.size(); i++){
-            QuestionListResponse qlp = qList.get(i);
-            qlp.setOption("0");
-            qList.set(i, qlp);
-        }
-        adapter = new QuizQuestionsRecyclerAdapter(this, qList,this);
-        viewPager2.setAdapter(adapter);
 
-        checkForAutoLogin();
-    }
 
     @Override
     public void showEmptyData() {
         findViewById(R.id.linear_nodata).setVisibility(View.VISIBLE);
-        viewPager2.setVisibility(View.GONE);
         findViewById(R.id.btn_submit).setVisibility(View.GONE);
         mTVnoData.setText("No Questions Found");
     }
@@ -174,19 +155,44 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
     }
 
     @Override
+    public void clearData() {
+        rb_option1.setChecked(false);
+        rb_option2.setChecked(false);
+        rb_option3.setChecked(false);
+        rb_option4.setChecked(false);
+        rb_option5.setChecked(false);
+
+        mTvtimer.setText("Done!");
+        cTimer.cancel();
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.tv_next:
-                viewPager2.setCurrentItem(viewPager2.getCurrentItem()+1);
-                showFloatingBtn();
+                ++position;
+                setData(position);
+                if(qList.size() - 1 == position){
+                    findViewById(R.id.tv_submittest).setVisibility(View.VISIBLE);
+                    findViewById(R.id.tv_next).setVisibility(View.GONE);
+                    findViewById(R.id.tv_skip).setVisibility(View.GONE);
+                }
+
                 break;
 
             case R.id.tv_skip:
-                viewPager2.setCurrentItem(viewPager2.getCurrentItem()+1);
-                showFloatingBtn();
+                ++position;
+                setData(position);
+                if(qList.size() - 1 == position){
+                    findViewById(R.id.tv_submittest).setVisibility(View.VISIBLE);
+                    findViewById(R.id.tv_skip).setVisibility(View.GONE);
+                    findViewById(R.id.tv_next).setVisibility(View.GONE);
+                }
+
                 break;
 
             case R.id.tv_submittest:
+                Toast.makeText(this,"dshyfisdf",Toast.LENGTH_LONG).show();
                 JSONArray list = convertListtoJSONArray(mSelectedList);
                 if(list.length() == 0){
                     Toast.makeText(this, "Please Attempt atleast one Question",Toast.LENGTH_LONG).show();
@@ -198,20 +204,27 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
             case R.id.btn_startquiz:
                 showpager();
                 break;
-        }
-    }
 
-    void checkForAutoLogin(){
-        SharedPreferences sp = getSharedPreferences("profile",MODE_PRIVATE);
-        String AUTO_LOGIN = sp.getString("autologin","");
-        Intent intent = null;
-        if(AUTO_LOGIN.equals("yes")){
-            intent = new Intent(StartQuizActivity.this, HomeActivity.class);
-        }else{
-            intent = new Intent(StartQuizActivity.this, LoginActivity.class);
+            case R.id.rb_radio1:
+                 selectOptions(position, "A", qList.get(position).getQuesid());
+                break;
+
+            case R.id.rb_radio2:
+                selectOptions(position, "B", qList.get(position).getQuesid());
+                break;
+
+            case R.id.rb_radio3:
+                selectOptions(position, "C", qList.get(position).getQuesid());
+                break;
+
+            case R.id.rb_radio4:
+                selectOptions(position, "D", qList.get(position).getQuesid());
+                break;
+
+            case R.id.rb_radio5:
+                selectOptions(position, "E", qList.get(position).getQuesid());
+                break;
         }
-        intent.putExtra("check","quiz");
-        startActivity(intent);
     }
 
     void startTimer(){
@@ -224,7 +237,6 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
             }
             public void onFinish() {
                 mTvtimer.setText("Done!");
-                checkForAutoLogin();
             }
         };
         cTimer.start();
@@ -232,13 +244,13 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
 
     @Override
     public void onBackPressed() {
-    }
-
-    void showFloatingBtn(){
-        if (qList.size()  == viewPager2.getCurrentItem()+1) {
-            findViewById(R.id.tv_submittest).setEnabled(true);
+        if(mTvtimer.getText().equals("Done!")){
+            checkForAutoLogin();
+        }else{
+            Toast.makeText(this, "Please Submit Psychometric Test First", Toast.LENGTH_LONG).show();
         }
     }
+
 
     String getInstructions(int duration, int totalnoquestions){
         String str = "1. The duration of the test is "+duration+" minutes*.\n" +
@@ -256,7 +268,7 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
 
     void showpager(){
         findViewById(R.id.tv_timer).setVisibility(View.VISIBLE);
-        findViewById(R.id.pager).setVisibility(View.VISIBLE);
+        findViewById(R.id.cvdata).setVisibility(View.VISIBLE);
         findViewById(R.id.recycler_dots).setVisibility(View.VISIBLE);
 
         findViewById(R.id.linear_quizinstruction).setVisibility(View.GONE);
@@ -266,11 +278,64 @@ public class StartQuizActivity extends AppCompatActivity implements StartQuizInt
 
 
     void hidepager(){
+        findViewById(R.id.cvdata).setVisibility(View.GONE);
         findViewById(R.id.linear_quizinstruction).setVisibility(View.VISIBLE);
         findViewById(R.id.tv_timer).setVisibility(View.GONE);
-        findViewById(R.id.pager).setVisibility(View.GONE);
         findViewById(R.id.recycler_dots).setVisibility(View.GONE);
 
         mTvInstructions.setText(mInstructions);
+    }
+
+
+    void setData(int pos){
+        QuestionListResponse questionListResponse = qList.get(pos);
+
+        tv_question.setText(questionListResponse.getTitle());
+       tv_question_count.setText("Question "+(pos+1));
+        ArrayList<OptionResponse>optionlist = questionListResponse.getOptions();
+        if(!optionlist.isEmpty()){
+            rb_option1.setText(optionlist.get(0).getOpts());
+            rb_option2.setText(optionlist.get(1).getOpts());
+            rb_option3.setText(optionlist.get(2).getOpts());
+        }
+
+        rb_option1.setOnClickListener(this);
+        rb_option2.setOnClickListener(this);
+        rb_option3.setOnClickListener(this);
+        rb_option4.setOnClickListener(this);
+        rb_option5.setOnClickListener(this);
+
+
+        rb_option1.setChecked(questionListResponse.getOption() == "A");
+        rb_option2.setChecked(questionListResponse.getOption() == "B");
+        rb_option3.setChecked(questionListResponse.getOption() == "C");
+
+        if(optionlist.size() == 3){
+            rb_option4.setVisibility(View.GONE);
+            rb_option5.setVisibility(View.GONE);
+        }else if (optionlist.size() == 4){
+            rb_option4.setText(optionlist.get(3).getOpts());
+            rb_option5.setVisibility(View.GONE);
+           rb_option4.setChecked(questionListResponse.getOption() == "D");
+        }else if (optionlist.size() == 5){
+            rb_option4.setText(optionlist.get(3).getOpts());
+            rb_option5.setText(optionlist.get(4).getOpts());
+            rb_option4.setChecked(questionListResponse.getOption() == "D");
+            rb_option5.setChecked(questionListResponse.getOption() == "E");
+        }
+    }
+
+
+    void checkForAutoLogin() {
+        SharedPreferences sp = getSharedPreferences("profile", MODE_PRIVATE);
+        String AUTO_LOGIN = sp.getString("autologin", "");
+        Intent intent = null;
+        if (AUTO_LOGIN.equals("yes")) {
+            intent = new Intent(StartQuizActivity.this, HomeActivity.class);
+        } else {
+            intent = new Intent(StartQuizActivity.this, LoginActivity.class);
+        }
+        intent.putExtra("check","quiz");
+        startActivity(intent);
     }
 }

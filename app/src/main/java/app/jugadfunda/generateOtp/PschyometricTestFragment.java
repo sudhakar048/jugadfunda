@@ -6,7 +6,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +17,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -44,7 +45,7 @@ import app.jugadfunda.home.pojo.StateList;
 import app.jugadfunda.inquiryform.adapter.CenterListAdapter;
 import app.jugadfunda.inquiryform.adapter.DistrictListAdapter;
 import app.jugadfunda.inquiryform.adapter.InstituteListAdapter;
-import app.jugadfunda.inquiryform.adapter.StateListAdapter;
+import app.jugadfunda.quiz.adapter.CustomSpinnerAdapter;
 import app.jugadfunda.quiz.questions.StartQuizActivity;
 import app.jugadfunda.validate.Validate;
 
@@ -72,7 +73,7 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
     private int mDistrictId = 0;
     private long mCenterId = 0;
     private long mInstituteId = 0;
-    private StateListAdapter mStateListAdapter = null;
+    private ArrayAdapter mStateListAdapter = null;
     private DistrictListAdapter mDistrictListAdapter = null;
     private CenterListAdapter mCenterListAdapter = null;
     private InstituteListAdapter mInstituteListAdapter = null;
@@ -133,6 +134,64 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
             itemView.findViewById(R.id.institutedetails).setVisibility(View.GONE);
             itemView.findViewById(R.id.linear_pdetails).setVisibility(View.GONE);
         }
+
+
+        mSpinnerState.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mStateId = mStateLists.get(position).getSid();
+                mImplGenerateOtpPresenter.populateDistricts(mStateId);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getContext(), "Nothing Selected", Toast.LENGTH_LONG);
+            }
+        });
+
+        mSpinnerDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mDistrictId = mDistrictLists.get(position).getDid();
+                mImplGenerateOtpPresenter.populateCenters(mStateId, mDistrictId);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getContext(), "Nothing Selected", Toast.LENGTH_LONG);
+            }
+        });
+
+        mSpinnerCenter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mCenterId = mCenterLists.get(position).getCenterid();
+                mImplGenerateOtpPresenter.populateInstitutes(mCenterId);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getContext(), "Nothing Selected", Toast.LENGTH_LONG);
+            }
+        });
+
+        mSpinnerInstitute.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mInstituteId = mInstituteLists.get(position).getInstituteId();
+                mInstituteName = mInstituteLists.get(position).getInstituteName();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getContext(), "Nothing Selected", Toast.LENGTH_LONG);
+            }
+        });
     }
 
     void setListener() {
@@ -203,6 +262,10 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
                     Toast.makeText(getContext(), check, Toast.LENGTH_LONG).show();
                 }
 
+                break;
+
+            case R.id.iv_clear:
+                mEtPhone.setText("");
                 break;
         }
     }
@@ -285,28 +348,28 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
     @Override
     public void populateStates(ArrayList<StateList> stateLists) {
         mStateLists = stateLists;
-        mStateListAdapter = new StateListAdapter(getContext(), mStateLists, this, "otp");
+        mStateListAdapter = new CustomSpinnerAdapter(getContext(), mStateLists);
         mSpinnerState.setAdapter(mStateListAdapter);
     }
 
     @Override
     public void populateDistricts(ArrayList<DistrictList> districtLists) {
         mDistrictLists = districtLists;
-        mDistrictListAdapter = new DistrictListAdapter(getContext(), mDistrictLists, this, "otp");
+        mDistrictListAdapter = new DistrictListAdapter(getContext(), mDistrictLists);
         mSpinnerDistrict.setAdapter(mDistrictListAdapter);
     }
 
     @Override
     public void populateCenters(ArrayList<CenterList> centerLists) {
         mCenterLists = centerLists;
-        mCenterListAdapter = new CenterListAdapter(getContext(), mCenterLists, this, "otp");
+        mCenterListAdapter = new CenterListAdapter(getContext(), mCenterLists);
         mSpinnerCenter.setAdapter(mCenterListAdapter);
     }
 
     @Override
     public void populateInstitutes(ArrayList<InstituteList> instituteLists) {
         mInstituteLists = instituteLists;
-        mInstituteListAdapter = new InstituteListAdapter(getContext(), mInstituteLists, this, "otp");
+        mInstituteListAdapter = new InstituteListAdapter(getContext(), mInstituteLists);
         mSpinnerInstitute.setAdapter(mInstituteListAdapter);
     }
 
@@ -436,25 +499,6 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
         TruecallerSDK.init(trueScope);
     }
 
-    void trueCallerNonTrucallerUserInit() {
-        TruecallerSdkScope trueScope = new TruecallerSdkScope.Builder(getContext(), sdkCallback)
-                .consentMode(TruecallerSdkScope.CONSENT_MODE_BOTTOMSHEET)
-                .buttonColor(Color.parseColor("#e0af1f"))
-                .buttonTextColor(Color.parseColor("#ffffff"))
-                .loginTextPrefix(TruecallerSdkScope.LOGIN_TEXT_PREFIX_TO_GET_STARTED)
-                .loginTextSuffix(TruecallerSdkScope.LOGIN_TEXT_SUFFIX_PLEASE_VERIFY_MOBILE_NO)
-                .ctaTextPrefix(TruecallerSdkScope.CTA_TEXT_PREFIX_USE)
-                .buttonShapeOptions(TruecallerSdkScope.BUTTON_SHAPE_ROUNDED)
-                .privacyPolicyUrl("https://jugaadfunda.com/jugaadfunda-agreements/Privacy_Statement.jsp")
-                .termsOfServiceUrl("https://jugaadfunda.com/jugaadfunda-agreements/Terms_Use.jsp")
-                .footerType(TruecallerSdkScope.FOOTER_TYPE_NONE)
-                .consentTitleOption(TruecallerSdkScope.SDK_CONSENT_TITLE_LOG_IN)
-                .sdkOptions(TruecallerSdkScope.SDK_OPTION_WITH_OTP)
-                .build();
-
-        TruecallerSDK.init(trueScope);
-    }
-
     //Callbacks for Truecaller Users
     private final ITrueCallback sdkCallback = new ITrueCallback() {
 
@@ -474,7 +518,7 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
         @Override
         public void onVerificationRequired(@Nullable final TrueError trueError) {
 
-            Log.d(TAG, "onVerificationRequired() called with: trueError = [" + trueError + "]");
+
         }
 
     };
@@ -485,7 +529,6 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
 
         @Override
         public void onRequestSuccess(int requestCode, @Nullable VerificationDataBundle extras) {
-            Log.d(TAG, "onRequestSuccess() called with: requestCode = [" + requestCode + "], extras = [" + extras + "]");
             if (requestCode == VerificationCallback.TYPE_MISSED_CALL_INITIATED) {
                 if (extras != null)
                     extras.getString(VerificationDataBundle.KEY_TTL);
@@ -515,20 +558,9 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
 
         @Override
         public void onRequestFailure(final int requestCode, @NonNull final TrueException e) {
-
-            Log.d(TAG, "onRequestFailure() called with: requestCode = [" + requestCode + "], e = [" + e.getExceptionMessage() + "]");
-        }
+       }
 
     };
-
-    private void checkRunTimePermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            permissionArrays = new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CALL_LOG, Manifest.permission.ANSWER_PHONE_CALLS};
-        } else {
-            permissionArrays = new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CALL_LOG, Manifest.permission.CALL_PHONE};
-        }
-        requestPermissions(permissionArrays, 101);
-    }
 
     public void dateDialog() {
         DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
@@ -537,7 +569,7 @@ public class PschyometricTestFragment extends Fragment implements View.OnClickLi
                 mEtdob.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
             }
         };
-        DatePickerDialog dpDialog = new DatePickerDialog(getContext(), listener, 1993, 0, 1);
+        DatePickerDialog dpDialog = new DatePickerDialog(getContext(), listener, 2000, 0, 0);
         dpDialog.show();
     }
 

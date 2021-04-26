@@ -7,6 +7,7 @@ import android.widget.Toast;
 import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import app.jugadfunda.apiclient.ApiClient;
@@ -34,9 +35,8 @@ public class ImplStartQuizPresenter implements StartQuizInterfaceImpl {
             @Override
             public void onResponse(Call<List<QuestionListResponse>> call, Response<List<QuestionListResponse>> response) {
                 ArrayList<QuestionListResponse> list = (ArrayList<QuestionListResponse>) response.body();
-                Log.d("List", "onResponse() called with: call = [" + call + "], response = [" + list + "]");
                if(list != null){
-                   mStartQuizInterfaceView.passDataToRecyclerView(list);
+                   mStartQuizInterfaceView.passList(list);
                }else{
                    mStartQuizInterfaceView.showEmptyData();
                }
@@ -51,6 +51,9 @@ public class ImplStartQuizPresenter implements StartQuizInterfaceImpl {
 
     @Override
     public void wsAddAnswers(long mQuizId, JSONArray list, String mobilenumber, int minutetime, int secondtime) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            mobilenumber = Base64.getEncoder().encodeToString(mobilenumber.getBytes());
+        }
         EndPointInterface endPointInterface= ApiClient.getmRetrofitInstance().create(EndPointInterface.class);
         endPointInterface.wsAddAnswers(
                 mQuizId,
@@ -62,9 +65,7 @@ public class ImplStartQuizPresenter implements StartQuizInterfaceImpl {
             public void onResponse(Call<SignupResponse> call, Response<SignupResponse> response) {
                 if(response.body() != null){
                     SignupResponse signupResponse = response.body();
-                    if(signupResponse.isFlag()){
-                        mStartQuizInterfaceView.refreshAdapter();
-                    }
+                    mStartQuizInterfaceView.clearData();
                     Toast.makeText(mContext,""+signupResponse.getResult(),Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(mContext,"Unable to connect internet. Pls try again after some time",Toast.LENGTH_SHORT).show();
