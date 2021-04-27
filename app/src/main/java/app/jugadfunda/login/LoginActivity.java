@@ -11,10 +11,9 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.tabs.TabLayout;
 import app.jugadfunda.R;
 import app.jugadfunda.eventmessages.EventMessagesFragment;
-import app.jugadfunda.generateOtp.PschyometricTestFragment;
+import app.jugadfunda.psychometricTest.PschyometricTestFragment;
 import app.jugadfunda.login.fragment.LoginFragment;
 import app.jugadfunda.login.news.NewFragment;
-import app.jugadfunda.quiz.quizlist.QuizFragment;
 
 public class LoginActivity extends AppCompatActivity {
     private TabLayout tabLayout;

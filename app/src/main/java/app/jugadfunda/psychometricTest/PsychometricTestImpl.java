@@ -1,4 +1,4 @@
-package app.jugadfunda.generateOtp;
+package app.jugadfunda.psychometricTest;
 
 public interface PsychometricTestImpl {
 

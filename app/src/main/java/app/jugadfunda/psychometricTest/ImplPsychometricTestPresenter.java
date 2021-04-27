@@ -1,14 +1,12 @@
-package app.jugadfunda.generateOtp;
+package app.jugadfunda.psychometricTest;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import app.jugadfunda.apiclient.ApiClient;
 import app.jugadfunda.apiinterface.EndPointInterface;
-import app.jugadfunda.apiresponse.GenerateOtpResponse;
 import app.jugadfunda.apiresponse.InstituteList;
 import app.jugadfunda.apiresponse.QuizCodeResponse;
 import app.jugadfunda.apiresponse.VerifyOtpResponse;

@@ -5,20 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import app.jugadfunda.R;
 import app.jugadfunda.apiresponse.InstituteList;
-import app.jugadfunda.generateOtp.PsychometricTestView;
-import app.jugadfunda.home.pojo.DistrictList;
-import app.jugadfunda.inquiryform.linkindustry.LinkIndustryView;
 
 public class InstituteListAdapter extends ArrayAdapter<InstituteList> {
     private List<InstituteList> objects;

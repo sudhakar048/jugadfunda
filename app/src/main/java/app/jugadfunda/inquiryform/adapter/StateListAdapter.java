@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import app.jugadfunda.R;
-import app.jugadfunda.generateOtp.PsychometricTestView;
+import app.jugadfunda.psychometricTest.PsychometricTestView;
 import app.jugadfunda.home.pojo.StateList;
 import app.jugadfunda.inquiryform.linkindustry.LinkIndustryView;
 

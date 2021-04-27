@@ -44,7 +44,7 @@ import retrofit2.http.Query;
 public interface EndPointInterface {
 
     //for signin
-    @POST("MobileLogin")
+    @POST("STBI/MobileLogin")
     @FormUrlEncoded
     Call<SigninResponse> wsSignin(@Field("email") String mUserEmailid,
                                   @Field("password") String mPwd,
@@ -52,161 +52,161 @@ public interface EndPointInterface {
                                   @Field("t") String mToken);
 
     //for guest user signin
-    @POST("RecordingLoginController")
+    @POST("STBI/RecordingLoginController")
     @FormUrlEncoded
     Call<RadioLogin> wsRadioSignin(@Field("email") String mUserEmailid,
                                    @Field("upwd") String mPwd);
 
     //for list of quiz
-    @GET("GetQuizListContoller")
+    @GET("STBI/GetQuizListContoller")
     Call<List<QuizListResponse>> wsQuizlist();
 
     //for question list
-    @POST("GetAllQuestionsController")
+    @POST("STBI/GetAllQuestionsController")
     @FormUrlEncoded
     Call<List<QuestionListResponse>> wsQuestionList(@Field("qzid") long mQuizId);
 
 
     //for question list
-    @POST("AddAnswerController")
+    @POST("STBI/AddAnswerController")
     @FormUrlEncoded
     Call<SignupResponse> wsAddAnswers(@Field("qzid") long mQuizId, @Field("list")String list, @Field("mb") String mMobileNumber, @Field("mt") int minutetime,  @Field("st") int secondtime);
 
     // show event list
-    @POST("GetEventListController")
+    @POST("STBI/GetEventListController")
     @FormUrlEncoded
     Call<List<EventResponse>> wsEventlist(@Field("param") String mParam);
 
     // show news list
-    @POST("GetNewsListController")
+    @POST("STBI/GetNewsListController")
     @FormUrlEncoded
     Call<List<NewsPojo>> wsNewslist(@Field("param") String mParam);
 
     // story list
-    @POST("GetInspiredListController")
+    @POST("STBI/GetInspiredListController")
     @FormUrlEncoded
     Call<List<NewsPojo>> wsStorylist(@Field("param") String mParam);
 
     // show event list
-    @GET("Admin_Panel/showLastImageController")
+    @GET("Jugaadfunda-Admin/showLastImageController")
     Call<FunCornerResponse> wsLastCartoon(@Query("uid") long mUserId);
 
     //Capture Idea
     @Multipart
-    @POST("Admin_Panel/IdeaCaptureController")
+    @POST("Jugaadfunda-Admin/IdeaCaptureController")
     Call<SignupResponse> wsCaptureIdea(@Part("_id") RequestBody day, @Part("_it")RequestBody title, @Part("_idesc")RequestBody description, @Part("_iu")RequestBody unique, @Part("_ib")RequestBody better, @Part("_ifp")RequestBody futureproof, @Part("_itriggered")RequestBody triggered, @Part("_fpo")RequestBody fother, @Part("_ips")RequestBody psolving, @Part("mt")RequestBody mtype,@Part("uid")RequestBody userid, @Part MultipartBody.Part pdffile);
 
-    @POST("Admin_Panel/EnquiryFormController")
+    @POST("Jugaadfunda-Admin/EnquiryFormController")
     @FormUrlEncoded
     Call<SignupResponse> wsAddEnquiry(@Field("_cname") String mCompanyName, @Field("_address") String mCompanyAddress, @Field("_oname") String mOwnerName, @Field("_city") String mCity, @Field("_pcode") int mPincode, @Field("_pno") String mPanNumber, @Field("_cemailid") String mCompanyEmailId, @Field("_cc") String mCompanyContact, @Field("_estabyear") String mEstablishYear, @Field("_noofdept") int mNoOfDept, @Field("_noofemp") int mNoOfEmp, @Field("_aturnover") String mAnnualTurnOver, @Field("_bdesc") String mBusinessDescription,@Field("keys") String mKeywords, @Field("_adhar") String mAadharNo, @Field("_se") String mSecEmailId, @Field("_sc") String mSecContact, @Field("_einfra") String mEfficeintInfra, @Field("_sales") String mSalesPromotion, @Field("_oandcm") String mOperationandCompliance, @Field("_trnd") String mTrndinnov, @Field("_cmgmt") String mContentmgmt, @Field("_itweb") String mItWeb,@Field("mt")String module, @Field("uid") long mUserId);
 
-    @POST("Admin_Panel/MOMController")
+    @POST("Jugaadfunda-Admin/MOMController")
     @FormUrlEncoded
     Call<MoMResponse> wsMOM(@Field("mdate") String mMomDate, @Field("title") String mTitle, @Field("loc") String mLocation, @Field("stime") String mStarttime, @Field("etime") String mEndtime, @Field("aname") String mAttendeesName, @Field("pd") String mPoints, @Field("n") String mStudentName, @Field("cname") String mCollegeName, @Field("dname") String mDeptName, @Field("y") String mJoiningYear, @Field("mt") String mType, @Field("uid") long mUserId);
 
-    @POST("Admin_Panel/AddFunCornerEmoji")
+    @POST("Jugaadfunda-Admin/AddFunCornerEmoji")
     @FormUrlEncoded
     Call<Boolean> wsAddEmoji(@Field("funid")long mFunId, @Field("emoji")int mEmoji, @Field("e")String mEmailId);
 
-    @GET("Admin_Panel/ShowAdvLastImageController")
+    @GET("Jugaadfunda-Admin/ShowAdvLastImageController")
     Call<FunCornerResponse> wsAdvertisement();
 
-    @POST("UpdateDeviceTokenController")
+    @POST("STBI/UpdateDeviceTokenController")
     @FormUrlEncoded
     Call<Boolean> wsUpdateToken(@Field("uid")long userId, @Field("mn")String moduleType, @Field("t")String mToken);
 
-    @POST("SessionDetailsController")
+    @POST("STBI/SessionDetailsController")
     @FormUrlEncoded
     Call<List<SessionDetailsPojo>> wsSessionList(@Field("mid")long mUserId);
 
-    @POST("ViewSessionDetailsController")
+    @POST("STBI/ViewSessionDetailsController")
     @FormUrlEncoded
     Call<SessionDetailsPojo> wsSessionDetails(@Field("sessionId")long mSessionId, @Field("mentorId")long mMentorId);
 
-    @POST("UpdateResponseStatusController")
+    @POST("STBI/UpdateResponseStatusController")
     @FormUrlEncoded
     Call<SessionResult> wsAcceptReject(@Field("sessionId")long mSessionId, @Field("mentorId")long mMentorId, @Field("status")String mStatus, @Field("resreason")String mReason);
 
-    @POST("AddReportController")
+    @POST("STBI/AddReportController")
     @FormUrlEncoded
     Call<AddReport> wsAddReport(@Field("sessionId")long mSessionId, @Field("mentorId")long mMentorId, @Field("attendees")String mAttendees, @Field("summary") String mSummery, @Field("suggession") String mSuggestion, @Field("link") String mLink);
 
-    @POST("UpdateReasonController")
+    @POST("STBI/UpdateReasonController")
     @FormUrlEncoded
     Call<SessionResult> wsUpdateSessionStatus(@Field("sessionId")long mSessionIkd, @Field("mentorId")long mMentorId, @Field("status")String mStatus, @Field("attendreason")String mReason);
 
-    @POST("UpdateReasonController")
+    @POST("STBI/UpdateReasonController")
     @FormUrlEncoded
     Call<SessionResult> wsUpdateStatus(@Field("sessionId")long mSessionIkd, @Field("mentorId")long mMentorId, @Field("status")String mStatus);
 
 
-    @GET("GetCourseListController")
+    @GET("STBI/GetCourseListController")
     Call<ArrayList<CourseList>> wsCourseList();
 
-    @GET("UpgradeMySkillFetchMainModulList")
+    @GET("STBI/UpgradeMySkillFetchMainModulList")
     Call<ArrayList<ModuleListPojo>> wsModuleList(@Query("courseid") String mCourseId);
 
-    @GET("UpgradeMySkillFetchSubModuleList")
+    @GET("STBI/UpgradeMySkillFetchSubModuleList")
     Call<ArrayList<SubModuleListPojo>> wsSubModuleList(@Query("mid") String mModuleId);
 
-    @POST("AddPostedQueryController")
+    @POST("STBI/AddPostedQueryController")
     @FormUrlEncoded
     Call<AddReport> wsAddQuery(@Field("courseid")long mCourseId, @Field("moduleid") long mModuleId, @Field("umsid") long mUmsId, @Field("query") String mQuery, @Field("submoduleids") String mSubModuleIds, @Field("btn") String mBtns);
 
-    @POST("AddPostedQueryController")
+    @POST("STBI/AddPostedQueryController")
     @FormUrlEncoded
     Call<AddReport> wsUpdateQuery(@Field("queryid")long mQueryId,@Field("courseid")long mCourseId, @Field("moduleid") long mModuleId, @Field("umsid") long mUmsId, @Field("query") String mQuery, @Field("submoduleids") String mSubModuleIds, @Field("btn") String mBtns);
 
-    @POST("PostedQueryListController")
+    @POST("STBI/PostedQueryListController")
     @FormUrlEncoded
     Call<ArrayList<QueryListPojo>> wsPostedQueryList(@Field("umsid") long mUmsId);
 
-    @POST("UpdateRatingController")
+    @POST("STBI/UpdateRatingController")
     @FormUrlEncoded
     Call<RatingPojo> wsRateUs(@Field("queryid") long mQueryId, @Field("rating") int mRating,  @Field("umsid") long mUmsId);
 
-    @POST("DeleteQueryController")
+    @POST("STBI/DeleteQueryController")
     @FormUrlEncoded
     Call<DeleteQuery> wsDeleteQuery(@Field("queryid")long mQueryId, @Field("umsid") long mUmsId);
 
-    @POST("Admin_Panel/GetMomListAsperModule")
+    @POST("Jugaadfunda-Admin/GetMomListAsperModule")
     @FormUrlEncoded
     Call<ArrayList<MomPojo>> wsGetMomList(@Field("uid")long mUserId, @Field("mt") String mModuleType);
 
-    @POST("Admin_Panel/DeleteMOMController")
+    @POST("Jugaadfunda-Admin/DeleteMOMController")
     @FormUrlEncoded
     Call<SignupResponse> wsDeleteMom(@Field("momid")long mMoMId);
 
-    @POST("AddProblemStatementController")
+    @POST("STBI/AddProblemStatementController")
     @FormUrlEncoded
     Call<CaptureProblemPojo> wsCaptureProblem(@Field("industryid")long mIndustryId, @Field("keywords") String mKeyWords, @Field("whatcp") String mWhatcp, @Field("whycp") String mWhycp, @Field("wherecp") String mWherecp, @Field("whocp") String mWhocp, @Field("whencp") String mWhencp, @Field("howcp") String mHowcp, @Field("observecp") String mObservecp, @Field("ideal") String mIdeal, @Field("reality") String mReality, @Field("consequences") String mConsequences, @Field("outcome") String mOutcome, @Field("resources") String mResources, @Field("skills") String mSkills, @Field("skillreq") String mSkillreq, @Field("graduation") String mGraduation, @Field("priority") String mPriority, @Field("maxapplicants") int mMaxapplicants , @Field ("category") String mCategory, @Field("bdomain") String mBdomain, @Field("domains") String mDomains, @Field("subdomains") String mSubdomains, @Field("module") String mModule, @Field("bdomainother") String mBdomainother, @Field("psdomainother") String mPsdomainother, @Field("btn") String mBtn);
 
-    @GET("GetStateListController")
+    @GET("STBI/GetStateListController")
     Call<List<StateList>> wsStateList();
 
-    @GET("GetDistrictListController")
+    @GET("STBI/GetDistrictListController")
     Call<List<DistrictList>> wsDistrictList(@Query("sid")long mSid);
 
-    @POST("CenterListController")
+    @POST("STBI/CenterListController")
     @FormUrlEncoded
     Call<List<CenterList>> wsCenterList(@Field("sid") long mSid, @Field("did") long mDid);
 
-    @POST("UpgradeMyBusiness")
+    @POST("STBI/UpgradeMyBusiness")
     @FormUrlEncoded
     Call<IndustryRegistration> wsCallIndustryRegistration(@Field("cn")String mCompanyName, @Field("cpn")String mGstnnumber, @Field("on") String mOwnername, @Field("code") String mContactCode, @Field("c")String mContact, @Field("email") String mEmailId, @Field("module") String mModule, @Field("an") String mOwnerAadhaar, @Field("coname") String mCoordinatorName, @Field("cocode")String cocode, @Field("copmobilenumber")String mCoContact, @Field("coemail")String mCoOrEmailId, @Field("coadharnumber") String mCoAadhaar, @Field("someDate")String mDate, @Field("dept") String mDepartment, @Field("emp") String mEmp, @Field("annual")String mAnnualTurnover, @Field("address")String mAddress, @Field("about")String mAboutCompany, @Field("city")String mCity, @Field("pincode")String mPinCode, @Field("check") String mCheck, @Field("centerid")long mCenterId, @Field("instituteid")long mInstituteId, @Field("sid") int mStateId, @Field("did") int mDistrictId, @Field("tenkeys")String mTenKeywords, @Field("institute")String mInstituteName, @Field("maindomain")String mDomain, @Field("subdomain")String mSubDomain, @Field("userid")long mUserId, @Field("courseid")long mCourseId);
 
-    @POST("ListInstituteController")
+    @POST("STBI/ListInstituteController")
     @FormUrlEncoded
     Call<List<InstituteList>> wsInstituteList(@Field("cid")long mCenterId);
 
-    @GET("GeLinktIndustryDetailsController")
+    @GET("STBI/GeLinktIndustryDetailsController")
     Call<List<LinkedIndustryList>> wsLiknedIndustryList(@Query("userid") long mUserId, @Query("module") String mModuleType);
 
-    @POST("VerifyOtpController")
+    @POST("STBI/VerifyOtpController")
     @FormUrlEncoded
     Call<VerifyOtpResponse> wsVerifyOtp(@Field("fname")String mFirstname, @Field("mname")String mMiddlename, @Field("lname")String mLastname, @Field("gen")String mGender, @Field("dob")String mDob, @Field("mb")String mMobileNumber, @Field("e")String mEmailId, @Field("sid")int mStateId, @Field("did")int mDistrictId, @Field("cid")long mCenterId, @Field("insid")long mInstituteId);
 
-    @POST("ValidateQuizCodeController")
+    @POST("STBI/ValidateQuizCodeController")
     @FormUrlEncoded
     Call<QuizCodeResponse> wsVerifyQuizCode(@Field("quizcode")String mQuizCode);
 }

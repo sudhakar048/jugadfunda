@@ -1,4 +1,4 @@
-package app.jugadfunda.generateOtp;
+package app.jugadfunda.psychometricTest;
 
 import java.util.ArrayList;
 import app.jugadfunda.apiresponse.InstituteList;
